@@ -34,9 +34,9 @@ Provides:       product-cpeid() = cpe%3A%2Fo%3Aopensuse%3Auyuni%2Dserver%3A2020.
 Provides:       product-url(bugtracker) = https%3A%2F%2Fgithub.com%2Fuyuni%2Dproject%2Fuyuni%2Fissues%2F
 Provides:       product-url(repository) = https%3A%2F%2Fdownload.opensuse.org%2Frepositories%2Fsystemsmanagement%3A%2FUyuni%3A%2FStable%2Fimages%2Frepo%2FUyuni%2DServer%2DPOOL%2D%{_target_cpu}%2DMedia1
 
-
+%if !(0%{?rhel} >= 8)
 Requires:       product(openSUSE) >= 15.2
-
+%endif
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
