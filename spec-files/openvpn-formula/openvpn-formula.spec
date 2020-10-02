@@ -22,14 +22,14 @@ Release:        0
 Summary:        OpenVPN Salt Formula for Uyuni/SUSE Manager
 License:        Apache-2.0
 URL:            https://github.com/SUSE/salt-formulas/
-Source:         %{name}-%{version}.tar.xz
+Source:         https://github.com/SUSE/salt-formulas/archive/openvpn-v%{version}.tar.gz
 Requires:       susemanager-sls
 
 %description
 OpenVPN Salt Formula for use in Uyuni/SUSE Manager.
 
 %prep
-%setup -q
+%setup -q -n salt-formulas-openvpn-v%{version}/openvpn-formula
 
 %install
 mkdir -p %{buildroot}/usr/share/susemanager/formulas/metadata/openvpn
