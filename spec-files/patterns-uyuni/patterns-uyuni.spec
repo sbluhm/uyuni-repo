@@ -43,7 +43,9 @@ not make sense.
 %endif
 
 %package -n patterns-uyuni_server
+%if 0%{?suse_version} > 1320
 %pattern_primaryfunctions
+%endif
 Summary:        Uyuni Server
 Group:          Metapackages
 Provides:       pattern() = uyuni_server
@@ -125,7 +127,9 @@ Uyuni Server packages.
 #####################################################################
 
 %package -n patterns-uyuni_retail
+%if !( 0%{?rhel} >= 8 )
 %pattern_primaryfunctions
+%endif
 Summary:        Uyuni for Retail
 Group:          Metapackages
 Provides:       pattern() = uyuni_retail
