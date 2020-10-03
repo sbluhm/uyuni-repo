@@ -16,11 +16,13 @@
 #
 
 
-%{!?python3_sitelib: %global python3_sitelib %(python3 -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
+%{!?python3_sitelib: %global python3_sitelib %(python3 -c "from distutils.sysconfig import get_python_lib; print (get_python_lib())")}
 
 Name:           smdba
 Version:        1.7.4
-Release:        0.<RELEASE1>
+# Stefan: Revert next two lines back for SUSE build system
+Release:        0.1
+# Release:        0.<RELEASE1>
 Summary:        Tool to maintain the SUSE Manager Database
 License:        MIT
 Group:          Productivity/Databases/Tools
@@ -39,6 +41,7 @@ Requires:       sudo
 %description
 SUSE Manager database control to operate various database backends.
 
+%global debug_package %{nil}
 
 %prep
 %setup
@@ -57,13 +60,14 @@ install -m0644 doc/smdba-netswitch.1 $RPM_BUILD_ROOT%{_mandir}/man1/
 ln -sf smdba $RPM_BUILD_ROOT/%{_bindir}/db-control
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+#rm -rf $RPM_BUILD_ROOT
 
 %files -f INSTALLED_FILES
 %defattr(-,root,root,-)
 %dir %{python3_sitelib}/smdba
 %dir %{python3_sitelib}/smdba/__pycache__
 %dir %{python3_sitelib}/smdba/scenarios
+%{python3_sitelib}/smdba/
 %doc doc/README LICENSE
 %{_mandir}/man1/*.1*
 %{_bindir}/*
