@@ -19,8 +19,6 @@ Name:           patterns-uyuni
 # Macros are not part of package-translations for SLE15
 %if 0%{?suse_version} > 1320
 BuildRequires:  patterns-rpm-macros
-%else
-BuildRequires:  package-translations
 %endif
 BuildRequires:  perl(URI::Escape)
 Summary:        Patterns for Uyuni
@@ -39,13 +37,12 @@ not make sense.
 
 # Macros are provided patterns-rpm-macros for SLE15
 %if 0%{?suse_version} <= 1320
-%{expand:%(perl /usr/share/package-translations/create_macros)}
+%define pattern_primaryfunctions \
+Provides: pattern-category() = Primary%20Functions
 %endif
 
 %package -n patterns-uyuni_server
-%if 0%{?suse_version} > 1320
 %pattern_primaryfunctions
-%endif
 Summary:        Uyuni Server
 Group:          Metapackages
 Provides:       pattern() = uyuni_server
@@ -127,9 +124,7 @@ Uyuni Server packages.
 #####################################################################
 
 %package -n patterns-uyuni_retail
-%if 0%{?suse_version} > 1320
 %pattern_primaryfunctions
-%endif
 Summary:        Uyuni for Retail
 Group:          Metapackages
 Provides:       pattern() = uyuni_retail
