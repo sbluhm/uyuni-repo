@@ -17,7 +17,7 @@
 
 Name:           patterns-uyuni
 # Macros are not part of package-translations for SLE15
-%if 0%{?suse_version} > 1320
+%if 0%{?suse_version} >= 1320
 BuildRequires:  patterns-rpm-macros
 %endif
 BuildRequires:  perl(URI::Escape)
@@ -36,7 +36,7 @@ of the installation source setup.  Installation of this package does
 not make sense.
 
 # Macros are provided patterns-rpm-macros for SLE15
-%if 0%{?suse_version} <= 1320
+%if 0%{?suse_version} < 1320
 %define pattern_primaryfunctions \
 Provides: pattern-category() = Primary%20Functions
 %endif
