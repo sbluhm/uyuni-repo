@@ -39,6 +39,7 @@ This package contains files with the most important changes for this
 Uyuni release.  They can be found in the
 /usr/share/doc/release-notes directory.
 
+%global debug_package %{nil}
 
 %prep
 %setup -n %{name}
