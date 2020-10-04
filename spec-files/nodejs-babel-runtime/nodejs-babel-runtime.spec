@@ -35,7 +35,7 @@ The babel selfContained runtime
 %prep
 %setup -q -n package
 # setup the tests
-%setup -q -T -D -a 1 -n package
+#%setup -q -T -D -a 1 -n package
 # copy the license file
 cp -p %{SOURCE11} .
 
