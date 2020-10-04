@@ -4,7 +4,7 @@
 %global enable_tests 1
 
 Name:		nodejs-babel-runtime
-Version:	7.11.6
+Version:	7.11.2
 Release:	1%{?dist}
 Summary:	The babel selfContained runtime
 
