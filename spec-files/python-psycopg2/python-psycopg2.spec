@@ -53,9 +53,9 @@ Version:	2.8.6
 Release:	1%{?dist}
 # The exceptions allow linking to OpenSSL and PostgreSQL's libpq
 License:	LGPLv3+ with exceptions
-Url:		http://initd.org/psycopg/
+Url:		https://initd.org/psycopg/
 
-Source0:	http://initd.org/psycopg/tarballs/PSYCOPG-2-8/psycopg2-%{version}.tar.gz
+Source0:	https://initd.org/psycopg/tarballs/PSYCOPG-2-8/psycopg2-%{version}.tar.gz
 
 %{?with_python2:BuildRequires:	python2-devel python2-setuptools}
 %{?with_python3:BuildRequires:	python3-devel python3-setuptools}
