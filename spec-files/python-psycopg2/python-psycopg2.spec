@@ -53,9 +53,8 @@ Version:	2.8.6
 Release:	1%{?dist}
 # The exceptions allow linking to OpenSSL and PostgreSQL's libpq
 License:	LGPLv3+ with exceptions
-Url:		https://initd.org/psycopg/
-
-Source0:	https://initd.org/psycopg/tarballs/PSYCOPG-2-8/psycopg2-%{version}.tar.gz
+Url:		https://www.psycopg.org/
+Source0:        https://github.com/psycopg/psycopg2/archive/2_8_6.tar.gz
 
 %{?with_python2:BuildRequires:	python2-devel python2-setuptools}
 %{?with_python3:BuildRequires:	python3-devel python3-setuptools}
@@ -163,7 +162,7 @@ Zope Database Adapter for PostgreSQL, called ZPsycopgDA
 
 
 %prep
-%autosetup -p1 -n psycopg2-%{version}
+%autosetup -p1 -n psycopg2-2_8_6
 
 
 %build
