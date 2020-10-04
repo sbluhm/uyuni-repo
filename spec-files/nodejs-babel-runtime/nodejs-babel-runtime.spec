@@ -4,8 +4,8 @@
 %global enable_tests 1
 
 Name:		nodejs-babel-runtime
-Version:	6.23.0
-Release:	7%{?dist}
+Version:	7.11.6
+Release:	1%{?dist}
 Summary:	The babel selfContained runtime
 
 License:	MIT
