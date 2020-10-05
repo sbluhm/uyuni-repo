@@ -4,7 +4,7 @@
 %global npm_name readdirp
 
 Name: %{?scl_prefix}nodejs-readdirp
-Version: 0.3.3
+Version: 0.2.2
 Release: 1%{?dist}
 Summary: Recursive version of fs
 License: MIT
@@ -14,10 +14,7 @@ Source0: https://registry.npmjs.org/readdirp/-/readdirp-%{version}.tgz
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
-Requires: npm(graceful-fs) >= 2.0.0
-Requires: npm(graceful-fs) < 2.1.0
-Requires: npm(minimatch) >= 0.2.12
-Requires: npm(minimatch) < 0.3.0
+Requires: npm(minimatch) >= 0.2.4
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
@@ -43,7 +40,6 @@ cp -pfr test %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 %files
 %{nodejs_sitelib}/%{npm_name}
-%license LICENSE
 %doc README.md
 
 %changelog
