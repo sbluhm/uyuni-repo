@@ -6,7 +6,7 @@
 Name: %{?scl_prefix}nodejs-babel-helper-split-export-declaration
 Version: 7.11.0
 Release: 1%{?dist}
-Summary: 
+Summary: summary 
 License: MIT
 Group: Development/Libraries
 URL: https://github.com/babel/babel#readme
