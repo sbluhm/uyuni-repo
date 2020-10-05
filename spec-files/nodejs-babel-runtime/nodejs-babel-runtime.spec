@@ -1,5 +1,6 @@
 %{?scl:%scl_package nodejs-%{npm_name}}
 %{!?scl:%global pkg_name %{name}}
+%{!?nodejs_sitelib:%define nodejs_sitelib %{_prefix}/lib/node_modules}
 
 %global npm_name @babel/runtime
 
