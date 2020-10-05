@@ -1,16 +1,16 @@
 %{?scl:%scl_package nodejs-%{npm_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global npm_name @emotion/hash
+%global npm_name @emotion/unitless
 
-Name: %{?scl_prefix}nodejs-emotion-hash
-Version: 0.8.0
+Name: %{?scl_prefix}nodejs-emotion-unitless
+Version: 0.7.5
 Release: 1%{?dist}
-Summary: A MurmurHash2 implementation
+Summary: An object of css properties that don't accept values with units
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/emotion-js/emotion/tree/master/packages/hash
-Source0: https://registry.npmjs.org/@emotion/hash/-/hash-%{version}.tgz
+URL: https://github.com/emotion-js/emotion/tree/master/packages/unitless
+Source0: https://registry.npmjs.org/@emotion/unitless/-/unitless-%{version}.tgz
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
@@ -29,7 +29,6 @@ mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr src %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr types %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
 
 %files

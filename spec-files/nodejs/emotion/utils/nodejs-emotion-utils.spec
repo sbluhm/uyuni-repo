@@ -1,16 +1,16 @@
 %{?scl:%scl_package nodejs-%{npm_name}}
 %{!?scl:%global pkg_name %{name}}
 
-%global npm_name @emotion/hash
+%global npm_name @emotion/utils
 
-Name: %{?scl_prefix}nodejs-emotion-hash
-Version: 0.8.0
+Name: %{?scl_prefix}nodejs-emotion-utils
+Version: 0.11.3
 Release: 1%{?dist}
-Summary: A MurmurHash2 implementation
+Summary: internal utils for emotion
 License: MIT
 Group: Development/Libraries
-URL: https://github.com/emotion-js/emotion/tree/master/packages/hash
-Source0: https://registry.npmjs.org/@emotion/hash/-/hash-%{version}.tgz
+URL: https://github.com/emotion-js/emotion/tree/master/packages/serialize
+Source0: https://registry.npmjs.org/@emotion/utils/-/utils-%{version}.tgz
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
@@ -36,6 +36,5 @@ cp -pfr types %{buildroot}%{nodejs_sitelib}/%{npm_name}
 %{nodejs_sitelib}/%{npm_name}
 %license LICENSE
 %doc CHANGELOG.md
-%doc README.md
 
 %changelog
