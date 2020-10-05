@@ -4,19 +4,19 @@
 %global npm_name gensync
 
 Name: %{?scl_prefix}nodejs-gensync
-Version: 1.0.0-beta.1
+Version: 1.0.0beta.1
 Release: 1%{?dist}
 Summary: Allows users to use generators in order to write common functions that can be both sync or async
 License: MIT
 Group: Development/Libraries
 URL: https://www.npmjs.com/package/gensync
-Source0: https://registry.npmjs.org/gensync/-/gensync-%{version}.tgz
+Source0: https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.1.tgz
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
-Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
+Provides: %{?scl_prefix}npm(%{npm_name}) = 1.0.0-beta.1
 
 %description
 %{summary}
