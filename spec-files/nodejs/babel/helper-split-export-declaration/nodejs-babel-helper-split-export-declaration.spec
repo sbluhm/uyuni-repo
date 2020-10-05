@@ -21,7 +21,7 @@ ExclusiveArch: %{nodejs_arches} noarch
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %description
-%{summary}
+Summary
 
 %prep
 %setup -q -n package 
