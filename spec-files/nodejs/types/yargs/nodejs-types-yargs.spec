@@ -23,7 +23,7 @@ Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 %{summary}
 
 %prep
-%setup -q -n package
+%setup -q -n 'yargs v13.0' 
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
