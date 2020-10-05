@@ -24,7 +24,7 @@ Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 %{summary}
 
 %prep
-%setup -q -n package
+%setup -q -n babel__traverse
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
