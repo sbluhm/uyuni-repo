@@ -4,7 +4,7 @@
 %global npm_name @emotion/serialize
 
 Name: %{?scl_prefix}nodejs-emotion-serialize
-Version: 0.11.16
+Version: 0.11.15
 Release: 1%{?dist}
 Summary: serialization utils for emotion
 License: MIT
@@ -14,7 +14,7 @@ Source0: https://registry.npmjs.org/@emotion/serialize/-/serialize-%{version}.tg
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
-Requires: npm(@emotion/hash) = 0.8.0
+Requires: npm(@emotion/hash) = 0.7.4
 Requires: npm(@emotion/memoize) = 0.7.4
 Requires: npm(@emotion/unitless) = 0.7.5
 Requires: npm(@emotion/utils) = 0.11.3
@@ -28,7 +28,7 @@ Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 %{summary}
 
 %prep
-%setup -q -n package
+%setup -q -n package 
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
