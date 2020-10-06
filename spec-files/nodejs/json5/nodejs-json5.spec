@@ -4,9 +4,9 @@
 %global npm_name json5
 
 Name: %{?scl_prefix}nodejs-json5
-Version: 2.1.3
+Version: 0.5.1
 Release: 1%{?dist}
-Summary: JSON for humans
+Summary: JSON for the ES5 era
 License: MIT
 Group: Development/Libraries
 URL: http://json5.org/
@@ -14,8 +14,6 @@ Source0: https://registry.npmjs.org/json5/-/json5-%{version}.tgz
 %if 0%{?!scl:1}
 BuildRequires: nodejs-packaging
 %endif
-Requires: npm(minimist) >= 1.2.5
-Requires: npm(minimist) < 2.0.0
 BuildArch: noarch
 ExclusiveArch: %{nodejs_arches} noarch
 Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
@@ -28,7 +26,6 @@ Provides: %{?scl_prefix}npm(%{npm_name}) = %{version}
 
 %install
 mkdir -p %{buildroot}%{nodejs_sitelib}/%{npm_name}
-cp -pfr dist %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr lib %{buildroot}%{nodejs_sitelib}/%{npm_name}
 cp -pfr package.json %{buildroot}%{nodejs_sitelib}/%{npm_name}
 
