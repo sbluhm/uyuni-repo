@@ -4,7 +4,7 @@
 %global npm_name @emotion/hash
 
 Name: %{?scl_prefix}nodejs-emotion-hash
-Version: 0.8.0
+Version: 0.7.4
 Release: 1%{?dist}
 Summary: A MurmurHash2 implementation
 License: MIT
