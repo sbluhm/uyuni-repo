@@ -4,7 +4,7 @@
 %global npm_name @babel/traverse
 
 Name: %{?scl_prefix}nodejs-babel-traverse
-Version: 7.11.5
+Version: 7.11.0
 Release: 1%{?dist}
 Summary: The Babel Traverse module maintains the overall tree state, and is responsible for replacing, removing, and adding nodes
 License: MIT
@@ -16,15 +16,15 @@ BuildRequires: nodejs-packaging
 %endif
 Requires: npm(@babel/code-frame) >= 7.10.4
 Requires: npm(@babel/code-frame) < 8.0.0
-Requires: npm(@babel/generator) >= 7.11.5
+Requires: npm(@babel/generator) >= 7.11.0
 Requires: npm(@babel/generator) < 8.0.0
 Requires: npm(@babel/helper-function-name) >= 7.10.4
 Requires: npm(@babel/helper-function-name) < 8.0.0
 Requires: npm(@babel/helper-split-export-declaration) >= 7.11.0
 Requires: npm(@babel/helper-split-export-declaration) < 8.0.0
-Requires: npm(@babel/parser) >= 7.11.5
+Requires: npm(@babel/parser) >= 7.11.0
 Requires: npm(@babel/parser) < 8.0.0
-Requires: npm(@babel/types) >= 7.11.5
+Requires: npm(@babel/types) >= 7.11.0
 Requires: npm(@babel/types) < 8.0.0
 Requires: npm(debug) >= 4.1.0
 Requires: npm(debug) < 5.0.0
