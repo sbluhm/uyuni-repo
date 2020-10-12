@@ -4,7 +4,7 @@
 
 # Conditional for bootstrapping new distributions.
 # Uncomment for bootstrap-builds.
-%global			bootstrap_build	1
+#%global			bootstrap_build	1
 
 # Settings used for build from snapshots.
 %{!?rel_build:%global	commit		a85b2c6a5bf53de97883299a87f61a0bcf6844b7}
