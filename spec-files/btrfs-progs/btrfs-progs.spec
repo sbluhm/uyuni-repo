@@ -8,8 +8,7 @@ Summary:        Userspace programs for btrfs
 
 License:        GPLv2
 URL:            https://btrfs.wiki.kernel.org/index.php/Main_Page
-Source0:        https://www.kernel.org/pub/linux/kernel/people/kdave/%{name}/%{name}-v%{version_no_tilde}.tar.xz
-
+Source0:        https://www.kernel.org/pub/linux/kernel/people/kdave/%{name}/%{name}-v%{version}.tar.gz
 # Backports from upstream
 ## Do not use raid0 by default for mkfs multi-disk (#1855174)
 Patch0001:      0001-btrfs-progs-mkfs-clean-up-default-profile-settings.patch
