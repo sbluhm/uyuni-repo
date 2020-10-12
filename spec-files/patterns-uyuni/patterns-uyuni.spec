@@ -59,7 +59,7 @@ Requires:       python2-salt
 Requires:       python-ws4py
 Requires:       python3-salt
 %endif
-Requires:       py26-compat-salt
+#Requires:       py26-compat-salt
 
 Requires:       mgr-osa-dispatcher
 Requires:       release-notes-uyuni
