@@ -86,7 +86,7 @@ btrfs filesystem-specific programs in Python.
 %endif
 
 %prep
-%autosetup -n %{name}-v${version}
+%autosetup -n %{name}-v%{version}
 
 %build
 ./autogen.sh
