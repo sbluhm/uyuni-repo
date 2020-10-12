@@ -56,7 +56,7 @@ Requires:       salt-master
 Requires:       python3-ws4py
 Requires:       python2-salt
 %else
-Requires:       python-ws4py
+Requires:       python3-ws4py
 Requires:       python3-salt
 %endif
 #Requires:       py26-compat-salt
