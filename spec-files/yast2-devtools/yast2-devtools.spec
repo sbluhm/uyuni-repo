@@ -89,7 +89,7 @@ and building YaST2 modules and components.
 
 
 %prep
-%setup -qn %{repo_name}-%{?rel_build:%{repo_name}-master-%{version}}%{!?rel_build:%{commit}}
+%setup -qn -p1 %{repo_name}-%{?rel_build:%{repo_name}-master-%{version}}%{!?rel_build:%{commit}}
 
 # Bootstrap autosh*t.
 ./build-tools/scripts/y2autoconf --bootstrap ./build-tools/
