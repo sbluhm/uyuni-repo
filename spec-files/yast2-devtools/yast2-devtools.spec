@@ -46,6 +46,7 @@ URL:		https://%{suite_name}.github.io
 %{?rel_build:Source0:	%{src_url}/archive/%{repo_name}/master/%{version}.tar.gz#/%{gittar}}
 # Sources for snapshot-builds.
 %{!?rel_build:Source0:	%{src_url}/archive/%{commit}.tar.gz#/%{gittar}}
+Patch0:         macros.yast-fix1.patch
 
 BuildArch:	noarch
 

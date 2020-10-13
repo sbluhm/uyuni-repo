@@ -1,0 +1,14 @@
+diff -Naur yast-devtools-yast-devtools-master-3.1.36-orig/build-tools/rpm/macros.yast yast-devtools-yast-devtools-master-3.1.36/build-tools/rpm/macros.yast
+--- yast-devtools-yast-devtools-master-3.1.36-orig/build-tools/rpm/macros.yast  2015-05-22 09:05:13.000000000 +0200
++++ yast-devtools-yast-devtools-master-3.1.36/build-tools/rpm/macros.yast       2020-10-13 22:49:42.896980238 +0200
+@@ -85,8 +85,8 @@
+             %suse_update_desktop_file -d ycc_${d%.desktop} ${d%.desktop} \
+         done \
+     %else  # 0%%{?suse_version} \
+-        %{_bindir}/find %{buildroot}/%{yast_desktopdir}/ -print0 \\\
+-            -name '*.desktop' | %{_bindir}/sort -uz | \\\
++        %{_bindir}/find %{buildroot}/%{yast_desktopdir}/ -name '*.desktop' \\\
++            -print0 | %{_bindir}/sort -uz | \\\
+             %{_bindir}/xargs -0 %{_bindir}/desktop-file-validate \
+     %endif # 0%%{?suse_version}
+
