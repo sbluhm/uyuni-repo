@@ -1,0 +1,3 @@
+add BuildRequires:      langpacks-cs # for RHEL8
+re-enable %perl_process_packlist
+Do the spec file properly

@@ -33,7 +33,7 @@ URL:            https://github.com/yast/yast-core
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Source0:        %{name}-%{version}.tar.bz2
-Source1:        dummy.desktop
+Source1:	dummy.desktop
 
 # obviously
 BuildRequires:  boost-devel
@@ -57,6 +57,7 @@ BuildRequires:  dejagnu
 %if 0%{?rhel} >= 8
 BuildRequires:  langpacks-cs
 %endif
+
 Summary:        YaST2 - Core Libraries
 License:        GPL-2.0-or-later
 Group:          System/YaST
@@ -84,7 +85,6 @@ applications using the YaST2 YCP interpreter.
 %setup -n %{name}-%{version}
 
 %build
-
 %ifarch %arm
 %if 0%{?qemu_user_space_build}
 # disable autodoc building on qemu-arm only
@@ -115,7 +115,13 @@ cp %{SOURCE1} "$RPM_BUILD_ROOT"/usr/share/applications/YaST2
 %yast_install
 
 mkdir -p "$RPM_BUILD_ROOT"%{yast_logdir}
-#%perl_process_packlist
+
+%if 0%{?suse_version}
+%perl_process_packlist
+%else
+mv "$RPM_BUILD_ROOT"/usr/share/doc/packages/yast2-core "$RPM_BUILD_ROOT"%{_docdir}
+rm "$RPM_BUILD_ROOT"/usr/lib64/perl5/perllocal.pod
+%endif
 
 %post
 /sbin/ldconfig
@@ -163,7 +169,7 @@ fi
 %if 0%{?suse_version} == 0 || 0%{?suse_version} <= 1130
 #  .packlist
 %{perl_vendorarch}/auto/ycp
-/var/adm/perl-modules/%name
+#/var/adm/perl-modules/%name
 %endif
 
 %files devel
@@ -179,6 +185,7 @@ fi
 %doc %{_datadir}/doc/yastdoc
 %license COPYING
 %{yast_ydatadir}/devtools/bin/generateYCPWrappers
+/usr/share/applications/YaST2/dummy.desktop
 
 %changelog
 * Fri Sep 18 2020 Martin Vidner <mvidner@suse.com>
