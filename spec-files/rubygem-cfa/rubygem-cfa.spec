@@ -25,9 +25,6 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 %if 0%{?rhel}
 BuildRequires:  rubygem-gem2rpm
 BuildRequires:  ruby
-%else
-BuildRequires:  %{rubygem gem2rpm}
-BuildRequires:  %{ruby}
 %endif
 BuildRequires:  ruby-macros >= 5
 Url:            https://github.com/config-files-api/config_files_api
