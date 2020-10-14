@@ -28,7 +28,7 @@ BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  yast2-core-devel
 BuildRequires:  yast2-devtools >= 3.1.10
-%if 0%{?suse_version} == 1310
+%if 0%{?suse_version} == 1310 || 0%{?rhel}
 BuildRequires:  rubygem-fast_gettext < 3.0
 BuildRequires:  rubygem-rspec
 Requires:       rubygem-fast_gettext < 3.0
