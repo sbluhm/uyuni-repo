@@ -50,6 +50,7 @@ BuildRequires:  flex
 BuildRequires:  jemalloc-devel
 # incompatible change, parser.h -> parser.hh
 BuildRequires:  automake >= 1.12
+BuildRequires:	perl-ExtUtils-MakeMaker
 # needed for all yast packages
 BuildRequires:  yast2-devtools >= 3.1.10
 # testsuite
