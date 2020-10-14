@@ -22,8 +22,13 @@ Release:        lp152.1.1
 %define mod_name cfa
 %define mod_full_name %{mod_name}-%{version}
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+%if 0%{?rhel}
+BuildRequires:  rubygem-gem2rpm
+BuildRequires:  ruby
+%else
 BuildRequires:  %{rubygem gem2rpm}
 BuildRequires:  %{ruby}
+%endif
 BuildRequires:  ruby-macros >= 5
 Url:            https://github.com/config-files-api/config_files_api
 Source:         https://rubygems.org/gems/%{mod_full_name}.gem
