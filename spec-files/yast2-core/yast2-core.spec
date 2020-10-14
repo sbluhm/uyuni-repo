@@ -33,6 +33,7 @@ URL:            https://github.com/yast/yast-core
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Source0:        %{name}-%{version}.tar.bz2
+Source1:        dummy.desktop
 
 # obviously
 BuildRequires:  boost-devel
@@ -53,7 +54,9 @@ BuildRequires:  automake >= 1.12
 BuildRequires:  yast2-devtools >= 3.1.10
 # testsuite
 BuildRequires:  dejagnu
-
+%if 0%{?rhel} >= 8
+BuildRequires:  langpacks-cs
+%endif
 Summary:        YaST2 - Core Libraries
 License:        GPL-2.0-or-later
 Group:          System/YaST
@@ -107,10 +110,12 @@ CXXFLAGS="${CXXFLAGS/-grecord-gcc-switches/}"
 %yast_build
 
 %install
+mkdir -p "$RPM_BUILD_ROOT"/usr/share/applications/YaST2
+cp %{SOURCE1} "$RPM_BUILD_ROOT"/usr/share/applications/YaST2
 %yast_install
 
 mkdir -p "$RPM_BUILD_ROOT"%{yast_logdir}
-%perl_process_packlist
+#%perl_process_packlist
 
 %post
 /sbin/ldconfig
