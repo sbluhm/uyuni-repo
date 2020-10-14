@@ -26,7 +26,7 @@ Release:        1.2
 %define mod_name yast-rake
 %define mod_full_name %{mod_name}-%{version}
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
-BuildRequires:  %{ruby}
+BuildRequires:  ruby
 BuildRequires:  ruby-macros >= 5
 BuildRequires:  rubygem(%{rb_default_ruby_abi}:gem2rpm)
 URL:            http://github.org/openSUSE/yast-rake
