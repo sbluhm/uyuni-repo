@@ -1,4 +1,4 @@
-%global major_so_ver 12
+%global major_so_ver 13
 
 # Place rpm-macros into proper location.
 %global macrosdir %(d=%{_rpmconfigdir}/macros.d; [ -d $d ] || d=%{_sysconfdir}/rpm; echo $d)
