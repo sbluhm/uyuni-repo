@@ -114,7 +114,8 @@ EOF
 		%{buildroot}%{?_pkgdocdir}
 
 # Hard-link documentation.
-%{_bindir}/hardlink -cv %{buildroot}%{?_pkgdocdir}/html
+#%{_bindir}/hardlink -cv %{buildroot}%{?_pkgdocdir}/html
+/usr/sbin/hardlink -cv %{buildroot}%{?_pkgdocdir}/html
 popd
 
 
