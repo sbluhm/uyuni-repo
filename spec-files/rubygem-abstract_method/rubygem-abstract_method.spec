@@ -22,8 +22,8 @@ Release:        lp152.3.5
 %define mod_full_name %{mod_name}-%{version}
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  ruby-macros >= 5
-BuildRequires:  %{ruby}
-BuildRequires:  %{rubygem gem2rpm}
+BuildRequires:  ruby
+BuildRequires:  rubygem-gem2rpm
 Url:            https://github.com/openSUSE/abstract_method
 Source:         http://rubygems.org/gems/%{mod_full_name}.gem
 Summary:        Tiny library enabling you to define abstract methods in Ruby classes
