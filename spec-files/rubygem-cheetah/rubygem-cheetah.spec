@@ -23,6 +23,8 @@
 # of those fields
 #
 
+# Removed macros for RHEL
+
 Name:           rubygem-cheetah
 Version:        0.5.2
 Release:        lp152.1.1
@@ -30,8 +32,8 @@ Release:        lp152.1.1
 %define mod_full_name %{mod_name}-%{version}
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  ruby-macros >= 5
-BuildRequires:  %{ruby}
-BuildRequires:  %{rubygem gem2rpm}
+BuildRequires:  ruby
+BuildRequires:  rubygem-gem2rpm
 Url:            https://github.com/openSUSE/cheetah
 Source:         https://rubygems.org/gems/%{mod_full_name}.gem
 Source1:        gem2rpm.yml
