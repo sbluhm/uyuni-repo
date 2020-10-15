@@ -22,7 +22,7 @@ License:	(LGPLv2 or LGPLv3) and MIT
 URL:		https://github.com/%{name}/%{name}
 Source0:	%{url}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 # Based on https://github.com/libyui/libyui/commit/b1f593cd99fd33cc3f0cf9b4f5151f672b68d96e
-Patch0:		fix_gcc8.patch
+#Patch0:		fix_gcc8.patch
 
 BuildRequires:  gcc-c++
 BuildRequires:	boost-devel
@@ -65,7 +65,7 @@ brief examples how to build a UI using %{name}.
 
 
 %prep
-%autosetup -p 1
+%autosetup #-p 1
 ./bootstrap.sh
 
 
