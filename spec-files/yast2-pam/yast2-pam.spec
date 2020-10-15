@@ -38,6 +38,9 @@ BuildRequires:  rubygem(%rb_default_ruby_abi:cfa) >= 0.6.4
 BuildRequires:  rubygem(%rb_default_ruby_abi:rspec)
 # cfa for parsing nsswitch
 Requires:       rubygem(%rb_default_ruby_abi:cfa) >= 0.6.4
+# lenses are needed to use cfa
+BuildRequires:  augeas-lenses
+Requires:	augeas-lenses
 %else
 BuildRequires:  rubygem-yast-rake
 # cfa for parsing nsswitch
@@ -46,14 +49,12 @@ BuildRequires:  rubygem-cfa >= 0.6.4
 BuildRequires:  rubygem-rspec
 # cfa for parsing nsswitch
 Requires:       rubygem-cfa >= 0.6.4
-
+# lenses are needed to use cfa
+BuildRequires:  augeas-libs
+Requires:       augeas-libs
 %endif
 
-# lenses are needed to use cfa
-BuildRequires:  augeas-lenses
 Requires:       yast2
-# lenses are needed to use cfa
-Requires:       augeas-lenses
 Requires:       pam-config >= 0.8
 Requires:       yast2-ruby-bindings >= 1.0.0
 
