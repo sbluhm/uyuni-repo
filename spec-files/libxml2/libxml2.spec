@@ -16,7 +16,6 @@
 #
 
 %if 0%{?rhel}
-%define ext_info .gz
 %define ext_man .gz
 %endif
 
