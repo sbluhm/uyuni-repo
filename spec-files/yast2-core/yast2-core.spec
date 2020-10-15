@@ -63,7 +63,7 @@ BuildRequires:  langpacks-cs
 Summary:        YaST2 - Core Libraries
 License:        GPL-2.0-or-later
 Group:          System/YaST
-Requires:       perl = %{perl_version}
+Requires:       perl
 
 %description
 This package contains the scanner, parser, and interpreter runtime
