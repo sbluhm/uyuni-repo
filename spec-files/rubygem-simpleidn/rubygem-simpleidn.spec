@@ -22,8 +22,8 @@ Release:        lp152.3.5
 %define mod_full_name %{mod_name}-%{version}
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  ruby-macros >= 5
-BuildRequires:  %{ruby > 1.9}
-BuildRequires:  %{rubygem gem2rpm}
+BuildRequires:  ruby
+BuildRequires:  rubygem-gem2rpm
 Url:            https://github.com/mmriis/simpleidn
 Source:         https://rubygems.org/gems/%{mod_full_name}.gem
 Summary:        Punycode ACE to unicode UTF-8 (and vice-versa) string conversion
