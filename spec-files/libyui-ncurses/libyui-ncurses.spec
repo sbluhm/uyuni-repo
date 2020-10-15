@@ -61,7 +61,7 @@ for %{name}.
 
 
 %prep
-%autosetup -n %{name}-%{relcommit} -p 1
+%autosetup -p 1
 ./bootstrap.sh
 
 
