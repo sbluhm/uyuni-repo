@@ -1,4 +1,4 @@
-%global major_so_ver 8
+%global major_so_ver 12
 
 # Place rpm-macros into proper location.
 %global macrosdir %(d=%{_rpmconfigdir}/macros.d; [ -d $d ] || d=%{_sysconfdir}/rpm; echo $d)
@@ -65,7 +65,7 @@ brief examples how to build a UI using %{name}.
 
 
 %prep
-%autosetup #-p 1
+%autosetup -p 1
 ./bootstrap.sh
 
 
