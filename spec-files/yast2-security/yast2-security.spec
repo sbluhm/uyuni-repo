@@ -33,15 +33,15 @@ BuildRequires:  update-desktop-files
 # Pam.List
 BuildRequires:  yast2-devtools >= 4.2.2
 BuildRequires:  yast2-pam >= 4.3.1
-BuildRequires:  rubygem(%{rb_default_ruby_abi}:rspec)
-BuildRequires:  rubygem(%{rb_default_ruby_abi}:yast-rake) >= 0.2.5
+BuildRequires:  rubygem-rspec
+BuildRequires:  rubygem-yast-rake >= 0.2.5
 # CFA::SysctlConfig
 BuildRequires:  yast2 >= 4.2.66
 # Unfortunately we cannot move this to macros.yast,
 # bcond within macros are ignored by osc/OBS.
 %bcond_with yast_run_ci_tests
 %if %{with yast_run_ci_tests}
-BuildRequires:  rubygem(%{rb_default_ruby_abi}:yast-rake-ci)
+BuildRequires:  rubygem-yast-rake-ci)
 %endif
 
 # new Pam.ycp API
