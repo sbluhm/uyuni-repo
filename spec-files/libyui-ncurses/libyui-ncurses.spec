@@ -61,7 +61,7 @@ for %{name}.
 
 
 %prep
-%autosetup -p 1
+%autosetup -n libyui-ncurses-58463ca0a1d6815404c5f90fa7e2881429b74d54 -p 1
 ./bootstrap.sh
 
 
