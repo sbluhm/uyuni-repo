@@ -22,13 +22,32 @@ Release:        lp152.3.5
 %define mod_full_name %{mod_name}-%{version}
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  ruby-macros >= 5
-BuildRequires:  ruby
 BuildRequires:  rubygem-gem2rpm
 Url:            https://github.com/openSUSE/abstract_method
 Source:         http://rubygems.org/gems/%{mod_full_name}.gem
 Summary:        Tiny library enabling you to define abstract methods in Ruby classes
 License:        MIT
 Group:          Development/Languages/Ruby
+
+%if 0%{?fedora} || 0%{?rhel} >= 7
+Requires:	ruby(release)
+BuildRequires:	ruby(release)
+%else
+Requires:	ruby(abi) = %{rubyabi}
+Requires:	ruby 
+%endif
+BuildRequires:	rubygems-devel
+# For %%check
+BuildRequires:	rubygem(test-unit)
+# mkmf.rb requires ruby-devel
+BuildRequires:	ruby-devel
+BuildRequires:	cairo-devel
+Requires:	rubygems
+
+BuildArch:	noarch
+Provides:	rubygem(%{gem_name}) = %{version}-%{release}
+
+
 
 %description
 Abstract Method is a tiny library enabling you to define abstract methods in
@@ -43,7 +62,30 @@ Ruby classes and modules.
   --doc-files="LICENSE README.md" \
   -f
 
-%gem_packages
+
+rm -rf %{buildroot}
+
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* \
+	%{buildroot}/%{gem_dir}/
+
+
+%check
+
+%files
+%dir	%{gem_instdir}
+%doc	%{gem_instdir}/[A-Z]*
+%exclude	%{gem_instdir}/Rakefile
+%exclude	%{gem_instdir}/setup.rb
+%{gem_libdir}/
+
+%{gem_cache}
+%{gem_spec}
+
+%files	doc
+%{gem_instdir}/test/
+%{gem_docdir}
+
 
 %changelog
 * Wed Nov  5 2014 thardeck@suse.com
