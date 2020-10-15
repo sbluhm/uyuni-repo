@@ -14,8 +14,8 @@
 
 
 Name:		lib%{libsuffix}
-Version:	3.3.3
-Release:	8%{?dist}
+Version:	3.10.0
+Release:	1%{?dist}
 Summary:	GUI-abstraction library
 
 License:	(LGPLv2 or LGPLv3) and MIT
