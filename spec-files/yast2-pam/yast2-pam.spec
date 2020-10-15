@@ -39,13 +39,13 @@ BuildRequires:  rubygem(%rb_default_ruby_abi:rspec)
 # cfa for parsing nsswitch
 Requires:       rubygem(%rb_default_ruby_abi:cfa) >= 0.6.4
 %else
-BuildRequires:  rubygem(yast-rake)
+BuildRequires:  rubygem-yast-rake
 # cfa for parsing nsswitch
-BuildRequires:  rubygem(cfa) >= 0.6.4
+BuildRequires:  rubygem-cfa >= 0.6.4
 # testsuite
 BuildRequires:  rubygem-rspec
 # cfa for parsing nsswitch
-Requires:       rubygem(cfa) >= 0.6.4
+Requires:       rubygem-cfa >= 0.6.4
 
 %endif
 
