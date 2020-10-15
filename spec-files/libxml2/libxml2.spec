@@ -15,6 +15,10 @@
 # Please submit bugfixes or comments via https://bugs.opensuse.org/
 #
 
+%if 0%{?rhel}
+%define ext_info .gz
+%define ext_man .gz
+%endif
 
 %{?!python_module:%define python_module() python-%{**} python3-%{**}}
 # Define "python" as a package in _multibuild file
