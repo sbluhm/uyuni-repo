@@ -28,7 +28,11 @@ Release:        1.2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  ruby
 BuildRequires:  ruby-macros >= 5
+%if 0%{?rhel}
+BuildRequires:	rubygem-gem2rpm
+%else
 BuildRequires:  rubygem(%{rb_default_ruby_abi}:gem2rpm)
+%endif
 URL:            http://github.org/openSUSE/yast-rake
 Source:         http://rubygems.org/gems/%{mod_full_name}.gem
 Summary:        Rake tasks providing basic work-flow for Yast development
