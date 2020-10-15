@@ -57,26 +57,26 @@ BuildRequires:  rubygem(%rb_default_ruby_abi:yast-rake)
 BuildRequires:  rubygem(%rb_default_ruby_abi:nokogiri)
 %else
 # for defining abstract methods in libraries
-BuildRequires:  rubygem-abstract_method
+BuildRequires:  rubygem(abstract_method)
 # for file access using augeas
-BuildRequires:  rubygem-cfa
+BuildRequires:  rubygem(cfa)
 # for used augeas lenses
 BuildRequires:  augeas-libs
 # for running scripts
 BuildRequires:  update-desktop-files
-BuildRequires:  rubygem-cheetah
+BuildRequires:  rubygem(cheetah)
 # For running RSpec tests during build
-BuildRequires:  rubygem-rspec
+BuildRequires:  rubygem(rspec)
 # For converting to/from punycode strings
-BuildRequires:  rubygem-simpleidn
+BuildRequires:  rubygem(simpleidn)
 # Needed already in build time
 BuildRequires:  yast2-core >= 2.18.12
 BuildRequires:  yast2-devtools >= 3.1.10
 # RPM dependency filters in Pkg.Resolvables()
 BuildRequires:  yast2-pkg-bindings >= 4.3.0
-BuildRequires:  rubygem-yast-rake
+BuildRequires:  rubygem(yast-rake)
 # for XML module
-BuildRequires:  rubygem-nokogiri
+BuildRequires:  rubygem(nokogiri)
 %endif
 # To have Yast::WFM.scr_root
 BuildRequires:  yast2-ruby-bindings >= 3.2.8
