@@ -69,6 +69,7 @@ BuildRequires:  rpm
 Requires:       coreutils
 # for GPG.ycp
 Requires:       gpg2
+%if 0%{?suse_version}
 # for defining abstract methods in libraries
 Requires:       rubygem(%{rb_default_ruby_abi}:abstract_method)
 # for file access using augeas
@@ -82,6 +83,21 @@ Requires:       rubygem(%{rb_default_ruby_abi}:simpleidn)
 Requires:       rubygem(%{rb_default_ruby_abi}:cheetah)
 # for XML module
 Requires:       rubygem(%rb_default_ruby_abi:nokogiri)
+%else
+# for defining abstract methods in libraries
+Requires:       rubygem(abstract_method)
+# for file access using augeas
+Requires:       rubygem(cfa)
+# for used augeas lenses
+Requires:       augeas-libs
+# For converting to/from punycode strings
+Requires:       sysconfig >= 0.80.0
+Requires:       rubygem(simpleidn)
+# for running scripts
+Requires:       rubygem(cheetah)
+# for XML module
+Requires:       rubygem(nokogiri)
+%endif
 # ag_ini section_private
 # ag_ini with (un)quoting support
 Requires:       yast2-core >= 2.23.0
