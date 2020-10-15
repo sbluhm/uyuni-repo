@@ -104,7 +104,7 @@ Requires:       rpm
 # /usr/bin/hostname command
 Requires:       hostname
 # pre-requires for filling the sysconfig template (sysconfig.yast2)
-Requires(Pre):         %fillup_prereq
+#Requires(post):         %fillup_prereq
 
 # xdg-su in .desktops
 Recommends:     xdg-utils
