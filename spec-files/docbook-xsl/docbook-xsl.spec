@@ -49,6 +49,7 @@ Patch1:         %{name}-non-recursive_string_subst.patch
 BuildRequires:  fdupes
 BuildRequires:  sgml-skel >= 0.7
 BuildRequires:  unzip
+BuildRequires:  perl
 Requires:       docbook_4
 Requires:       sgml-skel >= 0.7
 Requires:       xmlcharent
