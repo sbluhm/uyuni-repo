@@ -1,23 +1,26 @@
 # Setup _pkgdocdir if not defined already.
 %{!?_pkgdocdir:%global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
+# release commit because SUSE didn't tag it :(
+%global relcommit 58463ca0a1d6815404c5f90fa7e2881429b74d54
+
 # CMake-builds go out-of-tree.
 %global _cmake_build_subdir build-%{_target_platform}
 
 Name:		libyui-ncurses
-Version:	2.48.3
-Release:	9%{?dist}
+Version:	2.55.0
+Release:	1%{?dist}
 Summary:	Character Based User Interface for libyui
 
 License:	LGPLv2 or LGPLv3
 URL:		https://github.com/libyui/%{name}
-Source0:	%{url}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
-Patch0:		%{url}/commit/6444e043b58bf7703e4fc9035f380f3817207525.patch#/fix_build_with_new_ncurses.patch
+#Source0:	%{url}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:	%{url}/archive/%{relcommit}/%{name}-%{version}.tar.gz
 
 BuildRequires:  gcc-c++
 BuildRequires:	boost-devel
 BuildRequires:	cmake
-BuildRequires:	libyui-devel
+BuildRequires:	libyui-devel > 3.10.0
 BuildRequires:	ncurses-devel
 
 Supplements:	(libyui%{?_isa} and ncurses-libs%{?_isa})
@@ -58,7 +61,7 @@ for %{name}.
 
 
 %prep
-%autosetup -p 1
+%autosetup -n %{name}-%{relcommit} -p 1
 ./bootstrap.sh
 
 
