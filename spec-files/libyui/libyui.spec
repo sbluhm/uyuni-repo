@@ -27,6 +27,7 @@ Patch0:		fix_gcc8.patch
 BuildRequires:  gcc-c++
 BuildRequires:	boost-devel
 BuildRequires:	cmake
+BuildRequires:	hardlink
 
 %description
 This is the user interface engine that provides the abstraction
