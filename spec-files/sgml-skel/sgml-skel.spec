@@ -31,13 +31,18 @@ Requires:       bash
 Requires:       coreutils
 Requires:       findutils
 Requires:       libxml2-tools
+%if 0%{?rhel}
+Requires:	libxslt
+Requires(post): libxslt
+%else
 Requires:       libxslt-tools
+Requires(post): libxslt-tools
+%endif
 Requires(post): /bin/awk
 Requires(post): bash
 Requires(post): coreutils
 Requires(post): findutils
 Requires(post): libxml2-tools
-Requires(post): libxslt-tools
 BuildArch:      noarch
 
 %description
