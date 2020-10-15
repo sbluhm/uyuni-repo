@@ -15,6 +15,9 @@
 # Please submit bugfixes or comments via https://bugs.opensuse.org/
 #
 
+%if 0%{?rhel}
+%define ext_man .gz
+%endif
 
 %define libname %{name}1
 %define exname  libexslt0
