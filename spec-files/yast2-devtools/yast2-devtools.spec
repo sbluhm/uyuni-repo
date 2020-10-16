@@ -57,7 +57,7 @@ Requires:       pkgconfig >= 0.16
 
 %if 0%{?suse_version} <= 1230
 # extra package for yard Markdown formatting in openSUSE <= 12.3
-Requires:       rubygem(%{rb_default_ruby_abi}:redcarpet)
+Requires:       rubygem(redcarpet)
 %endif
 
 Recommends:     cmake
