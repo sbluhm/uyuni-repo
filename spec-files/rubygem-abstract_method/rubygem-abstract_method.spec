@@ -15,9 +15,9 @@ Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby
 Requires: rubygems >= 2.7.6.2
-Requires: rubygems-rspec 
-Requires: rubygems-yard 
-Requires: rubygems-redcarpet 
+Requires: rubygem-rspec 
+Requires: rubygem-yard 
+Requires: rubygem-redcarpet 
 BuildRequires: ruby
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
@@ -39,7 +39,8 @@ Ruby classes and modules.
 %install
 %{__rm} -rf %{buildroot}
 mkdir -p %{gembuilddir}
-gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
+gem install --local --user-install --force %{SOURCE0}
+mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -47,11 +48,7 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 %files
 %defattr(-, root, root)
 %{gemdir}/gems/abstract_method-1.2.1/
-%{gemdir}/gems/abstract_method-1.2.1/
-%{gemdir}/gems/abstract_method-1.2.1/
-%{gemdir}/gems/abstract_method-1.2.1/
-
-
+%doc %{gemdir}/doc/abstract_method-1.2.1/
 %{gemdir}/cache/abstract_method-1.2.1.gem
 %{gemdir}/specifications/abstract_method-1.2.1.gemspec
 
