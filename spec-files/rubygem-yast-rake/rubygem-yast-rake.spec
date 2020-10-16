@@ -14,11 +14,11 @@ URL: https://github.com/yast/yast-rake
 Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby 
-Requires: rubygem >= 2.7.6.2
+Requires: rubygems >= 2.7.6.2
 Requires: rubygem-packaging_rake_tasks >= 1.1.4
 Requires: rubygem-rake 
 BuildRequires: ruby 
-BuildRequires: rubygem >= 2.7.6.2
+BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(Yast-rake) = %{version}
 
