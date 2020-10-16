@@ -32,16 +32,27 @@ from git repo.
 
 
 %prep
+echo "STATUS PREP"
 %setup -T -c
 
 %build
+echo "STATUS BUILD"
 
 %install
+echo "STATUS INSTALL"
+
 %{__rm} -rf %{buildroot}
 mkdir -p %{gembuilddir}
-#gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
+gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 #gem install --local --user-install %{gembuilddir} --force %{SOURCE0}
-gem install --local --force %{SOURCE0}
+#gem install --local --force %{SOURCE0}
+
+echo "BUILDROOT"
+ls -l %{buildroot}
+echo "GEMBUILDDIR"
+ls -l %{gembuilddir}
+echo "GEMDIR"
+ls -l %{gemdir}
 
 %clean
 %{__rm} -rf %{buildroot}
