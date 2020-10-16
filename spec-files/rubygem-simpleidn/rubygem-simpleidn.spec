@@ -1,50 +1,71 @@
-#
-# spec file for package rubygem-simpleidn
-#
-# Copyright (c) 2017 SUSE LINUX GmbH, Nuernberg, Germany.
-#
-# All modifications and additions to the file contributed by third parties
-# remain the property of their copyright owners, unless otherwise agreed
-# upon. The license for this file, and modifications and additions to the
-# file, is the same license as for the pristine package itself (unless the
-# license for the pristine package is not an Open Source License, in which
-# case the license is the MIT License). An "Open Source License" is a
-# license that conforms to the Open Source Definition (Version 1.9)
-# published by the Open Source Initiative.
+# Generated from simpleidn-0.1.1.gem by gem2rpm -*- rpm-spec -*-
+%define rbname simpleidn
+%define version 0.1.1
+%define release 1
 
-# Please submit bugfixes or comments via http://bugs.opensuse.org/
-#
+Summary: Punycode ACE to unicode UTF-8 (and vice-versa) string conversion.
+Name: rubygems-%{rbname}
 
-Name:           rubygem-simpleidn
-Version:        0.0.9
-Release:        lp152.3.5
-%define mod_name simpleidn
-%define mod_full_name %{mod_name}-%{version}
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
-BuildRequires:  ruby-macros >= 5
-BuildRequires:  ruby
-BuildRequires:  rubygem-gem2rpm
-Url:            https://github.com/mmriis/simpleidn
-Source:         https://rubygems.org/gems/%{mod_full_name}.gem
-Summary:        Punycode ACE to unicode UTF-8 (and vice-versa) string conversion
-License:        MIT
-Group:          Development/Languages/Ruby
+Version: %{version}
+Release: %{release}
+Group: Development/Ruby
+License: Distributable
+URL: https://github.com/mmriis/simpleidn
+Source0: %{rbname}-%{version}.gem
+BuildRoot: %{_tmppath}/%{name}-%{version}-root
+Requires: ruby > 1.9
+Requires: rubygems >= 2.7.6.2
+Requires: rubygems-unf >= 0.1.4
+Requires: rubygems-unf < 0.2
+Requires: rubygems-bundler >= 1.11
+Requires: rubygems-bundler < 2
+Requires: rubygems-rake >= 10.0
+Requires: rubygems-rake < 11
+Requires: rubygems-rspec >= 3.0
+Requires: rubygems-rspec < 4
+BuildRequires: ruby > 1.9
+BuildRequires: rubygems >= 2.7.6.2
+BuildArch: noarch
+Provides: ruby(Simpleidn) = %{version}
+
+%define gemdir /usr/share/gems
+%define gembuilddir %{buildroot}%{gemdir}
 
 %description
 This gem allows easy conversion from punycode ACE strings to unicode UTF-8
 strings and vice-versa.
 
+
 %prep
+%setup -T -c
 
 %build
 
 %install
-%gem_install \
-  --doc-files="LICENCE README.rdoc" \
-  -f
+%{__rm} -rf %{buildroot}
+mkdir -p %{gembuilddir}
+gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 
-%gem_packages
+%clean
+%{__rm} -rf %{buildroot}
+
+%files
+%defattr(-, root, root)
+%{gemdir}/gems/simpleidn-0.1.1/
+%{gemdir}/gems/simpleidn-0.1.1/
+%{gemdir}/gems/simpleidn-0.1.1/
+%{gemdir}/gems/simpleidn-0.1.1/
+%{gemdir}/gems/simpleidn-0.1.1/
+%{gemdir}/gems/simpleidn-0.1.1/
+%{gemdir}/gems/simpleidn-0.1.1/
+%{gemdir}/gems/simpleidn-0.1.1/
+%{gemdir}/gems/simpleidn-0.1.1/
+%{gemdir}/gems/simpleidn-0.1.1/
+%{gemdir}/gems/simpleidn-0.1.1/
+%{gemdir}/gems/simpleidn-0.1.1/
+
+
+%{gemdir}/cache/simpleidn-0.1.1.gem
+%{gemdir}/specifications/simpleidn-0.1.1.gemspec
 
 %changelog
-* Fri Dec 15 2017 tampakrap@opensuse.org
-- Initial package
