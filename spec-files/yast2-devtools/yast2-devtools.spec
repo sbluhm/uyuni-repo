@@ -25,6 +25,7 @@ License:        GPL-2.0-or-later
 Group:          System/YaST
 
 Source0:        %{name}-%{version}.tar.bz2
+Patch0:		macros.yast-fix1.patch
 
 BuildRequires:  automake
 BuildRequires:  docbook-xsl-stylesheets
@@ -75,6 +76,7 @@ modules and components (both ruby and C++).
 
 %prep
 %setup -q
+%patch0 -p1 
 
 %build
 make -f Makefile.cvs all
