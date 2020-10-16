@@ -53,6 +53,9 @@ ls -l %{gembuilddir}
 echo "GEMDIR"
 ls -l %{gemdir}
 
+echo "USERINSTALL"
+ls -l $(ruby -r rubygems -e 'puts Gem.user_dir')
+
 %clean
 %{__rm} -rf %{buildroot}
 
