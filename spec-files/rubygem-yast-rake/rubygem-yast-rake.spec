@@ -4,7 +4,7 @@
 %define release 1
 
 Summary: Rake tasks providing basic work-flow for Yast development
-Name: rubygems-%{rbname}
+Name: rubygem-%{rbname}
 
 Version: %{version}
 Release: %{release}
@@ -14,11 +14,11 @@ URL: https://github.com/yast/yast-rake
 Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby 
-Requires: rubygems >= 2.7.6.2
-Requires: rubygems-packaging_rake_tasks >= 1.1.4
-Requires: rubygems-rake 
+Requires: rubygem >= 2.7.6.2
+Requires: rubygem-packaging_rake_tasks >= 1.1.4
+Requires: rubygem-rake 
 BuildRequires: ruby 
-BuildRequires: rubygems >= 2.7.6.2
+BuildRequires: rubygem >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(Yast-rake) = %{version}
 
@@ -39,7 +39,8 @@ from git repo.
 %install
 %{__rm} -rf %{buildroot}
 mkdir -p %{gembuilddir}
-gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
+#gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
+gem install --local --user-install %{gembuilddir} --force %{SOURCE0}
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -47,27 +48,6 @@ gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 %files
 %defattr(-, root, root)
 %{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-%{gemdir}/gems/yast-rake-0.2.39/
-
-
 %{gemdir}/cache/yast-rake-0.2.39.gem
 %{gemdir}/specifications/yast-rake-0.2.39.gemspec
 
