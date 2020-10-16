@@ -4,7 +4,7 @@
 %define release 1
 
 Summary: Tiny library enabling you to define abstract methods in Ruby classes and modules
-Name: rubygems-%{rbname}
+Name: rubygem-%{rbname}
 
 Version: %{version}
 Release: %{release}
