@@ -32,28 +32,17 @@ from git repo.
 
 
 %prep
-echo "STATUS PREP"
 %setup -T -c
 
 %build
-echo "STATUS BUILD"
 
 %install
-echo "STATUS INSTALL"
 
 %{__rm} -rf %{buildroot}
 mkdir -p %{gembuilddir}
-#gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
 gem install --local --user-install --force %{SOURCE0}
 
-echo "BUILDROOT"
-ls -l %{buildroot}
-echo "GEMBUILDDIR"
-ls -l %{gembuilddir}
-echo "GEMDIR"
-ls -l %{gemdir}
 
-echo "USERINSTALL"
 ls -l $(ruby -r rubygems -e 'puts Gem.user_dir')
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 
@@ -63,6 +52,7 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %defattr(-, root, root)
 %{gemdir}/gems/yast-rake-0.2.39/
+%doc %{gemdir}/doc/yast-rake-0.2.39
 %{gemdir}/cache/yast-rake-0.2.39.gem
 %{gemdir}/specifications/yast-rake-0.2.39.gemspec
 
