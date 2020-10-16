@@ -44,8 +44,8 @@ echo "STATUS INSTALL"
 %{__rm} -rf %{buildroot}
 mkdir -p %{gembuilddir}
 #gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}
-gem install --local --user-install %{gembuilddir} --force %{SOURCE0}
-#gem install --local --force %{SOURCE0}
+#gem install --local --user-install --force %{SOURCE0}
+gem install --local --force %{SOURCE0}
 
 echo "BUILDROOT"
 ls -l %{buildroot}
