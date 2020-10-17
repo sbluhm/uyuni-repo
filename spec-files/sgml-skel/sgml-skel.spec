@@ -95,7 +95,7 @@ update-xml-catalog
 %ghost %{_sysconfdir}/sgml/catalog
 %ghost %{_sysconfdir}/xml/suse-catalog.xml
 %ghost %{_sysconfdir}/xml/catalog-d.xml
-%if 0%{?rhel}
+%if !0%{?rhel}
 %config %verify(not md5 size mtime) %{_sysconfdir}/xml/catalog
 %endif
 %{_bindir}/*
