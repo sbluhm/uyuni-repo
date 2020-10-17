@@ -47,6 +47,7 @@ execution.
 
 %install
 %yast_install
+mv %{buildroot}/usr/share/doc/packages/%{name}  %{buildroot}%{_docdir}
 
 %files
 %defattr(-,root,root)
