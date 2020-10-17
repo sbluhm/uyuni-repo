@@ -92,12 +92,12 @@ update-xml-catalog
 %dir %{_sysconfdir}/xml/catalog.d
 %dir %{_localstatedir}/lib/sgml
 %doc AUTHORS COPYING ChangeLog README*
-%if 0%{?rhel}
 %ghost %{_sysconfdir}/sgml/catalog
-%endif
 %ghost %{_sysconfdir}/xml/suse-catalog.xml
 %ghost %{_sysconfdir}/xml/catalog-d.xml
+%if 0%{?rhel}
 %config %verify(not md5 size mtime) %{_sysconfdir}/xml/catalog
+%endif
 %{_bindir}/*
 %{_mandir}/man1/*
 
