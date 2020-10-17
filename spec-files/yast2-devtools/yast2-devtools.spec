@@ -55,6 +55,7 @@ Requires:       autoconf
 Requires:       automake
 Requires:       gettext-tools
 Requires:       pkgconfig >= 0.16
+Requires:	desktop-file-utils
 
 %if 0%{?suse_version} <= 1230
 # extra package for yard Markdown formatting in openSUSE <= 12.3
