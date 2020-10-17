@@ -121,7 +121,7 @@ mkdir -p "$RPM_BUILD_ROOT"%{yast_logdir}
 %if 0%{?suse_version}
 %perl_process_packlist
 %else
-mv "$RPM_BUILD_ROOT"/usr/share/doc/packages/yast2-core "$RPM_BUILD_ROOT"%{_docdir}
+mv "$RPM_BUILD_ROOT"/usr/share/doc/packages/%{name} "$RPM_BUILD_ROOT"%{_docdir}
 rm "$RPM_BUILD_ROOT"/usr/lib64/perl5/perllocal.pod
 %endif
 
