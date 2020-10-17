@@ -17,7 +17,7 @@ Requires:	gettext-devel gettext-libs
 Provides:	gettext-tools
 
 # libxslt
-Requires:       libxslt-devel libxslt-libs
+Requires:       libxslt-devel
 Provides:       libxslt-tools
 
 %description
