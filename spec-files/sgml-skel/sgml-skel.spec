@@ -32,6 +32,7 @@ Requires:       coreutils
 Requires:       findutils
 Requires:       libxml2-tools
 %if 0%{?rhel}
+Requires:	sgml-common
 Requires:	libxslt
 Requires(post): libxslt
 %else
@@ -70,6 +71,10 @@ xmlcatalog --noout --create %{buildroot}%{_sysconfdir}/xml/catalog
 xmlcatalog --noout --add  "nextCatalog" "catalog-d.xml" "catalog-d.xml" %{buildroot}%{_sysconfdir}/xml/catalog
 xmlcatalog --noout --add  "nextCatalog" "suse-catalog.xml" "suse-catalog.xml" %{buildroot}%{_sysconfdir}/xml/catalog
 install -d -m755 %{buildroot}%{_sysconfdir}/xml/catalog.d
+%if 0%{?rhel}
+rm %{buildroot}%{_bindir}/install-catalog
+rm %{buildroot}/%{_sysconfdir}/xml/catalog
+%endif
 
 %post
 # only create suse-catalog.xml at installation time; not in the update case
@@ -87,7 +92,9 @@ update-xml-catalog
 %dir %{_sysconfdir}/xml/catalog.d
 %dir %{_localstatedir}/lib/sgml
 %doc AUTHORS COPYING ChangeLog README*
+%if 0%{?rhel}
 %ghost %{_sysconfdir}/sgml/catalog
+%endif
 %ghost %{_sysconfdir}/xml/suse-catalog.xml
 %ghost %{_sysconfdir}/xml/catalog-d.xml
 %config %verify(not md5 size mtime) %{_sysconfdir}/xml/catalog
