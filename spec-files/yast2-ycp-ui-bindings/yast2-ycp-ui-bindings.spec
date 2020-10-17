@@ -105,7 +105,6 @@ mv "$RPM_BUILD_ROOT"/usr/share/doc/packages/%{name} "$RPM_BUILD_ROOT"%{_docdir}
 %{_libdir}/pkgconfig/yast2-ycp-ui-bindings.pc
 %doc %{yast_docdir}
 %license COPYING
-/root/rpmbuild/BUILDROOT/yast2-ycp-ui-bindings-4.3.2-1.3.x86_64/usr/share/doc/yast2-ycp-ui-bindings
 
 %changelog
 * Wed Aug 12 2020 Stefan Hundhammer <shundhammer@suse.com>
