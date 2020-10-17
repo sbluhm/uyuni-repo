@@ -24,6 +24,10 @@ Provides:       libxslt-tools
 Requires:	libsigc++20-devel
 Provides:	libsigc++2-devel
 
+# libxml2
+Requires:       libxml2-devel
+Provides:       libxml2-tools
+
 %description
 Links SUSE packages to RHEL 8
 augeas, awk, gettext, libxslt, libsigc++ 2, 
