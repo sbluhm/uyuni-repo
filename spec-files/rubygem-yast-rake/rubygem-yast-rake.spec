@@ -20,7 +20,7 @@ Requires: rubygem-rake
 BuildRequires: ruby 
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
-Provides: ruby(Yast-rake) = %{version}
+Provides: rubygem(yast-rake) = %{version}
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}

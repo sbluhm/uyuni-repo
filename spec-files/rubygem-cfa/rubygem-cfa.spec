@@ -19,7 +19,7 @@ Requires: rubygem-ruby-augeas
 BuildRequires: ruby 
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
-Provides: ruby(Cfa) = %{version}
+Provides: rubygem(cfa) = %{version}
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}

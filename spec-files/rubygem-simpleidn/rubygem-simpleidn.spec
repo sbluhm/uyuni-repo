@@ -26,7 +26,7 @@ Requires: rubygem-rspec < 4
 BuildRequires: ruby > 1.9
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
-Provides: ruby(Simpleidn) = %{version}
+Provides: rubygem(simpleidn) = %{version}
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}

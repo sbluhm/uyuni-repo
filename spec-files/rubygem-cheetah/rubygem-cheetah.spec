@@ -23,7 +23,7 @@ Requires: rubygem-yard >= 0.9.11
 BuildRequires: ruby 
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
-Provides: ruby(Cheetah) = %{version}
+Provides: rubygem(cheetah) = %{version}
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}

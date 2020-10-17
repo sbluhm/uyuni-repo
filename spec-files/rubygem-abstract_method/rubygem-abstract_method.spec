@@ -21,7 +21,7 @@ Requires: rubygem-redcarpet
 BuildRequires: ruby
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
-Provides: ruby(Abstract_method) = %{version}
+Provides: rubygem(abstract_method) = %{version}
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}
