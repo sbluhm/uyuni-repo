@@ -20,9 +20,13 @@ Provides:	gettext-tools
 Requires:       libxslt-devel
 Provides:       libxslt-tools
 
+#libsigc++ 2
+Requires:	libsigc++20-devel
+Provides:	libsigc++2-devel
+
 %description
 Links SUSE packages to RHEL 8
-augeas, awk, gettext
+augeas, awk, gettext, libxslt, libsigc++ 2, 
 
 
 %files
