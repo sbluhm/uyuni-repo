@@ -86,8 +86,7 @@ mkdir -p "$RPM_BUILD_ROOT"%{yast_logdir}
 %if 0%{?suse_version}
 %perl_process_packlist
 %else
-mv "$RPM_BUILD_ROOT"/usr/share/doc/packages/yast2-core "$RPM_BUILD_ROOT"%{_docdir}
-rm "$RPM_BUILD_ROOT"/usr/lib64/perl5/perllocal.pod
+mv "$RPM_BUILD_ROOT"/usr/share/doc/packages/%{name} "$RPM_BUILD_ROOT"%{_docdir}
 %endif
 
 %files
@@ -106,6 +105,7 @@ rm "$RPM_BUILD_ROOT"/usr/lib64/perl5/perllocal.pod
 %{_libdir}/pkgconfig/yast2-ycp-ui-bindings.pc
 %doc %{yast_docdir}
 %license COPYING
+/root/rpmbuild/BUILDROOT/yast2-ycp-ui-bindings-4.3.2-1.3.x86_64/usr/share/doc/yast2-ycp-ui-bindings
 
 %changelog
 * Wed Aug 12 2020 Stefan Hundhammer <shundhammer@suse.com>
