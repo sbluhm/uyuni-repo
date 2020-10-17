@@ -20,8 +20,8 @@
 %bcond_without zstd
 
 Name:           lib%{libname}
-Version:        0.7.11
-Release:        2%{?dist}
+Version:        0.7.15
+Release:        1%{?dist}
 Summary:        Package dependency solver
 
 License:        BSD
