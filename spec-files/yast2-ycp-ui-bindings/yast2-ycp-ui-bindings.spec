@@ -16,13 +16,13 @@
 #
 
 
-# YUIWidget_CustomStatusItemSelector
-%define min_yui_version	3.9.1
-%define yui_so		11
+# YUIWidget_MenuBar
+%define min_yui_version	3.11.0
+%define yui_so		13
 
 Name:           yast2-ycp-ui-bindings
-Version:        4.2.9
-Release:        lp152.1.3
+Version:        4.3.2
+Release:        1.3
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Source0:        %{name}-%{version}.tar.bz2
@@ -83,7 +83,6 @@ language in which most YaST2 modules are written).
 %yast_install
 
 mkdir -p "$RPM_BUILD_ROOT"%{yast_logdir}
-
 %if 0%{?suse_version}
 %perl_process_packlist
 %else
@@ -108,6 +107,17 @@ mv "$RPM_BUILD_ROOT"/usr/share/doc/packages/%{name} "$RPM_BUILD_ROOT"%{_docdir}
 %license COPYING
 
 %changelog
+* Wed Aug 12 2020 Stefan Hundhammer <shundhammer@suse.com>
+- Use new syntax (MenuBar(), Menu()) in MenuBar example (bsc#1175115)
+- 4.3.2
+* Tue Aug 11 2020 Stefan Hundhammer <shundhammer@suse.com>
+- Added MenuBar widget (bsc#1175115)
+- Require libyui.so.13
+- 4.3.1
+* Thu Jun  4 2020 Stefan Hundhammer <shundhammer@suse.com>
+- Added widget option autoWrap for label widget (bsc#1172513)
+- Require libyui.so.12
+- 4.3.0
 * Thu Jan 23 2020 Imobach Gonzalez Sosa <igonzalezsosa@suse.com>
 - Add support for the option to enable the online search
   feature in the package selector (jsc#SLE-9109).
