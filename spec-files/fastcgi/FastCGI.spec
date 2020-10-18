@@ -107,8 +107,14 @@ popd
 %install
 %make_install
 pushd perl
-    %perl_make_install
-    %perl_process_packlist
+    %if 0%{?suse_version}
+	%perl_make_install
+        %perl_process_packlist
+    %else
+	make DESTDIR=$RPM_BUILD_ROOT install_vendor
+        mv "$RPM_BUILD_ROOT"/usr/share/doc/packages/%{name} "$RPM_BUILD_ROOT"%{_docdir}
+    %endif
+
 popd
 pushd examples
     %{__make} clean
