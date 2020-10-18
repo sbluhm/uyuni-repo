@@ -112,7 +112,7 @@ pushd perl
         %perl_process_packlist
     %else
 	make DESTDIR=$RPM_BUILD_ROOT install_vendor
-        mv "$RPM_BUILD_ROOT"/usr/share/doc/packages/%{name} "$RPM_BUILD_ROOT"%{_docdir}
+	rm "$RPM_BUILD_ROOT"/usr/lib64/perl5/perllocal.pod
     %endif
 
 popd
@@ -159,9 +159,12 @@ rm -f %{buildroot}%{_libdir}/libfcgi*.la
 %{perl_vendorarch}/FCGI.pm
 %dir %{perl_vendorarch}/auto/FCGI
 %{perl_vendorarch}/auto/FCGI/*.*
-%if 0%{?suse_version} < 1140
+%if 0%{?suse_version} < 1140 &&  0%{?suse_version}
 %{perl_vendorarch}/auto/FCGI/.packlist
 %{_var}/adm/perl-modules/%{name}
+%endif
+%if 0%{?rhel} 
+%{perl_vendorarch}/auto/FCGI/.packlist
 %endif
 
 %changelog
