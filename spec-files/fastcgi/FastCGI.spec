@@ -153,7 +153,7 @@ rm -f %{buildroot}%{_libdir}/libfcgi*.la
 %{perl_vendorarch}/FCGI.pm
 %dir %{perl_vendorarch}/auto/FCGI
 %{perl_vendorarch}/auto/FCGI/*.*
-%if %0{?suse_version} < 1140
+%if 0%{?suse_version} < 1140
 %{perl_vendorarch}/auto/FCGI/.packlist
 %{_var}/adm/perl-modules/%{name}
 %endif
