@@ -61,6 +61,9 @@ of calling Perl from within YaST2 YCP scripts.
 
 rm $RPM_BUILD_ROOT/%{yast_plugindir}/libpy2lang_perl.la
 rm $RPM_BUILD_ROOT/%{perl_vendorarch}/auto/YaST/YCP/libYCP.la
+%if 0%{?rhel}
+mv "$RPM_BUILD_ROOT"/usr/share/doc/packages/%{name} "$RPM_BUILD_ROOT"%{_docdir}
+%endif
 
 %files
 %defattr (-, root, root)
