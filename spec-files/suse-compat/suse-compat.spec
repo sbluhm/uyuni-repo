@@ -32,6 +32,7 @@ augeas, awk, gettext, libxslt, libsigc++ 2,
 %package -n libyui13
 Requires:       libyui >= 3.11
 Requires:	libyui < 3.12
+Version:	3.11.0
 Summary:        Libyui - GUI-abstraction library
 %description -n libyui13
 See libyui
