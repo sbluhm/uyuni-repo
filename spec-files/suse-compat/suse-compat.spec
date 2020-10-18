@@ -32,6 +32,24 @@ Provides:       libxml2-tools
 Links SUSE packages to RHEL 8
 augeas, awk, gettext, libxslt, libsigc++ 2, 
 
+%package -n libyui13
+
+Provides:       libyui13
+Requires:       libyui >= 3.11 < 3.12
+
+Summary:        Libyui - GUI-abstraction library
+Group:          System/Libraries
+
+%description -n libyui13
+This is the user interface engine that provides the abstraction from
+graphical user interfaces (Qt, Gtk) and text based user interfaces
+(ncurses).
+
+Originally developed for YaST, it can now be used independently of
+YaST for generic (C++) applications. This package has very few
+dependencies.
+
+
 
 %files
 
