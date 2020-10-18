@@ -102,10 +102,18 @@ cd -
 %defattr (-, root, root)
 %{yast_ybindir}/y2start
 %{_libdir}/YaST2/plugin/libpy2lang_ruby.so
+%if !0%{?rhel}
 %{_libdir}/ruby/vendor_ruby/%{rb_ver}/*.rb
 %{_libdir}/ruby/vendor_ruby/%{rb_ver}/yast
 %{_libdir}/ruby/vendor_ruby/%{rb_ver}/%{rb_arch}/*x.so
 %{_libdir}/ruby/vendor_ruby/%{rb_ver}/%{rb_arch}/yast
+%else
+%{_libdir}/ruby/vendor_ruby/yast
+%{_libdir}/ruby/vendor_ruby/*x.so
+%{_datadir}/ruby/vendor_ruby/yast
+%{_datadir}/ruby/vendor_ruby/*.rb
+%endif
+
 %license COPYING
 
 %changelog
