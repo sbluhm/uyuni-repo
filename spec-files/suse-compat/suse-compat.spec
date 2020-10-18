@@ -40,7 +40,8 @@ See libyui
 %package -n libsigc++2-devel
 Requires:       libsigc++20-devel
 Summary:        See libsigc++20-devel
-
+%description -n libsigc++2-devel
+See libsigc++20-devel
 
 %files
 
