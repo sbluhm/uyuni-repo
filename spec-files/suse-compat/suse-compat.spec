@@ -45,5 +45,5 @@ Summary:        See libsigc++20-devel
 See libsigc++20-devel
 
 %files
-
 %files -n libyui13
+%files -n libsigc++2-devel

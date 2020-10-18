@@ -162,6 +162,8 @@ BuildRequires:  libzck-devel
 BuildRequires:  libzstd-devel
 %endif
 
+BuildRequires:  FastCGI-devel
+
 %description
 libzypp is the package management library that powers applications
 like YaST, zypper and the openSUSE/SLE implementation of PackageKit.
