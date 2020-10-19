@@ -29,7 +29,9 @@ BuildArch: noarch
 Documentation for %{name}.
 
 %prep
+echo "Starting Prep"
 %setup -q -n  %{gem_name}-%{version} -b 1
+echo "completed setup"
 
 %build
 gem build ../%{gem_name}-%{version}.gemspec
