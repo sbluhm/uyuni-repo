@@ -162,7 +162,7 @@ BuildRequires:  libzck-devel
 BuildRequires:  libzstd-devel
 %endif
 
-BuildRequires:  FastCGI-devel
+#BuildRequires:  FastCGI-devel
 
 %description
 libzypp is the package management library that powers applications
