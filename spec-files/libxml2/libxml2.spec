@@ -35,7 +35,7 @@
 %define lname libxml2-2
 Name:           %{bname}%{psuffix}
 Version:        2.9.10
-Release:        5.1
+Release:        5.%{?dist}
 Summary:        A Library to Manipulate XML Files
 License:        MIT
 URL:            http://xmlsoft.org
