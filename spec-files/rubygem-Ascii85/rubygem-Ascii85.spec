@@ -27,7 +27,7 @@ BuildArch: noarch
 
 %description doc
 Documentation for %{name}.
-
+%dump
 %prep
 echo "Starting Prep"
 %setup -q -n  %{gem_name}-%{version} -b 1
