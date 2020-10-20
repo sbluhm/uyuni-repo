@@ -22,6 +22,7 @@ Requires: rubygem-bundler >= 1.2
 Requires: rubygem-rake-compiler >= 0.7.9
 Requires: rubygem-rake-compiler-dock >= 1.0.1
 BuildRequires: ruby 
+BuildRequires: ruby-devel
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(unf_ext) = %{version}
