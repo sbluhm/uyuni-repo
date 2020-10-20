@@ -49,8 +49,8 @@ echo "src" > SUBDIRS
 
 %install
 %yast_install
-
 rm -rf %{buildroot}/%{yast_plugindir}/libpy2Pkg.la
+mv "$RPM_BUILD_ROOT"/usr/share/doc/packages/%{name} "$RPM_BUILD_ROOT"%{_docdir}
 
 %files
 %defattr(-,root,root)
