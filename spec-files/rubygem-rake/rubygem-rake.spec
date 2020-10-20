@@ -59,7 +59,7 @@ rmdir %{gembuilddir}/bin
 %defattr(-, root, root)
 %{_bindir}/rake
 %{gemdir}/gems/rake-13.0.1/
-%doc %{gemdir}/doc/cheetah-0.5.2/
+%doc %{gemdir}/doc/%{name}-%{version}/
 %{gemdir}/cache/rake-13.0.1.gem
 %{gemdir}/specifications/rake-13.0.1.gemspec
 
