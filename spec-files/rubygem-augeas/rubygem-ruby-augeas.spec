@@ -3,6 +3,8 @@
 %define version 0.5.0
 %define release 1
 
+%global debug_package %{nil}
+
 Summary: Ruby bindings for augeas
 Name: rubygem-%{rbname}
 
