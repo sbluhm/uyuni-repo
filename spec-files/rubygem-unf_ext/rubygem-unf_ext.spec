@@ -35,6 +35,7 @@ Provides: ruby(unf_ext) = %{version}
 %description
 Unicode Normalization Form support library for CRuby.
 
+%global debug_package %{nil}
 
 %prep
 %setup -T -c
