@@ -3,6 +3,8 @@
 %define version 10.5.0
 %define release 1
 
+%global debug_package %{nil}
+
 Summary: Rake is a Make-like program implemented in Ruby
 Name: rubygem-%{rbname}
 
