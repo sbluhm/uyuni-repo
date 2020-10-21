@@ -19,7 +19,6 @@ BuildRequires: ruby >= 1.8.1
 BuildRequires: rubygems >= 2.7.6.2
 BuildRequires: ruby-devel
 BuildRequires: augeas-devel
-BuildArch: noarch
 Provides: ruby(ruby-augeas) = %{version}
 
 %define gemdir /usr/share/gems
