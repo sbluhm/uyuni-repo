@@ -17,6 +17,7 @@ Requires: ruby >= 1.8.1
 Requires: rubygems >= 2.7.6.2
 BuildRequires: ruby >= 1.8.1
 BuildRequires: rubygems >= 2.7.6.2
+BuildRequires: ruby-devel
 BuildArch: noarch
 Provides: ruby(ruby-augeas) = %{version}
 
