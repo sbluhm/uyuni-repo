@@ -57,7 +57,7 @@ mv %{gembuilddir}/gems/rake-13.0.1/bin/* %{buildroot}%{_bindir}
 
 %files
 %defattr(-, root, root)
-%{_bindir}/rake
+%{_bindir}/
 %{gemdir}/gems/rake-13.0.1/
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %{gemdir}/cache/rake-13.0.1.gem
