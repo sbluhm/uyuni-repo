@@ -68,7 +68,6 @@ mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/* %{buildroot}%{_bindir}
 %defattr(-, root, root)
 %{_bindir}/
 %{gemdir}/gems/rake-10.5.0/
-%{gemdir}/gems/rake-10.5.0/path
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %{gemdir}/cache/rake-10.5.0.gem
 %{gemdir}/specifications/rake-10.5.0.gemspec
