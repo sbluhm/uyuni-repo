@@ -3,6 +3,10 @@
 %define version 0.0.7.7
 %define release 1
 
+
+%define _binaries_in_noarch_packages_terminate_build   0
+
+
 Summary: Unicode Normalization Form support library for CRuby
 Name: rubygem-%{rbname}
 
