@@ -47,8 +47,8 @@ Unicode Normalization Form support library for CRuby.
 mkdir -p %{gembuilddir}
 gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
-mkdir -p %{buildroot}/%{name}-%{version}-%{release}.%{_arch}%{_libdir}/gems/ruby/%{rbname}-%{version}
-mv %{gembuilddir}/extensions/x86_64-linux/2.5.0/unf_ext-0.0.7.7/*.so %{buildroot}/%{name}-%{version}-%{release}.%{_arch}%{_libdir}/gems/ruby/%{rbname}-%{version}
+mkdir -p %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
+mv %{gembuilddir}/extensions/x86_64-linux/2.5.0/unf_ext-0.0.7.7/*.so %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
 rm -f %{gembuilddir}/extensions/x86_64-linux/2.5.0/unf_ext-0.0.7.7/*
 
 
