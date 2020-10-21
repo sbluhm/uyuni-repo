@@ -49,8 +49,8 @@ mkdir -p %{gembuilddir}
 gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 mkdir -p %{buildroot}/%{_bindir}
-#mv %{gembuilddir}/bin/* %{buildroot}/%{_bindir}
-#rmdir %{gembuilddir}/bin
+mv %{gembuilddir}/bin/* %{buildroot}/%{_bindir}
+rmdir %{gembuilddir}/bin
 
 %clean
 %{__rm} -rf %{buildroot}
