@@ -61,5 +61,5 @@ rm -f %{gembuilddir}/extensions/x86_64-linux/2.5.0/unf_ext-0.0.7.7/*
 %{gemdir}/cache/unf_ext-0.0.7.7.gem
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %{gemdir}/specifications/unf_ext-0.0.7.7.gemspec
-%{_libdir}/gems/ruby/%{rbname}-%{version}
+%{_libdir}/gems/ruby/%{rbname}-%{version}/
 %changelog
