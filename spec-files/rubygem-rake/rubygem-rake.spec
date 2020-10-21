@@ -59,7 +59,7 @@ mkdir -p %{buildroot}/%{_bindir}
 %defattr(-, root, root)
 %{_bindir}/rake
 %{gemdir}/gems/rake-13.0.1/
-%doc %{gemdir}/doc/%{name}-%{version}/
+%doc %{gemdir}/doc/%{rbname}-%{version}/
 %{gemdir}/cache/rake-13.0.1.gem
 %{gemdir}/specifications/rake-13.0.1.gemspec
 

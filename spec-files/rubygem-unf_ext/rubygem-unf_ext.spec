@@ -4,7 +4,6 @@
 %define release 1
 
 
-%define _binaries_in_noarch_packages_terminate_build   0
 
 
 Summary: Unicode Normalization Form support library for CRuby
@@ -28,7 +27,6 @@ Requires: rubygem-rake-compiler-dock >= 1.0.1
 BuildRequires: ruby 
 BuildRequires: ruby-devel
 BuildRequires: rubygems >= 2.7.6.2
-BuildArch: noarch
 Provides: ruby(unf_ext) = %{version}
 
 %define gemdir /usr/share/gems
@@ -56,6 +54,7 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %defattr(-, root, root)
 %{gemdir}/gems/unf_ext-0.0.7.7/
 %{gemdir}/cache/unf_ext-0.0.7.7.gem
+%doc %{gemdir}/doc/%{rbname}-%{version}/
 %{gemdir}/specifications/unf_ext-0.0.7.7.gemspec
 
 %changelog
