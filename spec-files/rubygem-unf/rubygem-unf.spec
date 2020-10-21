@@ -52,5 +52,6 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %{gemdir}/gems/unf-0.1.4/
 %{gemdir}/cache/unf-0.1.4.gem
 %{gemdir}/specifications/unf-0.1.4.gemspec
+%doc %{gemdir}/doc/%{name}-%{version}/
 
 %changelog
