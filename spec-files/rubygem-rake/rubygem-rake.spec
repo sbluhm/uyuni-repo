@@ -50,7 +50,7 @@ gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 mkdir -p %{buildroot}%{_bindir}
 mv %{gembuilddir}/gems/rake-13.0.1/bin/* %{buildroot}%{_bindir}
-rmdir %{gembuilddir}/bin
+#rmdir %{gembuilddir}/bin
 
 %clean
 %{__rm} -rf %{buildroot}
