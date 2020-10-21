@@ -51,7 +51,6 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %defattr(-, root, root)
 %{gemdir}/gems/unf_ext-0.0.7.7/
-%doc %{gemdir}/doc/%{name}-%{version}/
 %{gemdir}/cache/unf_ext-0.0.7.7.gem
 %{gemdir}/specifications/unf_ext-0.0.7.7.gemspec
 
