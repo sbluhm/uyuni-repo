@@ -48,8 +48,8 @@ names and paths.
 mkdir -p %{gembuilddir}
 gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
-mkdir -p %{buildroot}/%{_bindir}
-mv %{gembuilddir}/bin/* %{buildroot}/%{_bindir}
+mkdir -p %{buildroot}%{_bindir}
+mv %{gembuilddir}/gems/rake-13.0.1/bin/* %{buildroot}%{_bindir}
 rmdir %{gembuilddir}/bin
 
 %clean
