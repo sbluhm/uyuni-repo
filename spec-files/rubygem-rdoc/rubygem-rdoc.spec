@@ -53,8 +53,7 @@ mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/* %{buildroot}/%{_bindir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{_bindir}/rdoc
-%{_bindir}/ri
+%{_bindir}/
 %{gemdir}/gems/rdoc-5.1.0/
 %{gemdir}/cache/rdoc-5.1.0.gem
 %{gemdir}/specifications/rdoc-5.1.0.gemspec
