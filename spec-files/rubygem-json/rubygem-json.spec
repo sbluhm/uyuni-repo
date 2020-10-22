@@ -2,6 +2,7 @@
 %define rbname json
 %define version 1.8.6
 %define release 1
+%global debug_package %{nil}
 
 Summary: JSON Implementation for Ruby
 Name: rubygem-%{rbname}
