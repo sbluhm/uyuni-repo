@@ -43,8 +43,8 @@ mkdir -p %{gembuilddir}
 gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 mkdir -p %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
-ls %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/json
-mv %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/json/*.so %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
+ls %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/json/ext
+mv %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/json/ext/*.so %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
 rm -f %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/*
 
 %clean
