@@ -20,8 +20,8 @@ Requires: rubygem-rake
 Requires: rubygem-test-unit >= 2.0
 Requires: rubygem-test-unit < 3
 BuildRequires: ruby 
+BuildRequires: ruby-devel
 BuildRequires: rubygems >= 2.7.6.2
-BuildArch: noarch
 Provides: ruby(json) = %{version}
 
 %define gemdir /usr/share/gems
