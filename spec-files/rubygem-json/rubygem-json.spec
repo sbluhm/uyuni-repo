@@ -14,12 +14,12 @@ URL: http://flori.github.com/json
 Source0: %{rbname}-%{version}.gem
 # Make sure the spec template is included in the SRPM
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: ruby >= 2.0", "< 3
+Requires: ruby < 3
 Requires: rubygems >= 2.7.6.2
 Requires: rubygem-rake 
 Requires: rubygem-test-unit >= 2.0
 Requires: rubygem-test-unit < 3
-BuildRequires: ruby >= 2.0", "< 3
+BuildRequires: ruby < 3
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(json) = %{version}
