@@ -23,7 +23,7 @@ Requires: rubygem-hoe < 4
 BuildRequires: ruby 
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
-Provides: ruby(Zentest) = %{version}
+Provides: ruby(zentest) = %{version}
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}
@@ -63,7 +63,7 @@ gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 mkdir -p %{buildroot}/%{_bindir}
 mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
-
+ln -s /usr/bin/ruby %{buildroot}/usr/local/bin/ruby
 %clean
 %{__rm} -rf %{buildroot}
 
@@ -75,29 +75,7 @@ mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 %{_bindir}/unit_diff
 %{_bindir}/zentest
 %{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-%{gemdir}/gems/ZenTest-4.12.0/
-
+/usr/local/bin/ruby
 
 %{gemdir}/cache/ZenTest-4.12.0.gem
 %{gemdir}/specifications/ZenTest-4.12.0.gemspec
