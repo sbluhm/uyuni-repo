@@ -1,6 +1,6 @@
-# Generated from minitest-5.14.2.gem by gem2rpm -*- rpm-spec -*-
+# Generated from minitest-2.12.1.gem by gem2rpm -*- rpm-spec -*-
 %define rbname minitest
-%define version 5.14.2
+%define version 2.12.1
 %define release 1
 
 Summary: minitest provides a complete suite of testing facilities supporting TDD, BDD, mocking, and benchmarking
@@ -12,17 +12,18 @@ Group: Development/Ruby
 License: Distributable
 URL: https://github.com/seattlerb/minitest
 Source0: %{rbname}-%{version}.gem
+# Make sure the spec template is included in the SRPM
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: ruby >= 2.2", "< 3.1
+Requires: ruby 
 Requires: rubygems >= 2.7.6.2
-Requires: rubygem-rdoc >= 4.0
-Requires: rubygem-rdoc < 7
-Requires: rubygem-hoe >= 3.22
+Requires: rubygem-rdoc >= 3.10
+Requires: rubygem-rdoc < 4
+Requires: rubygem-hoe >= 3.0
 Requires: rubygem-hoe < 4
-BuildRequires: ruby >= 2.2", "< 3.1
+BuildRequires: ruby 
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
-Provides: ruby(Minitest) = %{version}
+Provides: ruby(minitest) = %{version}
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}
@@ -38,34 +39,27 @@ I MUST say that minitest is *very* readable / understandable
 compared to the 'other two' options we looked at. Nicely done and
 thank you for helping us keep our mental sanity."
 -- Wayne E. Seguin
-minitest/test is a small and incredibly fast unit testing framework.
+minitest/unit is a small and incredibly fast unit testing framework.
 It provides a rich set of assertions to make your tests clean and
 readable.
 minitest/spec is a functionally complete spec engine. It hooks onto
-minitest/test and seamlessly bridges test assertions over to spec
+minitest/unit and seamlessly bridges test assertions over to spec
 expectations.
 minitest/benchmark is an awesome way to assert the performance of your
 algorithms in a repeatable manner. Now you can assert that your newb
 co-worker doesn't replace your linear algorithm with an exponential
 one!
-minitest/mock by Steven Baker, is a beautifully tiny mock (and stub)
-object framework.
+minitest/mock by Steven Baker, is a beautifully tiny mock object
+framework.
 minitest/pride shows pride in testing and adds coloring to your test
 output. I guess it is an example of how to write IO pipes too. :P
-minitest/test is meant to have a clean implementation for language
+minitest/unit is meant to have a clean implementation for language
 implementors that need a minimal set of methods to bootstrap a working
 test suite. For example, there is no magic involved for test-case
 discovery.
 "Again, I can't praise enough the idea of a testing/specing
 framework that I can actually read in full in one sitting!"
--- Piotr Szotkowski
-Comparing to rspec:
-rspec is a testing DSL. minitest is ruby.
--- Adam Hawkins, "Bow Before MiniTest"
-minitest doesn't reinvent anything that ruby already provides, like:
-classes, modules, inheritance, methods. This means you only have to
-learn ruby to use minitest and all of your regular OO practices like
-extract-method refactorings still apply.
+-- Piotr Szotkowski.
 
 
 %prep
@@ -85,36 +79,28 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
-%{gemdir}/gems/minitest-5.14.2/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-2.12.1/
 
 
-%{gemdir}/cache/minitest-5.14.2.gem
-%{gemdir}/specifications/minitest-5.14.2.gemspec
+%{gemdir}/cache/minitest-2.12.1.gem
+%{gemdir}/specifications/minitest-2.12.1.gemspec
 
 %changelog
