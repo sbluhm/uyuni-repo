@@ -1,6 +1,6 @@
-# Generated from json-2.0.0.gem by gem2rpm -*- rpm-spec -*-
+# Generated from json-1.8.6.gem by gem2rpm -*- rpm-spec -*-
 %define rbname json
-%define version 2.0.0
+%define version 1.8.6
 %define release 1
 
 Summary: JSON Implementation for Ruby
@@ -14,12 +14,12 @@ URL: http://flori.github.com/json
 Source0: %{rbname}-%{version}.gem
 # Make sure the spec template is included in the SRPM
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: ruby < 3
+Requires: ruby 
 Requires: rubygems >= 2.7.6.2
 Requires: rubygem-rake 
 Requires: rubygem-test-unit >= 2.0
 Requires: rubygem-test-unit < 3
-BuildRequires: ruby < 3
+BuildRequires: ruby 
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(json) = %{version}
@@ -48,117 +48,123 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
-%{gemdir}/gems/json-2.0.0/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
+%{gemdir}/gems/json-1.8.6/
 
 
-%{gemdir}/cache/json-2.0.0.gem
-%{gemdir}/specifications/json-2.0.0.gemspec
+%{gemdir}/cache/json-1.8.6.gem
+%{gemdir}/specifications/json-1.8.6.gemspec
 
 %changelog
