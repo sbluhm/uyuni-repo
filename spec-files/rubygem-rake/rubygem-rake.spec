@@ -1,52 +1,34 @@
-# Generated from rake-10.5.0.gem by gem2rpm -*- rpm-spec -*-
+# Generated from rake-0.9.6.gem by gem2rpm -*- rpm-spec -*-
 %define rbname rake
-%define version 10.5.0
+%define version 0.9.6
 %define release 1
 
-%global debug_package %{nil}
-
-Summary: Rake is a Make-like program implemented in Ruby
+Summary: Ruby based make-like utility.
 Name: rubygem-%{rbname}
 
 Version: %{version}
 Release: %{release}
 Group: Development/Ruby
 License: Distributable
-URL: https://github.com/ruby/rake
+URL: http://rake.rubyforge.org
 Source0: %{rbname}-%{version}.gem
+# Make sure the spec template is included in the SRPM
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: ruby >= 1.8.7
+Requires: ruby >= 1.8.6
 Requires: rubygems >= 2.7.6.2
-Requires: rubygem-minitest >= 5.8
-Requires: rubygem-minitest < 6
-Requires: rubygem-rdoc >= 4.0
-Requires: rubygem-rdoc < 5
-Requires: rubygem-hoe >= 3.14
-Requires: rubygem-hoe < 4
-BuildRequires: ruby >= 1.8.7
+Requires: rubygem-minitest >= 2.1
+Requires: rubygem-minitest < 3
+BuildRequires: ruby >= 1.8.6
 BuildRequires: rubygems >= 2.7.6.2
-Provides: ruby(Rake) = %{version}
+BuildArch: noarch
+Provides: ruby(rake) = %{version}
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}
 
 %description
-Rake is a Make-like program implemented in Ruby. Tasks and dependencies are
-specified in standard Ruby syntax.
-Rake has the following features:
-* Rakefiles (rake's version of Makefiles) are completely defined in
-standard Ruby syntax.  No XML files to edit.  No quirky Makefile
-syntax to worry about (is that a tab or a space?)
-* Users can specify tasks with prerequisites.
-* Rake supports rule patterns to synthesize implicit tasks.
-* Flexible FileLists that act like arrays but know about manipulating
-file names and paths.
-* A library of prepackaged tasks to make building rakefiles easier. For
-example,
-tasks for building tarballs and publishing to FTP or SSH sites.  (Formerly
-tasks for building RDoc and Gems were included in rake but they're now
-available in RDoc and RubyGems respectively.)
-* Supports parallel execution of tasks.
+Rake is a Make-like program implemented in Ruby. Tasks and dependencies
+arespecified in standard Ruby syntax.
 
 
 %prep
@@ -59,19 +41,166 @@ available in RDoc and RubyGems respectively.)
 mkdir -p %{gembuilddir}
 gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
-mkdir -p %{buildroot}%{_bindir}
-mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/* %{buildroot}%{_bindir}
-#rmdir %{gembuilddir}/bin
+mkdir -p %{buildroot}/%{_bindir}
+mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 
 %clean
 %{__rm} -rf %{buildroot}
 
 %files
-%defattr(-, root, root)
-%{_bindir}/
-%{gemdir}/gems/rake-10.5.0/
 %doc %{gemdir}/doc/%{rbname}-%{version}/
-%{gemdir}/cache/rake-10.5.0.gem
-%{gemdir}/specifications/rake-10.5.0.gemspec
+%defattr(-, root, root)
+%{_bindir}/rake
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/path
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/path
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/path
+%{gemdir}/gems/rake-0.9.6/path
+%{gemdir}/gems/rake-0.9.6/path
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+%{gemdir}/gems/rake-0.9.6/
+
+
+%{gemdir}/cache/rake-0.9.6.gem
+%{gemdir}/specifications/rake-0.9.6.gemspec
 
 %changelog
