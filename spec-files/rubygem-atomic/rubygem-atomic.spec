@@ -2,6 +2,7 @@
 %define rbname atomic
 %define version 1.1.16
 %define release 1
+%global debug_package %{nil}
 
 Summary: An atomic reference implementation for JRuby, Rubinius, and MRI
 Name: rubygem-%{rbname}
