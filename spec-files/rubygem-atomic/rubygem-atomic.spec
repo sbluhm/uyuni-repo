@@ -17,8 +17,8 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby 
 Requires: rubygems >= 2.7.6.2
 BuildRequires: ruby 
+BuildRequires: ruby-devel
 BuildRequires: rubygems >= 2.7.6.2
-BuildArch: noarch
 Provides: ruby(atomic) = %{version}
 
 %define gemdir /usr/share/gems
@@ -46,32 +46,6 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
 %{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-%{gemdir}/gems/atomic-1.1.16/
-
-
 %{gemdir}/cache/atomic-1.1.16.gem
 %{gemdir}/specifications/atomic-1.1.16.gemspec
 
