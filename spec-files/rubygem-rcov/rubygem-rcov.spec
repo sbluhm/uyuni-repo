@@ -17,6 +17,7 @@ Requires: ruby
 Requires: rubygems >= 2.7.6.2
 BuildRequires: ruby 
 BuildRequires: rubygems >= 2.7.6.2
+BuildRequires: ruby-devel
 BuildArch: noarch
 Provides: ruby(rcov) = %{version}
 
@@ -48,38 +49,6 @@ mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 %defattr(-, root, root)
 %{_bindir}/rcov
 %{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-%{gemdir}/gems/rcov-1.0.0/
-
-
 %{gemdir}/cache/rcov-1.0.0.gem
 %{gemdir}/specifications/rcov-1.0.0.gemspec
 
