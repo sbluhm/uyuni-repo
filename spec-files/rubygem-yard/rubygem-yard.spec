@@ -49,9 +49,7 @@ mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{_bindir}/yard
-%{_bindir}/yardoc
-%{_bindir}/yri
+%{_bindir}/
 %{gemdir}/gems/yard-0.7.5/
 %{gemdir}/cache/yard-0.7.5.gem
 %{gemdir}/specifications/yard-0.7.5.gemspec
