@@ -1,7 +1,7 @@
 g=$1
 if [ ! -z "$2" ]
 then
-      v="-v '$2'"
+      v="-v $2"
 fi
 cd ~/rpmbuild/SOURCES
 gem fetch $g $v
