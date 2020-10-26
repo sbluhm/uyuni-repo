@@ -30,7 +30,6 @@ Requires: rubygem-hoe < 3
 BuildRequires: ruby >= 1.8.7
 BuildRequires: rubygems >= 2.7.6.2
 BuildRequires: ruby-devel
-BuildArch: noarch
 Provides: ruby(bluecloth) = %{version}
 
 %define gemdir /usr/share/gems
@@ -75,11 +74,15 @@ gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 mkdir -p %{buildroot}/%{_bindir}
 mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
+mkdir -p %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
+mv %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/*.so %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
+rm -f %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/*
 
 %clean
 %{__rm} -rf %{buildroot}
 
 %files
+%{_libdir}/gems/ruby/%{rbname}-%{version}/
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
 %{_bindir}/bluecloth
