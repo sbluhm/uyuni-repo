@@ -1,0 +1,8 @@
+g=$1
+echo test
+echo $g
+mkdir ~/git/uyuni-repo/spec-files/rubygem-$g
+scp root@dev2:~/rpmbuild/SOURCES/"$g"*.gem ~/git/uyuni-repo/spec-files/rubygem-$g && scp root@dev2:~/rpmbuild/SPECS/rubygem-$g.spec ~/git/uyuni-repo/spec-files/rubygem-$g
+git add ~/git/uyuni-repo/spec-files/rubygem-$g/*; git commit -m "rubygem-$g: Added"
+copr-cli add-package-scm --clone-url https://github.com/sbluhm/uyuni-repo --name rubygem-$g sbluhm/uyuni-server --subdir spec-files/rubygem-$g --webhook-rebuild on
+git push
