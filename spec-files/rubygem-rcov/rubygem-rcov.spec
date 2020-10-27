@@ -16,8 +16,8 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby 
 Requires: rubygems >= 2.7.6.2
 BuildRequires: ruby 
+BuildRequires: ruby-devel
 BuildRequires: rubygems >= 2.7.6.2
-BuildArch: noarch
 Provides: ruby(rcov) = %{version}
 
 %define gemdir /usr/share/gems
@@ -51,74 +51,7 @@ mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{_bindir}/rcov
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-%{gemdir}/gems/rcov-0.9.11/
-
-
+%{_bindir}/
 %{gemdir}/cache/rcov-0.9.11.gem
 %{gemdir}/specifications/rcov-0.9.11.gemspec
 
