@@ -3,6 +3,9 @@
 %define version 2.2.0
 %define release 1
 
+%global debug_package %{nil}
+
+
 Summary: BlueCloth is a Ruby implementation of John Gruber's Markdown[http://daringfireball.net/projects/markdown/], a text-to-HTML conversion tool for web writers
 Name: rubygem-%{rbname}
 
