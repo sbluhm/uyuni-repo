@@ -2,6 +2,7 @@
 %define rbname simplecov
 %define version 0.19.1
 %define release 1
+%global debug_package %{nil}
 
 Summary: Code coverage for Ruby
 Name: rubygem-%{rbname}
