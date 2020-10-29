@@ -2,6 +2,7 @@
 %define rbname rdiscount
 %define version 1.6.8
 %define release 1
+%global debug_package %{nil}
 
 Summary: Fast Implementation of Gruber's Markdown in C
 Name: rubygem-%{rbname}
@@ -26,7 +27,6 @@ Provides: ruby(rdiscount) = %{version}
 %description
 Fast Implementation of Gruber's Markdown in C.
 
-
 %prep
 %setup -T -c
 
@@ -48,43 +48,6 @@ mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 %defattr(-, root, root)
 %{_bindir}/rdiscount
 %{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-%{gemdir}/gems/rdiscount-1.6.8/
-
 
 %{gemdir}/cache/rdiscount-1.6.8.gem
 %{gemdir}/specifications/rdiscount-1.6.8.gemspec
