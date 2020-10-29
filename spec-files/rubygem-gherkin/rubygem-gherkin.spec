@@ -31,7 +31,6 @@ Requires: rubygem-builder >= 2.1.2
 BuildRequires: ruby 
 BuildRequires: ruby-devel
 BuildRequires: rubygems >= 2.7.6.2
-BuildArch: noarch
 Provides: ruby(gherkin) = %{version}
 
 %define gemdir /usr/share/gems
