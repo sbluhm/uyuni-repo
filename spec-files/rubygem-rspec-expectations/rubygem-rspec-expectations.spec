@@ -1,9 +1,9 @@
-# Generated from rspec-expectations-2.8.0.gem by gem2rpm -*- rpm-spec -*-
+# Generated from rspec-expectations-2.7.0.gem by gem2rpm -*- rpm-spec -*-
 %define rbname rspec-expectations
-%define version 2.8.0
+%define version 2.7.0
 %define release 1
 
-Summary: rspec-expectations-2.8.0
+Summary: rspec-expectations-2.7.0
 Name: rubygem-%{rbname}
 
 Version: %{version}
@@ -28,7 +28,6 @@ Provides: ruby(rspec-expectations) = %{version}
 %description
 rspec expectations (should[_not] and matchers).
 
-
 %prep
 %setup -T -c
 
@@ -46,121 +45,9 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
-%{gemdir}/gems/rspec-expectations-2.8.0/
+%{gemdir}/gems/rspec-expectations-2.7.0/
 
-
-%{gemdir}/cache/rspec-expectations-2.8.0.gem
-%{gemdir}/specifications/rspec-expectations-2.8.0.gemspec
+%{gemdir}/cache/rspec-expectations-2.7.0.gem
+%{gemdir}/specifications/rspec-expectations-2.7.0.gemspec
 
 %changelog
