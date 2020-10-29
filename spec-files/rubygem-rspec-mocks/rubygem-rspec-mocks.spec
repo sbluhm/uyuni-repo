@@ -1,9 +1,9 @@
-# Generated from rspec-mocks-2.8.0.gem by gem2rpm -*- rpm-spec -*-
+# Generated from rspec-mocks-2.7.0.gem by gem2rpm -*- rpm-spec -*-
 %define rbname rspec-mocks
-%define version 2.8.0
+%define version 2.7.0
 %define release 1
 
-Summary: rspec-mocks-2.8.0
+Summary: rspec-mocks-2.7.0
 Name: rubygem-%{rbname}
 
 Version: %{version}
@@ -26,7 +26,6 @@ Provides: ruby(rspec-mocks) = %{version}
 %description
 RSpec's 'test double' framework, with support for stubbing and mocking.
 
-
 %prep
 %setup -T -c
 
@@ -44,104 +43,9 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
-%{gemdir}/gems/rspec-mocks-2.8.0/
+%{gemdir}/gems/rspec-mocks-2.7.0/
 
-
-%{gemdir}/cache/rspec-mocks-2.8.0.gem
-%{gemdir}/specifications/rspec-mocks-2.8.0.gemspec
+%{gemdir}/cache/rspec-mocks-2.7.0.gem
+%{gemdir}/specifications/rspec-mocks-2.7.0.gemspec
 
 %changelog
