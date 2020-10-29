@@ -20,3 +20,6 @@ sed -i 's#^gem install --local --install-dir %{gembuilddir} --force %{SOURCE0}#g
 sed -i 's#%{gembuilddir}/bin/*#%{gembuilddir}/gems/%{rbname}-%{version}/bin/*#' ~/rpmbuild/SPECS/rubygem-$g.spec # Replace bin dir
 sed -i '/rmdir %{gembuilddir}\/gems\/%{rbname}-%{version}\/bin\/*/d' ~/rpmbuild/SPECS/rubygem-$g.spec # remove the original rmdir instruction. Not sure why it doesn't actually work as a bin dir exists...
 v=""
+sed -i '/%{gemdir}\/gems\/.*\/path/d' ~/rpmbuild/SPECS/rubygem-$g.spec # remove lines with %{gemdir}/gems/*/path
+sed -i '$!N; /^\(.*\)\n\1$/!P; D' ~/rpmbuild/SPECS/rubygem-$g.spec # remove consecutive duplicate lines
+
