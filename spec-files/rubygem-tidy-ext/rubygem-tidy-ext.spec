@@ -16,6 +16,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby 
 Requires: rubygems >= 2.7.6.2
 BuildRequires: ruby 
+BuildRequires: ruby-devel
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(tidy-ext) = %{version}
