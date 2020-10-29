@@ -2,6 +2,7 @@
 %define rbname gherkin
 %define version 2.9.3
 %define release 1
+%global debug_package %{nil}
 
 Summary: gherkin-2.9.3
 Name: rubygem-%{rbname}
