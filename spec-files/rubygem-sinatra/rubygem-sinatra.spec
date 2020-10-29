@@ -34,7 +34,6 @@ Provides: ruby(sinatra) = %{version}
 Sinatra is a DSL for quickly creating web applications in Ruby with minimal
 effort.
 
-
 %prep
 %setup -T -c
 
@@ -53,42 +52,6 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
 %{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-%{gemdir}/gems/sinatra-2.1.0/
-
 
 %{gemdir}/cache/sinatra-2.1.0.gem
 %{gemdir}/specifications/sinatra-2.1.0.gemspec
