@@ -36,8 +36,9 @@ BDD for Ruby. RSpec runner and example groups.
 mkdir -p %{gembuilddir}
 gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
-mkdir -p %{buildroot}/%{_bindir}
-mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
+mkdir -p %{buildroot}%{_bindir}
+mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/* %{buildroot}%{_bindir}
+
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -45,8 +46,7 @@ mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{_bindir}/autospec
-%{_bindir}/rspec
+%{_bindir}/
 %{gemdir}/gems/rspec-core-2.7.1/
 
 %{gemdir}/cache/rspec-core-2.7.1.gem
