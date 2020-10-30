@@ -34,6 +34,7 @@ BuildRequires: ruby >= 1.8.7
 BuildRequires: rubygems >= 2.7.6.2
 BuildRequires: ruby-devel
 Provides: ruby(bluecloth) = %{version}
+Provides: rubygem-tidy-ext = 0.9.9
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}
