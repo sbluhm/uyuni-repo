@@ -39,7 +39,7 @@ Requires: rubygem-tagz
 Requires: rubygem-tenjin 
 Requires: rubygem-yard 
 Requires: rubygem-lokar 
-Requires: rubygem-localmemcache 
+#Requires: rubygem-localmemcache 
 Requires: rubygem-nokogiri 
 Requires: rubygem-rdiscount 
 Requires: rubygem-sqlite3 
@@ -48,6 +48,7 @@ BuildRequires: ruby
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(ramaze) = %{version}
+Provides: rubygem-localmemcache
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}
