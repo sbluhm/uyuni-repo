@@ -1,6 +1,6 @@
-# Generated from hoe-mercurial-1.3.1.gem by gem2rpm -*- rpm-spec -*-
+# Generated from hoe-mercurial-1.2.2.gem by gem2rpm -*- rpm-spec -*-
 %define rbname hoe-mercurial
-%define version 1.3.1
+%define version 1.2.2
 %define release 1
 
 Summary: This is a fork of the [hoe-hg](https://bitbucket.org/mml/hoe-hg)  plugin
@@ -17,8 +17,6 @@ Requires: ruby
 Requires: rubygems >= 2.7.6.2
 Requires: rubygem-hoe >= 2.12
 Requires: rubygem-hoe < 3
-Requires: rubygem-hoe-highline >= 0.0.1
-Requires: rubygem-hoe-highline < 0.1
 Requires: rubygem-hoe >= 2.12
 Requires: rubygem-hoe < 3
 BuildRequires: ruby 
@@ -54,9 +52,9 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/hoe-mercurial-1.3.1/
+%{gemdir}/gems/hoe-mercurial-1.2.2/
 
-%{gemdir}/cache/hoe-mercurial-1.3.1.gem
-%{gemdir}/specifications/hoe-mercurial-1.3.1.gemspec
+%{gemdir}/cache/hoe-mercurial-1.2.2.gem
+%{gemdir}/specifications/hoe-mercurial-1.2.2.gemspec
 
 %changelog
