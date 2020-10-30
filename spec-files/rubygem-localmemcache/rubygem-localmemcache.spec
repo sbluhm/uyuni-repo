@@ -17,8 +17,7 @@ Requires: ruby
 Requires: rubygems >= 2.7.6.2
 BuildRequires: ruby
 BuildRequires: ruby-devel 
-BuildRequires: ruby
-BuildRequires: ruby-develgems >= 2.7.6.2
+BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(localmemcache) = %{version}
 
