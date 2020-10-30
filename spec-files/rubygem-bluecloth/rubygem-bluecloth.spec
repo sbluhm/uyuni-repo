@@ -22,8 +22,8 @@ Requires: rubygem-hoe-mercurial >= 1.3.1
 Requires: rubygem-hoe-mercurial < 1.4
 Requires: rubygem-hoe-highline >= 0.0.1
 Requires: rubygem-hoe-highline < 0.1
-Requires: rubygem-tidy-ext >= 0.1
-Requires: rubygem-tidy-ext < 1
+#Requires: rubygem-tidy-ext >= 0.1
+#Requires: rubygem-tidy-ext < 1
 Requires: rubygem-rake-compiler >= 0.7
 Requires: rubygem-rake-compiler < 1
 Requires: rubygem-rspec >= 2.6
