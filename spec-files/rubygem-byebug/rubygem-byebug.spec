@@ -51,7 +51,7 @@ mkdir -p %{buildroot}/%{_bindir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{_bindir}/byebug
+%{_bindir}/
 %{gemdir}/gems/byebug-11.1.3/
 
 %{gemdir}/cache/byebug-11.1.3.gem
