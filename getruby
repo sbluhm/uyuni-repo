@@ -1,7 +1,8 @@
-g=$1
+g=`echo $1 | sed 's/^rubygem-//'`
 if [ ! -z "$2" ]
 then
-      v="-v $2"
+      cleaned=`echo $2$3$4$5 | sed 's/ //g'`
+      v="-v $cleaned"
 fi
 cd ~/rpmbuild/SOURCES
 gem fetch $g $v

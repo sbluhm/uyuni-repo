@@ -1,4 +1,4 @@
-g=$1
+g=echo $1 | sed 's/^rubygem-//'
 echo test
 echo $g
 mkdir ~/git/uyuni-repo/spec-files/rubygem-$g
