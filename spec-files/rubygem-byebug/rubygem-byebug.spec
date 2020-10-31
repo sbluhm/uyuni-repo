@@ -18,6 +18,7 @@ Requires: rubygems >= 2.7.6.2
 Requires: rubygem-bundler >= 2.0
 Requires: rubygem-bundler < 3
 BuildRequires: ruby >= 2.4.0
+BuildRequires: ruby-devel
 BuildRequires: rubygems >= 2.7.6.2
 Provides: ruby(byebug) = %{version}
 
