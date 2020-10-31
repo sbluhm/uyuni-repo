@@ -19,8 +19,8 @@ Requires: rubygem-ref
 Requires: rubygem-libv8 >= 3.16.14.15
 Requires: rubygem-libv8 < 3.16.15
 BuildRequires: ruby 
+BuildRequires: ruby-devel
 BuildRequires: rubygems >= 2.7.6.2
-BuildArch: noarch
 Provides: ruby(therubyracer) = %{version}
 
 %define gemdir /usr/share/gems
