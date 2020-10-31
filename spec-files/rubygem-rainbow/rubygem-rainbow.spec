@@ -20,6 +20,7 @@ Requires: rubygem-bundler >= 1.3
 Requires: rubygem-bundler < 2
 BuildRequires: ruby >= 1.9.2
 BuildRequires: rubygems >= 2.7.6.2
+BuildRequires: rubygem-rake
 BuildArch: noarch
 Provides: ruby(rainbow) = %{version}
 
