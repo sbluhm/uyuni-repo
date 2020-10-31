@@ -2,6 +2,7 @@
 %define rbname puma
 %define version 5.0.4
 %define release 1
+%global debug_package %{nil}
 
 Summary: Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications
 Name: rubygem-%{rbname}
