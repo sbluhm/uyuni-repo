@@ -1,9 +1,9 @@
-# Generated from therubyracer-0.12.3.gem by gem2rpm -*- rpm-spec -*-
+# Generated from therubyracer-0.9.10.gem by gem2rpm -*- rpm-spec -*-
 %define rbname therubyracer
-%define version 0.12.3
+%define version 0.9.10
 %define release 1
 
-Summary: Embed the V8 JavaScript interpreter into Ruby
+Summary: Embed the V8 Javascript interpreter into Ruby
 Name: rubygem-%{rbname}
 
 Version: %{version}
@@ -15,20 +15,23 @@ Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby 
 Requires: rubygems >= 2.7.6.2
-Requires: rubygem-ref 
-Requires: rubygem-libv8 >= 3.16.14.15
-Requires: rubygem-libv8 < 3.16.15
+Requires: rubygem-libv8 >= 3.3.10
+Requires: rubygem-libv8 < 3.4
+Requires: rubygem-rake 
+Requires: rubygem-rspec >= 2.0
+Requires: rubygem-rspec < 3
+Requires: rubygem-rake-compiler 
 BuildRequires: ruby 
-BuildRequires: ruby-devel
 BuildRequires: rubygems >= 2.7.6.2
+BuildArch: noarch
 Provides: ruby(therubyracer) = %{version}
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}
 
 %description
-Call JavaScript code and manipulate JavaScript objects from Ruby. Call Ruby
-code and manipulate Ruby objects from JavaScript.
+Call javascript code and manipulate javascript objects from ruby. Call ruby
+code and manipulate ruby objects from javascript.
 
 %prep
 %setup -T -c
@@ -40,6 +43,8 @@ code and manipulate Ruby objects from JavaScript.
 mkdir -p %{gembuilddir}
 gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
+mkdir -p %{buildroot}/%{_bindir}
+mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -47,9 +52,10 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/therubyracer-0.12.3/
+%{_bindir}/therubyracer
+%{gemdir}/gems/therubyracer-0.9.10/
 
-%{gemdir}/cache/therubyracer-0.12.3.gem
-%{gemdir}/specifications/therubyracer-0.12.3.gemspec
+%{gemdir}/cache/therubyracer-0.9.10.gem
+%{gemdir}/specifications/therubyracer-0.9.10.gemspec
 
 %changelog
