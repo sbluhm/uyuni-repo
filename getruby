@@ -24,7 +24,7 @@ sed -i '/%{gemdir}\/gems\/.*\/path/d' ~/rpmbuild/SPECS/rubygem-$g.spec # remove 
 sed -i '$!N; /^\(.*\)\n\1$/!P; D' ~/rpmbuild/SPECS/rubygem-$g.spec # remove consecutive duplicate lines
 if (( `gem specification ~/rpmbuild/SOURCES/$g*.gem | grep '\.c$' | wc -l ` > 0 ))
 then
-sed -i 's/^BuildRequires: ruby$/BuildRequires: ruby\nBuildRequires: ruby-devel/' ~/rpmbuild/SPECS/rubygem-$g.spec # Add ruby-devel
+sed -i '/^BuildRequires: ruby\b/a BuildRequires: ruby-devel' ~/rpmbuild/SPECS/rubygem-$g.spec # Add ruby-devel after BuildRequires: ruby
 sed -i /'BuildArch: noarch'/d ~/rpmbuild/SPECS/rubygem-$g.spec
 fi
 
