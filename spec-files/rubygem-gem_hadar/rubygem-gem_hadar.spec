@@ -1,6 +1,6 @@
-# Generated from gem_hadar-1.9.1.gem by gem2rpm -*- rpm-spec -*-
+# Generated from gem_hadar-1.11.0.gem by gem2rpm -*- rpm-spec -*-
 %define rbname gem_hadar
-%define version 1.9.1
+%define version 1.11.0
 %define release 1
 
 Summary: Library for the development of Ruby Gems
@@ -15,8 +15,8 @@ Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby 
 Requires: rubygems >= 2.7.6.2
-Requires: rubygem-gem_hadar >= 1.9.1
-Requires: rubygem-gem_hadar < 1.10
+Requires: rubygem-gem_hadar >= 1.11.0
+Requires: rubygem-gem_hadar < 1.12
 Requires: rubygem-tins >= 1.0
 Requires: rubygem-tins < 2
 Requires: rubygem-rake 
@@ -50,9 +50,9 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/gem_hadar-1.9.1/
+%{gemdir}/gems/gem_hadar-1.11.0/
 
-%{gemdir}/cache/gem_hadar-1.9.1.gem
-%{gemdir}/specifications/gem_hadar-1.9.1.gemspec
+%{gemdir}/cache/gem_hadar-1.11.0.gem
+%{gemdir}/specifications/gem_hadar-1.11.0.gemspec
 
 %changelog
