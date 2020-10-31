@@ -45,7 +45,7 @@ gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 mkdir -p %{buildroot}/%{_bindir}
 mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
-sed  '1 s/..\/..\/bin\/rackup\b/\/usr\/share\/gems\/gems\/rack-1.6.13\/test\/bin\/rackup/' ./usr/share/gems/gems/rack-1.6.13/test/cgi/test.ru
+sed  '1 s/..\/..\/bin\/rackup\b/\/usr\/share\/gems\/gems\/rack-1.6.13\/test\/bin\/rackup/' %{buildroot}/usr/share/gems/gems/rack-1.6.13/test/cgi/test.ru
 
 %clean
 %{__rm} -rf %{buildroot}
