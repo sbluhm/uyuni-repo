@@ -24,7 +24,7 @@ Requires: rubygem-bundler >= 1.1.0
 Requires: rubygem-rspec >= 2.9.0
 Requires: rubygem-rspec < 2.10
 Requires: rubygem-rubyzip >= 0.9.6.1
-Requires: rubygem-therubyracer >= 0.9.10
+Requires: rubygem-therubyracer # >= 0.9.10 # Commented out as workaround
 Requires: rubygem-yard >= 0.7.5
 Requires: rubygem-rdiscount >= 1.6.8
 Requires: rubygem-term-ansicolor >= 1.0.6
