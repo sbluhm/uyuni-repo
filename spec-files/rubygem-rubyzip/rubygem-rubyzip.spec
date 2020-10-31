@@ -1,6 +1,6 @@
-# Generated from rubyzip-2.3.0.gem by gem2rpm -*- rpm-spec -*-
+# Generated from rubyzip-0.9.6.1.gem by gem2rpm -*- rpm-spec -*-
 %define rbname rubyzip
-%define version 2.3.0
+%define version 0.9.6.1
 %define release 1
 
 Summary: rubyzip is a ruby module for reading and writing zip files
@@ -10,23 +10,12 @@ Version: %{version}
 Release: %{release}
 Group: Development/Ruby
 License: Distributable
-URL: http://github.com/rubyzip/rubyzip
+URL: http://github.com/aussiegeek/rubyzip
 Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: ruby >= 2.4
+Requires: ruby >= 1.8.7
 Requires: rubygems >= 2.7.6.2
-Requires: rubygem-coveralls >= 0.7
-Requires: rubygem-coveralls < 1
-Requires: rubygem-minitest >= 5.4
-Requires: rubygem-minitest < 6
-Requires: rubygem-pry >= 0.10
-Requires: rubygem-pry < 1
-Requires: rubygem-rake >= 12.3
-Requires: rubygem-rake < 13
-Requires: rubygem-rake >= 12.3.3
-Requires: rubygem-rubocop >= 0.79
-Requires: rubygem-rubocop < 1
-BuildRequires: ruby >= 2.4
+BuildRequires: ruby >= 1.8.7
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(rubyzip) = %{version}
@@ -54,9 +43,9 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/rubyzip-2.3.0/
+%{gemdir}/gems/rubyzip-0.9.6.1/
 
-%{gemdir}/cache/rubyzip-2.3.0.gem
-%{gemdir}/specifications/rubyzip-2.3.0.gemspec
+%{gemdir}/cache/rubyzip-0.9.6.1.gem
+%{gemdir}/specifications/rubyzip-0.9.6.1.gemspec
 
 %changelog
