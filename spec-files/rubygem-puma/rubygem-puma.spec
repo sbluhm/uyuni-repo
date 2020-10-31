@@ -46,8 +46,8 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 mkdir -p %{buildroot}/%{_bindir}
 mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 mkdir -p %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
-#mv %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/*.so %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
-#rm -f %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/*
+mv %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/puma/*.so %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
+rm -f %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/*
 
 %clean
 %{__rm} -rf %{buildroot}
