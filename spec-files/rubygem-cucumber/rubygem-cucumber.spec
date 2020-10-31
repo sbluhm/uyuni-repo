@@ -1,51 +1,90 @@
-# Generated from cucumber-1.1.9.gem by gem2rpm -*- rpm-spec -*-
+# Generated from cucumber-5.2.0.gem by gem2rpm -*- rpm-spec -*-
 %define rbname cucumber
-%define version 1.1.9
+%define version 5.2.0
 %define release 1
 
-Summary: cucumber-1.1.9
+Summary: cucumber-5.2.0
 Name: rubygem-%{rbname}
 
 Version: %{version}
 Release: %{release}
 Group: Development/Ruby
 License: Distributable
-URL: http://cukes.info
+URL: https://cucumber.io/
 Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: ruby 
+Requires: ruby >= 2.5
 Requires: rubygems >= 2.7.6.2
-Requires: rubygem-gherkin >= 2.9.0
-Requires: rubygem-gherkin < 2.10
-Requires: rubygem-term-ansicolor >= 1.0.6
-Requires: rubygem-builder >= 2.1.2
-Requires: rubygem-diff-lcs >= 1.1.2
-Requires: rubygem-json >= 1.4.6
-Requires: rubygem-aruba >= 0.4.11
-Requires: rubygem-aruba < 0.5
-Requires: rubygem-rake >= 0.9.2
-Requires: rubygem-rspec >= 2.7.0
-Requires: rubygem-rspec < 2.8
-Requires: rubygem-nokogiri >= 1.5.0
-Requires: rubygem-prawn >= 0.8.4
-Requires: rubygem-prawn < 0.9
-Requires: rubygem-prawn-layout >= 0.8.4
-Requires: rubygem-prawn-layout < 0.9
-Requires: rubygem-syntax >= 1.0.0
-Requires: rubygem-spork >= 0.9.0.rc9
-Requires: rubygem-simplecov >= 0.5.4
-Requires: rubygem-yard >= 0.7.4
-Requires: rubygem-yard < 0.8
-Requires: rubygem-rdiscount >= 1.6.8
-Requires: rubygem-rdiscount < 1.7
-Requires: rubygem-bcat >= 0.6.2
-Requires: rubygem-bcat < 0.7
-Requires: rubygem-ramaze 
-Requires: rubygem-rack-test >= 0.6.1
-Requires: rubygem-webrat >= 0.7.3
-Requires: rubygem-sinatra >= 1.3.1
-Requires: rubygem-capybara >= 1.1.1
-BuildRequires: ruby 
+Requires: rubygem-builder >= 3.2
+Requires: rubygem-builder < 4
+Requires: rubygem-builder >= 3.2.4
+Requires: rubygem-cucumber-core >= 8.0
+Requires: rubygem-cucumber-core < 9
+Requires: rubygem-cucumber-core >= 8.0.1
+Requires: rubygem-cucumber-create-meta >= 2.0
+Requires: rubygem-cucumber-create-meta < 3
+Requires: rubygem-cucumber-create-meta >= 2.0.2
+Requires: rubygem-cucumber-cucumber-expressions >= 10.3
+Requires: rubygem-cucumber-cucumber-expressions < 11
+Requires: rubygem-cucumber-cucumber-expressions >= 10.3.0
+Requires: rubygem-cucumber-gherkin >= 15.0
+Requires: rubygem-cucumber-gherkin < 16
+Requires: rubygem-cucumber-gherkin >= 15.0.2
+Requires: rubygem-cucumber-html-formatter >= 9.0
+Requires: rubygem-cucumber-html-formatter < 10
+Requires: rubygem-cucumber-html-formatter >= 9.0.0
+Requires: rubygem-cucumber-messages >= 13.1
+Requires: rubygem-cucumber-messages < 14
+Requires: rubygem-cucumber-messages >= 13.1.0
+Requires: rubygem-cucumber-wire >= 4.0
+Requires: rubygem-cucumber-wire < 5
+Requires: rubygem-cucumber-wire >= 4.0.1
+Requires: rubygem-diff-lcs >= 1.4
+Requires: rubygem-diff-lcs < 2
+Requires: rubygem-diff-lcs >= 1.4.4
+Requires: rubygem-multi_test >= 0.1
+Requires: rubygem-multi_test < 1
+Requires: rubygem-multi_test >= 0.1.2
+Requires: rubygem-sys-uname >= 1.2
+Requires: rubygem-sys-uname < 2
+Requires: rubygem-sys-uname >= 1.2.1
+Requires: rubygem-nokogiri >= 1.10
+Requires: rubygem-nokogiri < 2
+Requires: rubygem-nokogiri >= 1.10.10
+Requires: rubygem-pry >= 0.13
+Requires: rubygem-pry < 1
+Requires: rubygem-pry >= 0.13.1
+Requires: rubygem-rake >= 13.0
+Requires: rubygem-rake < 14
+Requires: rubygem-rake >= 13.0.1
+Requires: rubygem-rspec >= 3.9
+Requires: rubygem-rspec < 4
+Requires: rubygem-rspec >= 3.9.0
+Requires: rubygem-simplecov >= 0.19
+Requires: rubygem-simplecov < 1
+Requires: rubygem-simplecov >= 0.19.0
+Requires: rubygem-syntax >= 1.2
+Requires: rubygem-syntax < 2
+Requires: rubygem-syntax >= 1.2.2
+Requires: rubygem-test-unit >= 3.3
+Requires: rubygem-test-unit < 4
+Requires: rubygem-test-unit >= 3.3.6
+Requires: rubygem-webrick >= 1.6
+Requires: rubygem-webrick < 2
+Requires: rubygem-webrick >= 1.6.1
+Requires: rubygem-octokit >= 4.19
+Requires: rubygem-octokit < 5
+Requires: rubygem-octokit >= 4.19.0
+Requires: rubygem-rack-test >= 1.1
+Requires: rubygem-rack-test < 2
+Requires: rubygem-rack-test >= 1.1.0
+Requires: rubygem-sinatra >= 2.1
+Requires: rubygem-sinatra < 3
+Requires: rubygem-sinatra >= 2.1.0
+Requires: rubygem-capybara >= 3.33
+Requires: rubygem-capybara < 4
+Requires: rubygem-capybara >= 3.33.0
+BuildRequires: ruby >= 2.5
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(cucumber) = %{version}
@@ -55,7 +94,6 @@ Provides: ruby(cucumber) = %{version}
 
 %description
 Behaviour Driven Development with elegance and joy.
-
 
 %prep
 %setup -T -c
@@ -77,561 +115,9 @@ mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
 %{_bindir}/cucumber
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
-%{gemdir}/gems/cucumber-1.1.9/
+%{gemdir}/gems/cucumber-5.2.0/
 
-
-%{gemdir}/cache/cucumber-1.1.9.gem
-%{gemdir}/specifications/cucumber-1.1.9.gemspec
+%{gemdir}/cache/cucumber-5.2.0.gem
+%{gemdir}/specifications/cucumber-5.2.0.gemspec
 
 %changelog
