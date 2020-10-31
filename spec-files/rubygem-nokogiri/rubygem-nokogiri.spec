@@ -44,6 +44,7 @@ Requires: rubygem-hoe < 4
 BuildRequires: ruby >= 1.9.2
 BuildRequires: ruby-devel
 BuildRequires: rubygems >= 2.7.6.2
+BuildRequires: rubygem-mini_portile2
 Provides: ruby(nokogiri) = %{version}
 
 %define gemdir /usr/share/gems
