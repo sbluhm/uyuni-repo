@@ -1,6 +1,6 @@
-# Generated from rainbow-3.0.0.gem by gem2rpm -*- rpm-spec -*-
+# Generated from rainbow-2.2.2.gem by gem2rpm -*- rpm-spec -*-
 %define rbname rainbow
-%define version 3.0.0
+%define version 2.2.2
 %define release 1
 
 Summary: Colorize printed text on ANSI terminals
@@ -13,11 +13,12 @@ License: Distributable
 URL: https://github.com/sickill/rainbow
 Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: ruby >= 2.1.0
+Requires: ruby >= 1.9.2
 Requires: rubygems >= 2.7.6.2
+Requires: rubygem-rake 
 Requires: rubygem-bundler >= 1.3
 Requires: rubygem-bundler < 2
-BuildRequires: ruby >= 2.1.0
+BuildRequires: ruby >= 1.9.2
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(rainbow) = %{version}
@@ -45,9 +46,9 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/rainbow-3.0.0/
+%{gemdir}/gems/rainbow-2.2.2/
 
-%{gemdir}/cache/rainbow-3.0.0.gem
-%{gemdir}/specifications/rainbow-3.0.0.gemspec
+%{gemdir}/cache/rainbow-2.2.2.gem
+%{gemdir}/specifications/rainbow-2.2.2.gemspec
 
 %changelog
