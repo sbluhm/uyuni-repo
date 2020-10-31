@@ -1,6 +1,6 @@
-# Generated from minitest-2.12.1.gem by gem2rpm -*- rpm-spec -*-
+# Generated from minitest-5.8.5.gem by gem2rpm -*- rpm-spec -*-
 %define rbname minitest
-%define version 2.12.1
+%define version 5.8.5
 %define release 1
 
 Summary: minitest provides a complete suite of testing facilities supporting TDD, BDD, mocking, and benchmarking
@@ -12,13 +12,12 @@ Group: Development/Ruby
 License: Distributable
 URL: https://github.com/seattlerb/minitest
 Source0: %{rbname}-%{version}.gem
-# Make sure the spec template is included in the SRPM
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby 
 Requires: rubygems >= 2.7.6.2
-Requires: rubygem-rdoc >= 3.10
-Requires: rubygem-rdoc < 4
-Requires: rubygem-hoe >= 3.0
+Requires: rubygem-rdoc >= 4.0
+Requires: rubygem-rdoc < 5
+Requires: rubygem-hoe >= 3.15
 Requires: rubygem-hoe < 4
 BuildRequires: ruby 
 BuildRequires: rubygems >= 2.7.6.2
@@ -49,8 +48,8 @@ minitest/benchmark is an awesome way to assert the performance of your
 algorithms in a repeatable manner. Now you can assert that your newb
 co-worker doesn't replace your linear algorithm with an exponential
 one!
-minitest/mock by Steven Baker, is a beautifully tiny mock object
-framework.
+minitest/mock by Steven Baker, is a beautifully tiny mock (and stub)
+object framework.
 minitest/pride shows pride in testing and adds coloring to your test
 output. I guess it is an example of how to write IO pipes too. :P
 minitest/unit is meant to have a clean implementation for language
@@ -59,8 +58,14 @@ test suite. For example, there is no magic involved for test-case
 discovery.
 "Again, I can't praise enough the idea of a testing/specing
 framework that I can actually read in full in one sitting!"
--- Piotr Szotkowski.
-
+-- Piotr Szotkowski
+Comparing to rspec:
+rspec is a testing DSL. minitest is ruby.
+-- Adam Hawkins, "Bow Before MiniTest"
+minitest doesn't reinvent anything that ruby already provides, like:
+classes, modules, inheritance, methods. This means you only have to
+learn ruby to use minitest and all of your regular OO practices like
+extract-method refactorings still apply.
 
 %prep
 %setup -T -c
@@ -79,28 +84,9 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
-%{gemdir}/gems/minitest-2.12.1/
+%{gemdir}/gems/minitest-5.8.5/
 
-
-%{gemdir}/cache/minitest-2.12.1.gem
-%{gemdir}/specifications/minitest-2.12.1.gemspec
+%{gemdir}/cache/minitest-5.8.5.gem
+%{gemdir}/specifications/minitest-5.8.5.gemspec
 
 %changelog
