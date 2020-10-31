@@ -34,7 +34,6 @@ Requires: rubygem-yard >= 0.9.11
 Requires: rubygem-yard < 0.10
 BuildRequires: ruby >= 2.3
 BuildRequires: rubygems >= 2.7.6.2
-BuildArch: noarch
 Provides: ruby(selenium-webdriver) = %{version}
 
 %define gemdir /usr/share/gems
