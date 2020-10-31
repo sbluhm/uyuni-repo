@@ -2,6 +2,7 @@
 %define rbname therubyracer
 %define version 0.5.0
 %define release 1
+%global debug_package %{nil}
 
 Summary: Embed the V8 Javascript interpreter into Ruby
 Name: rubygem-%{rbname}
