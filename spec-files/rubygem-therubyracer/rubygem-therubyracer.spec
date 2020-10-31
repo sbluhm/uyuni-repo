@@ -37,6 +37,7 @@ code and manipulate ruby objects from javascript.
 mkdir -p %{gembuilddir}
 gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
+sed -i '1 s/python\b/python3/g' %{buildroot}/* -R
 
 %clean
 %{__rm} -rf %{buildroot}
