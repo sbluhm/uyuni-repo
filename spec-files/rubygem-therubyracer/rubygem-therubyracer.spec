@@ -17,7 +17,6 @@ Requires: ruby
 Requires: rubygems >= 2.7.6.2
 BuildRequires: ruby 
 BuildRequires: rubygems >= 2.7.6.2
-BuildArch: noarch
 Provides: ruby(therubyracer) = %{version}
 
 %define gemdir /usr/share/gems

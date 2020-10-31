@@ -22,7 +22,7 @@ sed -i '/rmdir %{gembuilddir}\/gems\/%{rbname}-%{version}\/bin\/*/d' ~/rpmbuild/
 v=""
 sed -i '/%{gemdir}\/gems\/.*\/path/d' ~/rpmbuild/SPECS/rubygem-$g.spec # remove lines with %{gemdir}/gems/*/path
 sed -i '$!N; /^\(.*\)\n\1$/!P; D' ~/rpmbuild/SPECS/rubygem-$g.spec # remove consecutive duplicate lines
-if (( `gem specification ~/rpmbuild/SOURCES/"$g"*.gem | grep '\.c$' | wc -l ` > 0 ))
+if (( `gem specification ~/rpmbuild/SOURCES/$g*.gem | grep '\.c$' | wc -l ` > 0 ))
 then
 sed -i 's/^BuildRequires: ruby$/BuildRequires: ruby\nBuildRequires: ruby-devel/' ~/rpmbuild/SPECS/rubygem-$g.spec # Add ruby-devel
 fi
