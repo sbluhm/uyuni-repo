@@ -21,11 +21,12 @@ Requires: rubygem-minitest-global_expectations
 Requires: rubygem-minitest-shared_description 
 Requires: rubygem-tzinfo 
 Requires: rubygem-activemodel 
-Requires: rubygem-nokogiri 
+#Requires: rubygem-nokogiri 
 BuildRequires: ruby >= 1.9.2
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(sequel) = %{version}
+Provides rubygem-nokogiri
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}
