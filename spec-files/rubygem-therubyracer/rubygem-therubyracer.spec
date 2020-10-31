@@ -43,7 +43,9 @@ sed -i '1 s/python\b/python3/g' %{gembuilddir}/gems/%{rbname}-%{version}-x86_64-
 %{__rm} -rf %{buildroot}
 
 %files
+%doc %{gemdir}/doc/%{rbname}-%{version}-x86_64-linux/
 %defattr(-, root, root)
+%{gemdir}/gems/therubyracer-0.5.0-x86_64-linux/
 %{gemdir}/cache/therubyracer-0.5.0-x86_64-linux.gem
 %{gemdir}/specifications/therubyracer-0.5.0-x86_64-linux.gemspec
 
