@@ -1,6 +1,6 @@
-# Generated from minitest-hooks-1.5.0.gem by gem2rpm -*- rpm-spec -*-
+# Generated from minitest-hooks-1.4.2.gem by gem2rpm -*- rpm-spec -*-
 %define rbname minitest-hooks
-%define version 1.5.0
+%define version 1.4.2
 %define release 1
 
 Summary: Around and before_all/after_all/around_all hooks for Minitest
@@ -15,7 +15,7 @@ Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby 
 Requires: rubygems >= 2.7.6.2
-Requires: rubygem-minitest > 5.3
+Requires: rubygem-minitest > 5
 Requires: rubygem-sequel > 4
 Requires: rubygem-sqlite3 
 Requires: rubygem-rake 
@@ -53,9 +53,9 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/minitest-hooks-1.5.0/
+%{gemdir}/gems/minitest-hooks-1.4.2/
 
-%{gemdir}/cache/minitest-hooks-1.5.0.gem
-%{gemdir}/specifications/minitest-hooks-1.5.0.gemspec
+%{gemdir}/cache/minitest-hooks-1.4.2.gem
+%{gemdir}/specifications/minitest-hooks-1.4.2.gemspec
 
 %changelog
