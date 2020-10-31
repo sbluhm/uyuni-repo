@@ -22,8 +22,8 @@ Requires: rubygem-rspec >= 2.0
 Requires: rubygem-rspec < 3
 Requires: rubygem-rake-compiler 
 BuildRequires: ruby 
+BuildRequires: ruby-devel
 BuildRequires: rubygems >= 2.7.6.2
-BuildArch: noarch
 Provides: ruby(therubyracer) = %{version}
 
 %define gemdir /usr/share/gems
@@ -52,7 +52,7 @@ mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{_bindir}/therubyracer
+%{_bindir}/
 %{gemdir}/gems/therubyracer-0.9.10/
 
 %{gemdir}/cache/therubyracer-0.9.10.gem
