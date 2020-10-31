@@ -24,7 +24,7 @@ Requires: rubygem-bundler >= 1.1.0
 Requires: rubygem-rspec >= 2.9.0
 Requires: rubygem-rspec < 2.10
 Requires: rubygem-rubyzip >= 0.9.6.1
-Requires: rubygem-therubyracer
+#Requires: rubygem-therubyracer
 # >= 0.9.10 # Commented out as workaround
 Requires: rubygem-yard >= 0.7.5
 Requires: rubygem-rdiscount >= 1.6.8
@@ -34,6 +34,7 @@ BuildRequires: ruby
 BuildRequires: ruby-devel
 BuildRequires: rubygems >= 2.7.6.2
 Provides: ruby(gherkin) = %{version}
+Provides: rubygem-therubyracer
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}
