@@ -2,6 +2,7 @@
 %define rbname selenium-webdriver
 %define version 3.142.7
 %define release 1
+%global debug_package %{nil}
 
 Summary: The next generation developer focused tool for automated testing of webapps
 Name: rubygem-%{rbname}
