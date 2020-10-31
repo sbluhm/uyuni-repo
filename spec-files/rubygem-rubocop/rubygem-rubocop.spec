@@ -60,7 +60,7 @@ mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{_bindir}/rubocop
+%{_bindir}/
 %{gemdir}/gems/rubocop-1.1.0/
 
 %{gemdir}/cache/rubocop-1.1.0.gem
