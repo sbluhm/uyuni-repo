@@ -48,7 +48,7 @@ mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{_bindir}/irb
+%{_bindir}
 %{gemdir}/gems/irb-1.2.7/
 
 %{gemdir}/cache/irb-1.2.7.gem
