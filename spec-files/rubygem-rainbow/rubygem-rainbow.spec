@@ -40,6 +40,7 @@ Colorize printed text on ANSI terminals.
 mkdir -p %{gembuilddir}
 gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
+rm -Rf %{gembuilddir}/extensions/x86_64-linux/2.5.0/rainbow-2.2.2/
 
 %clean
 %{__rm} -rf %{buildroot}
