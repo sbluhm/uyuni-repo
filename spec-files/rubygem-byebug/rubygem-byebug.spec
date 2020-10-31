@@ -2,6 +2,7 @@
 %define rbname byebug
 %define version 11.1.3
 %define release 1
+%global debug_package %{nil}
 
 Summary: Ruby fast debugger - base + CLI
 Name: rubygem-%{rbname}
