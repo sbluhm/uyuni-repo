@@ -1,9 +1,9 @@
-# Generated from rspec-2.7.0.gem by gem2rpm -*- rpm-spec -*-
+# Generated from rspec-3.10.0.gem by gem2rpm -*- rpm-spec -*-
 %define rbname rspec
-%define version 2.7.0
+%define version 3.10.0
 %define release 1
 
-Summary: rspec-2.7.0
+Summary: rspec-3.10.0
 Name: rubygem-%{rbname}
 
 Version: %{version}
@@ -15,12 +15,12 @@ Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby 
 Requires: rubygems >= 2.7.6.2
-Requires: rubygem-rspec-core >= 2.7.0
-Requires: rubygem-rspec-core < 2.8
-Requires: rubygem-rspec-expectations >= 2.7.0
-Requires: rubygem-rspec-expectations < 2.8
-Requires: rubygem-rspec-mocks >= 2.7.0
-Requires: rubygem-rspec-mocks < 2.8
+Requires: rubygem-rspec-core >= 3.10.0
+Requires: rubygem-rspec-core < 3.11
+Requires: rubygem-rspec-expectations >= 3.10.0
+Requires: rubygem-rspec-expectations < 3.11
+Requires: rubygem-rspec-mocks >= 3.10.0
+Requires: rubygem-rspec-mocks < 3.11
 BuildRequires: ruby 
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
@@ -31,7 +31,6 @@ Provides: ruby(rspec) = %{version}
 
 %description
 BDD for Ruby.
-
 
 %prep
 %setup -T -c
@@ -50,18 +49,9 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/rspec-2.7.0/
-%{gemdir}/gems/rspec-2.7.0/
-%{gemdir}/gems/rspec-2.7.0/
-%{gemdir}/gems/rspec-2.7.0/
-%{gemdir}/gems/rspec-2.7.0/
-%{gemdir}/gems/rspec-2.7.0/
-%{gemdir}/gems/rspec-2.7.0/
-%{gemdir}/gems/rspec-2.7.0/
-%{gemdir}/gems/rspec-2.7.0/
+%{gemdir}/gems/rspec-3.10.0/
 
-
-%{gemdir}/cache/rspec-2.7.0.gem
-%{gemdir}/specifications/rspec-2.7.0.gemspec
+%{gemdir}/cache/rspec-3.10.0.gem
+%{gemdir}/specifications/rspec-3.10.0.gemspec
 
 %changelog
