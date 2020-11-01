@@ -47,7 +47,7 @@ See libsigc++20-devel
 #yast2
 %package -n yast2
 Summary:        See Dummy package for yast2
-%description -n No yast2
+%description -n yast2
 No function. Just pretends to provide yast2
 
 
