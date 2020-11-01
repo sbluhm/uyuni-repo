@@ -40,6 +40,9 @@ servers. Inspired by the Java NIO API, but simplified for ease-of-use.
 mkdir -p %{gembuilddir}
 gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
+mkdir -p %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
+mv %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/*.so %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
+rm -Rf %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/*
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -48,7 +51,7 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
 %{gemdir}/gems/nio4r-2.5.4/
-
+%{_libdir}/gems/ruby/%{rbname}-%{version}/
 %{gemdir}/cache/nio4r-2.5.4.gem
 %{gemdir}/specifications/nio4r-2.5.4.gemspec
 
