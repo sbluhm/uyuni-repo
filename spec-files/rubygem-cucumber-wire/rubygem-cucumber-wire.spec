@@ -1,9 +1,9 @@
-# Generated from cucumber-wire-4.0.1.gem by gem2rpm -*- rpm-spec -*-
+# Generated from cucumber-wire-0.0.1.gem by gem2rpm -*- rpm-spec -*-
 %define rbname cucumber-wire
-%define version 4.0.1
+%define version 0.0.1
 %define release 1
 
-Summary: cucumber-wire-4.0.1
+Summary: cucumber-wire-0.0.1
 Name: rubygem-%{rbname}
 
 Version: %{version}
@@ -13,30 +13,17 @@ License: Distributable
 URL: http://cucumber.io
 Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: ruby >= 2.3
+Requires: ruby >= 1.9.3
 Requires: rubygems >= 2.7.6.2
-Requires: rubygem-cucumber-core >= 8.0
-Requires: rubygem-cucumber-core < 9
-Requires: rubygem-cucumber-core >= 8.0.1
-Requires: rubygem-cucumber-cucumber-expressions >= 10.3
-Requires: rubygem-cucumber-cucumber-expressions < 11
-Requires: rubygem-cucumber-cucumber-expressions >= 10.3.0
-Requires: rubygem-cucumber-messages >= 13.0
-Requires: rubygem-cucumber-messages < 14
-Requires: rubygem-cucumber-messages >= 13.0.1
-Requires: rubygem-cucumber >= 4.1
-Requires: rubygem-cucumber < 5
-Requires: rubygem-cucumber >= 4.1.0
-Requires: rubygem-rake >= 13.0
-Requires: rubygem-rake < 14
-Requires: rubygem-rake >= 13.0.1
-Requires: rubygem-rspec >= 3.9
+Requires: rubygem-cucumber >= 2.1.0
+Requires: rubygem-cucumber < 2.2
+Requires: rubygem-bundler >= 1.3.5
+Requires: rubygem-rake >= 0.9.2
+Requires: rubygem-rspec >= 3
 Requires: rubygem-rspec < 4
-Requires: rubygem-rspec >= 3.9.0
-Requires: rubygem-aruba >= 1.0
-Requires: rubygem-aruba < 2
-Requires: rubygem-aruba >= 1.0.2
-BuildRequires: ruby >= 2.3
+Requires: rubygem-aruba 
+Requires: rubygem-aruba < 1
+BuildRequires: ruby >= 1.9.3
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(cucumber-wire) = %{version}
@@ -64,9 +51,9 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/cucumber-wire-4.0.1/
+%{gemdir}/gems/cucumber-wire-0.0.1/
 
-%{gemdir}/cache/cucumber-wire-4.0.1.gem
-%{gemdir}/specifications/cucumber-wire-4.0.1.gemspec
+%{gemdir}/cache/cucumber-wire-0.0.1.gem
+%{gemdir}/specifications/cucumber-wire-0.0.1.gemspec
 
 %changelog
