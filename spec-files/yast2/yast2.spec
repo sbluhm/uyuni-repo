@@ -76,7 +76,7 @@ BuildRequires:  yast2-devtools >= 3.1.10
 BuildRequires:  yast2-pkg-bindings >= 4.3.0
 BuildRequires:  rubygem(yast-rake)
 # for XML module
-BuildRequires:  rubygem(nokogiri)
+#BuildRequires:  rubygem(nokogiri)
 %endif
 # To have Yast::WFM.scr_root
 BuildRequires:  yast2-ruby-bindings >= 3.2.8
