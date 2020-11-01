@@ -2,6 +2,7 @@
 %define rbname ruby-prof
 %define version 0.18.0
 %define release 1
+%global debug_package %{nil}
 
 Summary: Fast Ruby profiler
 Name: rubygem-%{rbname}
