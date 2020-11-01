@@ -45,7 +45,6 @@ own or as a reusable starting point for Web frameworks and testing libraries
 to build on. Most of its initial functionality is an extraction of Merb 1.0's
 request helpers feature.
 
-
 %prep
 %setup -T -c
 
@@ -64,17 +63,6 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
 %{gemdir}/gems/rack-test-1.1.0/
-%{gemdir}/gems/rack-test-1.1.0/
-%{gemdir}/gems/rack-test-1.1.0/
-%{gemdir}/gems/rack-test-1.1.0/
-%{gemdir}/gems/rack-test-1.1.0/
-%{gemdir}/gems/rack-test-1.1.0/
-%{gemdir}/gems/rack-test-1.1.0/
-%{gemdir}/gems/rack-test-1.1.0/
-%{gemdir}/gems/rack-test-1.1.0/
-%{gemdir}/gems/rack-test-1.1.0/
-%{gemdir}/gems/rack-test-1.1.0/
-
 
 %{gemdir}/cache/rack-test-1.1.0.gem
 %{gemdir}/specifications/rack-test-1.1.0.gemspec
