@@ -1,6 +1,6 @@
-# Generated from rubyzip-2.3.0.gem by gem2rpm -*- rpm-spec -*-
+# Generated from rubyzip-1.3.0.gem by gem2rpm -*- rpm-spec -*-
 %define rbname rubyzip
-%define version 2.3.0
+%define version 1.3.0
 %define release 1
 
 Summary: rubyzip is a ruby module for reading and writing zip files
@@ -13,20 +13,19 @@ License: Distributable
 URL: http://github.com/rubyzip/rubyzip
 Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: ruby >= 2.4
+Requires: ruby >= 1.9.2
 Requires: rubygems >= 2.7.6.2
-Requires: rubygem-coveralls >= 0.7
-Requires: rubygem-coveralls < 1
-Requires: rubygem-minitest >= 5.4
-Requires: rubygem-minitest < 6
+Requires: rubygem-rake >= 10.3
+Requires: rubygem-rake < 11
 Requires: rubygem-pry >= 0.10
 Requires: rubygem-pry < 1
-Requires: rubygem-rake >= 12.3
-Requires: rubygem-rake < 13
-Requires: rubygem-rake >= 12.3.3
-Requires: rubygem-rubocop >= 0.79
-Requires: rubygem-rubocop < 1
-BuildRequires: ruby >= 2.4
+Requires: rubygem-minitest >= 5.4
+Requires: rubygem-minitest < 6
+Requires: rubygem-coveralls >= 0.7
+Requires: rubygem-coveralls < 1
+Requires: rubygem-rubocop >= 0.49.1
+Requires: rubygem-rubocop < 0.50
+BuildRequires: ruby >= 1.9.2
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(rubyzip) = %{version}
@@ -54,9 +53,9 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/rubyzip-2.3.0/
+%{gemdir}/gems/rubyzip-1.3.0/
 
-%{gemdir}/cache/rubyzip-2.3.0.gem
-%{gemdir}/specifications/rubyzip-2.3.0.gemspec
+%{gemdir}/cache/rubyzip-1.3.0.gem
+%{gemdir}/specifications/rubyzip-1.3.0.gemspec
 
 %changelog
