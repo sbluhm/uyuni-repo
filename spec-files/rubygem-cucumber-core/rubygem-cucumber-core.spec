@@ -1,45 +1,32 @@
-# Generated from cucumber-core-8.0.1.gem by gem2rpm -*- rpm-spec -*-
+# Generated from cucumber-core-1.4.0.gem by gem2rpm -*- rpm-spec -*-
 %define rbname cucumber-core
-%define version 8.0.1
+%define version 1.4.0
 %define release 1
 
-Summary: cucumber-core-8.0.1
+Summary: cucumber-core-1.4.0
 Name: rubygem-%{rbname}
 
 Version: %{version}
 Release: %{release}
 Group: Development/Ruby
 License: Distributable
-URL: https://cucumber.io
+URL: http://cukes.info
 Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: ruby >= 2.3
+Requires: ruby >= 1.9.3
 Requires: rubygems >= 2.7.6.2
-Requires: rubygem-cucumber-gherkin >= 15.0
-Requires: rubygem-cucumber-gherkin < 16
-Requires: rubygem-cucumber-gherkin >= 15.0.2
-Requires: rubygem-cucumber-messages >= 13.0
-Requires: rubygem-cucumber-messages < 14
-Requires: rubygem-cucumber-messages >= 13.0.1
-Requires: rubygem-cucumber-tag-expressions >= 2.0
-Requires: rubygem-cucumber-tag-expressions < 3
-Requires: rubygem-cucumber-tag-expressions >= 2.0.4
-Requires: rubygem-coveralls >= 0.8
-Requires: rubygem-coveralls < 1
-Requires: rubygem-coveralls >= 0.8.23
-Requires: rubygem-rake >= 13.0
-Requires: rubygem-rake < 14
-Requires: rubygem-rake >= 13.0.1
-Requires: rubygem-rubocop >= 0.89
-Requires: rubygem-rubocop < 1
-Requires: rubygem-rubocop >= 0.89.1
-Requires: rubygem-rspec >= 3.9
+Requires: rubygem-gherkin >= 3.2.0
+Requires: rubygem-gherkin < 3.3
+Requires: rubygem-bundler >= 1.3.5
+Requires: rubygem-rake >= 0.9.2
+Requires: rubygem-rspec >= 3
 Requires: rubygem-rspec < 4
-Requires: rubygem-rspec >= 3.9.0
 Requires: rubygem-unindent >= 1.0
-Requires: rubygem-unindent < 2
-Requires: rubygem-unindent >= 1.0
-BuildRequires: ruby >= 2.3
+Requires: rubygem-kramdown >= 1.4.2
+Requires: rubygem-kramdown < 1.5
+Requires: rubygem-coveralls >= 0.7
+Requires: rubygem-coveralls < 1
+BuildRequires: ruby >= 1.9.3
 BuildRequires: rubygems >= 2.7.6.2
 BuildArch: noarch
 Provides: ruby(cucumber-core) = %{version}
@@ -67,9 +54,9 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/cucumber-core-8.0.1/
+%{gemdir}/gems/cucumber-core-1.4.0/
 
-%{gemdir}/cache/cucumber-core-8.0.1.gem
-%{gemdir}/specifications/cucumber-core-8.0.1.gemspec
+%{gemdir}/cache/cucumber-core-1.4.0.gem
+%{gemdir}/specifications/cucumber-core-1.4.0.gemspec
 
 %changelog
