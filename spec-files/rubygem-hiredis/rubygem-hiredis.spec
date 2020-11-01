@@ -2,6 +2,7 @@
 %define rbname hiredis
 %define version 0.6.3
 %define release 1
+%global debug_package %{nil}
 
 Summary: Ruby wrapper for hiredis (protocol serialization/deserialization and blocking I/O)
 Name: rubygem-%{rbname}
