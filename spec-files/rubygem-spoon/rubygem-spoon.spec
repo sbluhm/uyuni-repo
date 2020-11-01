@@ -10,7 +10,6 @@ Version: %{version}
 Release: %{release}
 Group: Development/Ruby
 License: Distributable
-URL: 
 Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Requires: ruby 
