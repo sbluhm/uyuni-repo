@@ -58,6 +58,8 @@ gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 mkdir -p %{buildroot}/%{_bindir}
 mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
+sed -i  '1 s/#\!\/usr\/bin\/ruby1.8\b/#\!\/usr\/bin\/ruby/' %{buildroot}/usr/share/gems/gems/erector-0.10.0/spec/rails_root/public/*
+
 
 %clean
 %{__rm} -rf %{buildroot}
