@@ -116,7 +116,7 @@ Requires:       rubygem(cfa)
 Requires:       augeas-libs
 # For converting to/from punycode strings
 Requires:       sysconfig >= 0.80.0
-Requires:       rubygem(simpleidn)
+#Requires:       rubygem(simpleidn)
 # for running scripts
 Requires:       rubygem(cheetah)
 # for XML module
