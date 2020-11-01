@@ -2,6 +2,7 @@
 %define rbname ffi
 %define version 1.0.11
 %define release 1
+%global debug_package %{nil}
 
 Summary: Ruby-FFI is a ruby extension for programmatically loading dynamic libraries, binding functions within them, and calling those functions from Ruby code
 Name: rubygem-%{rbname}
