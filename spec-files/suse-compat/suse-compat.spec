@@ -44,6 +44,14 @@ Summary:        See libsigc++20-devel
 %description -n libsigc++2-devel
 See libsigc++20-devel
 
+#yast2
+%package -n yast2
+Summary:        See Dummy package for yast2
+%description -n No yast2
+No function. Just pretends to provide yast2
+
+
 %files
 %files -n libyui13
 %files -n libsigc++2-devel
+%files -n yast2
