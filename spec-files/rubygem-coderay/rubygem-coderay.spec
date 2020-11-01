@@ -1,6 +1,6 @@
-# Generated from coderay-1.1.3.gem by gem2rpm -*- rpm-spec -*-
+# Generated from coderay-1.0.9.gem by gem2rpm -*- rpm-spec -*-
 %define rbname coderay
-%define version 1.1.3
+%define version 1.0.9
 %define release 1
 
 Summary: Fast syntax highlighting for selected languages.
@@ -47,9 +47,9 @@ mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
 %{_bindir}/coderay
-%{gemdir}/gems/coderay-1.1.3/
+%{gemdir}/gems/coderay-1.0.9/
 
-%{gemdir}/cache/coderay-1.1.3.gem
-%{gemdir}/specifications/coderay-1.1.3.gemspec
+%{gemdir}/cache/coderay-1.0.9.gem
+%{gemdir}/specifications/coderay-1.0.9.gemspec
 
 %changelog
