@@ -68,7 +68,7 @@ BuildRequires:  rubygem(cheetah)
 # For running RSpec tests during build
 BuildRequires:  rubygem(rspec)
 # For converting to/from punycode strings
-BuildRequires:  rubygem(simpleidn)
+#BuildRequires:  rubygem(simpleidn)
 # Needed already in build time
 BuildRequires:  yast2-core >= 2.18.12
 BuildRequires:  yast2-devtools >= 3.1.10
