@@ -1,37 +1,46 @@
-# Generated from simplecov-0.19.1.gem by gem2rpm -*- rpm-spec -*-
+# Generated from simplecov-0.17.1.gem by gem2rpm -*- rpm-spec -*-
 %define rbname simplecov
-%define version 0.19.1
+%define version 0.17.1
 %define release 1
-%global debug_package %{nil}
 
-Summary: Code coverage for Ruby
+Summary: Code coverage for Ruby 1.9+ with a powerful configuration library and automatic merging of coverage across test suites
 Name: rubygem-%{rbname}
 
 Version: %{version}
 Release: %{release}
 Group: Development/Ruby
 License: Distributable
-URL: https://github.com/simplecov-ruby/simplecov
+URL: http://github.com/colszowka/simplecov
 Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: ruby >= 2.5.0
+Requires: ruby >= 1.8.7
 Requires: rubygems >= 2.7.6.2
+Requires: rubygem-json >= 1.8
+Requires: rubygem-json < 3
+Requires: rubygem-simplecov-html >= 0.10.0
+Requires: rubygem-simplecov-html < 0.11
 Requires: rubygem-docile >= 1.1
 Requires: rubygem-docile < 2
-Requires: rubygem-simplecov-html >= 0.11
-Requires: rubygem-simplecov-html < 1
-BuildRequires: ruby >= 2.5.0
+Requires: rubygem-bundler 
+Requires: rubygem-rake 
+Requires: rubygem-rspec 
+Requires: rubygem-test-unit 
+Requires: rubygem-cucumber < 3
+Requires: rubygem-aruba 
+Requires: rubygem-capybara < 3
+Requires: rubygem-phantomjs 
+Requires: rubygem-poltergeist 
+BuildRequires: ruby >= 1.8.7
 BuildRequires: rubygems >= 2.7.6.2
+BuildArch: noarch
 Provides: ruby(simplecov) = %{version}
-Provides:	rubygem-rcov
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}
 
 %description
-Code coverage for Ruby with a powerful configuration library and automatic
-merging of coverage across test suites.
-
+Code coverage for Ruby 1.9+ with a powerful configuration library and
+automatic merging of coverage across test suites.
 
 %prep
 %setup -T -c
@@ -50,8 +59,9 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/simplecov-0.19.1/
-%{gemdir}/cache/simplecov-0.19.1.gem
-%{gemdir}/specifications/simplecov-0.19.1.gemspec
+%{gemdir}/gems/simplecov-0.17.1/
+
+%{gemdir}/cache/simplecov-0.17.1.gem
+%{gemdir}/specifications/simplecov-0.17.1.gemspec
 
 %changelog
