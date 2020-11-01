@@ -1,46 +1,42 @@
-# Generated from gherkin-2.9.3.gem by gem2rpm -*- rpm-spec -*-
+# Generated from gherkin-9.0.0.gem by gem2rpm -*- rpm-spec -*-
 %define rbname gherkin
-%define version 2.9.3
+%define version 9.0.0
 %define release 1
-%global debug_package %{nil}
 
-Summary: gherkin-2.9.3
+Summary: gherkin-9.0.0
 Name: rubygem-%{rbname}
 
 Version: %{version}
 Release: %{release}
 Group: Development/Ruby
 License: Distributable
-URL: http://github.com/cucumber/gherkin
+URL: https://github.com/cucumber/gherkin-ruby
 Source0: %{rbname}-%{version}.gem
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
-Requires: ruby 
+Requires: ruby >= 2.3
 Requires: rubygems >= 2.7.6.2
-Requires: rubygem-rake-compiler >= 0.8.0
-Requires: rubygem-json >= 1.4.6
-Requires: rubygem-cucumber >= 1.1.9
-Requires: rubygem-rake >= 0.9.2
-Requires: rubygem-bundler >= 1.1.0
-Requires: rubygem-rspec >= 2.9.0
-Requires: rubygem-rspec < 2.10
-Requires: rubygem-rubyzip >= 0.9.6.1
-#Requires: rubygem-therubyracer
-# >= 0.9.10 # Commented out as workaround
-Requires: rubygem-yard >= 0.7.5
-Requires: rubygem-rdiscount >= 1.6.8
-Requires: rubygem-term-ansicolor >= 1.0.6
-Requires: rubygem-builder >= 2.1.2
-BuildRequires: ruby 
-BuildRequires: ruby-devel
+Requires: rubygem-cucumber-messages >= 8.0
+Requires: rubygem-cucumber-messages < 9
+Requires: rubygem-cucumber-messages >= 8.0.0
+Requires: rubygem-rake >= 13.0
+Requires: rubygem-rake < 14
+Requires: rubygem-rake >= 13.0.1
+Requires: rubygem-rspec >= 3.9
+Requires: rubygem-rspec < 4
+Requires: rubygem-rspec >= 3.9.0
+Requires: rubygem-coveralls >= 0.8
+Requires: rubygem-coveralls < 1
+Requires: rubygem-coveralls >= 0.8.23
+BuildRequires: ruby >= 2.3
 BuildRequires: rubygems >= 2.7.6.2
+BuildArch: noarch
 Provides: ruby(gherkin) = %{version}
-Provides: rubygem-therubyracer
 
 %define gemdir /usr/share/gems
 %define gembuilddir %{buildroot}%{gemdir}
 
 %description
-A fast Gherkin lexer/parser based on the Ragel State Machine Compiler.
+Gherkin parser.
 
 %prep
 %setup -T -c
@@ -52,9 +48,8 @@ A fast Gherkin lexer/parser based on the Ragel State Machine Compiler.
 mkdir -p %{gembuilddir}
 gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
-mkdir -p %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
-mv %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/*.so %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
-rm -f %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/*
+mkdir -p %{buildroot}/%{_bindir}
+mv %{gembuilddir}/gems/%{rbname}-%{version}/bin/** %{buildroot}/%{_bindir}
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -62,9 +57,11 @@ rm -f %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/*
 %files
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
-%{gemdir}/gems/gherkin-2.9.3/
-%{_libdir}/gems/ruby/%{rbname}-%{version}/
-%{gemdir}/cache/gherkin-2.9.3.gem
-%{gemdir}/specifications/gherkin-2.9.3.gemspec
+%{_bindir}/gherkin-ruby
+%{_bindir}/gherkin
+%{gemdir}/gems/gherkin-9.0.0/
+
+%{gemdir}/cache/gherkin-9.0.0.gem
+%{gemdir}/specifications/gherkin-9.0.0.gemspec
 
 %changelog
