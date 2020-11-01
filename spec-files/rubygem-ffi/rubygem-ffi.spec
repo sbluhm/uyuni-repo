@@ -41,6 +41,9 @@ using Ruby-FFI here[http://wiki.github.com/ffi/ffi/why-use-ffi].
 mkdir -p %{gembuilddir}
 gem install --local --user-install --force %{SOURCE0}
 mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
+mkdir -p %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
+mv %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/*.so %{buildroot}%{_libdir}/gems/ruby/%{rbname}-%{version}
+rm -Rf %{gembuilddir}/extensions/x86_64-linux/2.5.0/%{rbname}-%{version}/*
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -49,7 +52,7 @@ mv $(ruby -r rubygems -e 'puts Gem.user_dir')/* %{gembuilddir}
 %doc %{gemdir}/doc/%{rbname}-%{version}/
 %defattr(-, root, root)
 %{gemdir}/gems/ffi-1.0.11/
-
+%{_libdir}/gems/ruby/%{rbname}-%{version}/
 %{gemdir}/cache/ffi-1.0.11.gem
 %{gemdir}/specifications/ffi-1.0.11.gemspec
 
