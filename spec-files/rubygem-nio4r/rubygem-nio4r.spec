@@ -2,6 +2,7 @@
 %define rbname nio4r
 %define version 2.5.4
 %define release 1
+%global debug_package %{nil}
 
 Summary: New IO for Ruby
 Name: rubygem-%{rbname}
