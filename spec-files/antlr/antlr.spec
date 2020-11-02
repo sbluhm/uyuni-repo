@@ -15,6 +15,7 @@
 # Please submit bugfixes or comments via https://bugs.opensuse.org/
 #
 %global __python /usr/bin/python3
+%global debug_package %{nil}
 
 %bcond_without python2
 Name:           antlr
