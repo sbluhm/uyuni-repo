@@ -11,8 +11,8 @@ URL:           http://ehcache.org/
 # src/test/resources/resourceclassloader/private-classpath.jar
 # find ehcache-core-2.6.11 -name '*.class' -delete
 # tar cJf ehcache-core-2.6.11.tar.xz ehcache-core-2.6.11
-Source0:       %{name}-%{version}.tar.xz
-Patch0:        %{name}-2.6.7-java8.patch
+Source0:       http://d2zwv9pap9ylyd.cloudfront.net/ehcache-%{version}-distribution.tar.gz
+#Patch0:        %{name}-2.6.7-java8.patch
 
 BuildRequires: maven-local
 BuildRequires: mvn(javax.servlet:javax.servlet-api)
@@ -58,7 +58,7 @@ This package contains javadoc for %{name}.
 
 %prep
 %setup -q
-%patch0 -p0
+#%patch0 -p0
 # Use net.sf.ehcache:ehcache-parent:2.5
 # Remove its support because it breaks build during javadoc task
 %pom_remove_parent
