@@ -36,6 +36,7 @@ BuildRequires:  ehcache-kit == b6cea070e6df19be8c962e4c6d225e620115fe4c
 BuildRequires:  subversion
 BuildArch:      noarch
 Provides:       mvn(net.sf.ehcache:ehcache-core) == 2.10.1
+Provides:       ehcache-core == 2.10.1
 Requires:       java
 
 %description
