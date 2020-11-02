@@ -1,0 +1,29 @@
+--- build.xml	2015-03-15 00:48:59.000000000 +0100
++++ build.xml	2019-03-26 16:54:51.230652864 +0100
+@@ -182,7 +182,7 @@
+     <target name="compile.woodstox" depends="prepare,copy-resources">
+         <javac srcdir="${dir.src.java}" destdir="${dir.build.classes.woodstox}"
+         	includeantruntime="false"
+-            source="1.4" target="1.4"
++            source="6" target="6"
+             debug="true"
+         >
+ <!-- Uncomment to see warnings: too verbose for default, due to deprecation warns
+@@ -200,7 +200,7 @@
+           -->
+         <javac srcdir="${dir.src.samples}" destdir="${dir.build.classes.samples}"
+         	includeantruntime="false"
+-            source="1.4" target="1.4">
++            source="6" target="6">
+             <include name="*.java" />
+             <classpath refid="classpath.compile" />
+         </javac>
+@@ -404,7 +404,7 @@
+     <target name="compile.test" depends="compile.woodstox">
+         <javac srcdir="${dir.src.test}" destdir="${dir.classes.test}"
+         	includeantruntime="false"
+-            source="1.4" target="1.4"
++            source="6" target="6"
+             debug="true"
+         >
+             <include name="**/*.java" />
