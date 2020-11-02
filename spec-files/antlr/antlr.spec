@@ -14,10 +14,9 @@
 
 # Please submit bugfixes or comments via https://bugs.opensuse.org/
 #
-
+%global __python /usr/bin/python3
 
 %bcond_without python2
-define %__python /usr/bin/python3
 Name:           antlr
 Version:        2.7.7
 Release:        121.2
