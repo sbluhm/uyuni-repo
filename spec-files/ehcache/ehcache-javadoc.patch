@@ -1,0 +1,16 @@
+Index: src/ehcache-2.10.1/pom.xml
+===================================================================
+--- src.orig/ehcache-2.10.1/pom.xml
++++ src/ehcache-2.10.1/pom.xml
+@@ -259,7 +259,10 @@
+         <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-javadoc-plugin</artifactId>
+-          <version>3.0.0-M1</version>
++	  <version>3.0.0-M1</version>
++	  <configuration>
++		  <source>8</source>
++	  </configuration>
+         </plugin>
+         <plugin>
+           <groupId>org.apache.maven.plugins</groupId>

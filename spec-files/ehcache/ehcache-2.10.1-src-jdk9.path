@@ -1,0 +1,27 @@
+--- src/ehcache-2.10.1/pom.xml
++++ src/ehcache-2.10.1/pom.xml
+@@ -259,7 +259,7 @@
+         <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-javadoc-plugin</artifactId>
+-          <version>2.8.1</version>
++          <version>3.0.0-M1</version>
+         </plugin>
+         <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+@@ -306,7 +306,14 @@
+         <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+           <artifactId>rmic-maven-plugin</artifactId>
+-          <version>1.1</version>
++          <version>1.3</version>
++          <dependencies>
++            <dependency>
++              <groupId>org.glassfish.corba</groupId>
++              <artifactId>rmic</artifactId>
++              <version>4.1.0</version>
++            </dependency>
++          </dependencies>
+         </plugin>
+         <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+         <plugin>
