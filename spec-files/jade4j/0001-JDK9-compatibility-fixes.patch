@@ -1,0 +1,63 @@
+From 88396b33802ac93688ff2ea17a1627afc4a3bb4a Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Julio=20Gonz=C3=A1lez=20Gil?= <jgonzalez@suse.com>
+Date: Tue, 7 Nov 2017 21:23:46 +0100
+Subject: [PATCH] JDK9 compatibility fixes
+
+---
+ src/jade4j-1.0.7/pom.xml | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
+
+diff --git a/src/jade4j-1.0.7/pom.xml b/src/jade4j-1.0.7/pom.xml
+index 087e242..8575f99 100644
+--- a/src/jade4j-1.0.7/pom.xml
++++ b/src/jade4j-1.0.7/pom.xml
+@@ -110,12 +110,17 @@
+             </plugins>
+         </pluginManagement>
+         <plugins>
++            <plugin>
++                <groupId>org.apache.maven.plugins</groupId>
++                <artifactId>maven-enforcer-plugin</artifactId>
++                <version>3.0.0-M1</version>
++            </plugin>
+             <plugin>
+                 <artifactId>maven-compiler-plugin</artifactId>
+                 <version>3.3</version>
+                 <configuration>
+-                    <source>1.6</source>
+-                    <target>1.6</target>
++                    <source>1.7</source>
++                    <target>1.7</target>
+                 </configuration>
+             </plugin>
+             <plugin>
+@@ -125,7 +130,7 @@
+             </plugin>
+             <plugin>
+                 <artifactId>maven-source-plugin</artifactId>
+-                <version>2.4</version>
++                <version>3.0.1</version>
+                 <executions>
+                     <execution>
+                         <id>attach-sources</id>
+@@ -139,7 +144,7 @@
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-javadoc-plugin</artifactId>
+-                <version>2.10.3</version>
++                <version>3.0.0-M1</version>
+                 <executions>
+                     <execution>
+                         <id>attach-javadocs</id>
+@@ -171,7 +176,7 @@
+             </plugin>
+             <plugin>
+                 <artifactId>maven-jar-plugin</artifactId>
+-                <version>2.6</version>
++                <version>3.0.2</version>
+             </plugin>
+             <plugin>
+                 <artifactId>maven-resources-plugin</artifactId>
+-- 
+2.16.4
+
