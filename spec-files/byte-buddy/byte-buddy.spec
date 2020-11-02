@@ -22,7 +22,7 @@ License:        Apache-2.0
 Summary:        Byte Buddy is a code generation and manipulation library for Java
 Url:            http://bytebuddy.net
 Group:          Development/Libraries/Java
-Source0:        byte-buddy-1.8.17.tar.gz
+Source0:	https://github.com/raphw/%{name}/archive/%{name}-%{version}.tar.gz
 Source1:        build.sh
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  xz
