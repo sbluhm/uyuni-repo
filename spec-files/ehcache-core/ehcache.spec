@@ -1,12 +1,11 @@
 Name:          ehcache
-Version:       2.10.5
+Version:       2.10.8.4.3
 Release:       1%{?dist}
 Summary:       Easy Hibernate Cache
 License:       ASL 2.0
 URL:           http://ehcache.org/
-# svn export http://svn.terracotta.org/svn/ehcache/tags/ehcache-core-2.6.11
-# wget http://d2zwv9pap9ylyd.cloudfront.net/ehcache-2.10.5-distribution.tar.gz
-# find ehcache-core-2.10.5 -name '*.jar' -delete
+# svn export http://svn.terracotta.org/svn/ehcache/tags/ehcache-core-2.10.8.4.3
+# find ehcache-core-2.10.8.4.3 -name '*.jar' -delete
 # tools/maven-ant-tasks-2.0.7.jar
 # src/test/resources/resourceclassloader/private-classpath.jar
 # find ehcache-core-2.6.11 -name '*.class' -delete
@@ -44,7 +43,7 @@ BuildRequires: mvn(org.mockito:mockito-core)
 %endif
 
 Requires:      hibernate3 >= 3.6.10-7
-Provides:	ehcache-core == 2.10.5
+Provides:	ehcache-core == 2.10.8.4.3
 
 BuildArch:     noarch
 
