@@ -27,14 +27,21 @@ Group:          System/Monitoring
 URL:            https://github.com/g23guy/supportutils
 Source:         %{name}-%{version}.tar.gz
 Requires:       gawk
+%if 0%{?rhel}
+Requires:       iproute
+Requires:       kmod
+Requires:       ncurses
+Requires:       util-linux
+%else
 Requires:       iproute2
 Requires:       kmod-compat
 Requires:       ncurses-utils
+Requires:       util-linux-systemd
+%endif
 Requires:       net-tools
 Requires:       sed
 Requires:       sysfsutils
 Requires:       tar
-Requires:       util-linux-systemd
 Requires:       which
 Provides:       supportconfig-plugin-icommand
 Provides:       supportconfig-plugin-resource
