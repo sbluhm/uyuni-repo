@@ -29,10 +29,10 @@ Provides:       libxml2-tools
 Links SUSE packages to RHEL 8
 augeas, awk, gettext, libxslt, libsigc++ 2, 
 
-# jakarta-commons-httpclient
+# apache-commons-httpclient
 %package -n apache-commons-httpclient
-Requires:       jakarta-commons-httpclient >= 3.1
-Requires:       jakarta-commons-httpclient < 3.2
+Requires:       jakarta-commons-httpclient >= 1:3.1
+Requires:       jakarta-commons-httpclient < 1:3.2
 Version:        3.1
 Summary:        Jakarta Commons HTTPClient implements the client side of HTTP standards
 %description -n apache-commons-httpclient
