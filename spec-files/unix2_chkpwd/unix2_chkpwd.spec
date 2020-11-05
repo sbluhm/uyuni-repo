@@ -1,5 +1,5 @@
 Name:           unix2_chkpwd
-#BuildRequires:  bison
+BuildRequires:  pam-devel
 #BuildRequires:  flex
 #
 Version:        1.0.0
