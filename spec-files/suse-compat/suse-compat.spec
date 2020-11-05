@@ -63,6 +63,15 @@ Summary:        Full regular expressions API
 %description -n oro
 See jakarta-oro
 
+# update-alternatives
+%package -n update-alternatives
+Requires:       chkconfig >= 1.11
+Requires:       chkconfig < 1.12
+Version:        1.11
+Summary:        Maintain symbolic links determining default commands
+%description -n update-alternatives
+See alternatives
+
 #yast2
 %package -n yast2
 Summary:        See Dummy package for yast2
@@ -75,4 +84,5 @@ No function. Just pretends to provide yast2
 %files -n libyui13
 %files -n libsigc++2-devel
 %files -n oro
+%files -n update-alternatives
 %files -n yast2
