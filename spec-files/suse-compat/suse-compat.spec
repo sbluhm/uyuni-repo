@@ -63,6 +63,15 @@ Summary:        Full regular expressions API
 %description -n oro
 See jakarta-oro
 
+# python3-CherryPy
+%package -n python3-CherryPy
+Requires:       python3-cherrypy >= 18.4.0
+Requires:       python3-cherrypy < 18.5.0
+Version:        18.4.0
+Summary:        Object-Oriented HTTP framework
+%description -n python3-CherryPy
+See python3-cherrypy
+
 # update-alternatives
 %package -n update-alternatives
 Requires:       chkconfig >= 1.11
