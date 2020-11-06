@@ -93,5 +93,6 @@ No function. Just pretends to provide yast2
 %files -n libyui13
 %files -n libsigc++2-devel
 %files -n oro
+%files -n python3-CherryPy
 %files -n update-alternatives
 %files -n yast2
