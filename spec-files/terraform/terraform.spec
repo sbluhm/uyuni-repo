@@ -26,7 +26,8 @@ unzip %{SOURCE0}
 
 %install
 mkdir -p $RPM_BUILD_ROOT%{_bindir}
-ll *
+pwd
+ls -l *
 install terraform $RPM_BUILD_ROOT%{_bindir}
 
 
