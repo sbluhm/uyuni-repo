@@ -1,0 +1,63 @@
+From 074e3bf7fe9fa267bdbe50067f2c733c220ed7e3 Mon Sep 17 00:00:00 2001
+From: Mihai Dinca <mdinca@suse.de>
+Date: Thu, 1 Feb 2018 10:32:36 +0100
+Subject: [PATCH] Fix state files with unicode (bsc#1074227)
+
+---
+ salt/fileserver/roots.py | 2 +-
+ salt/modules/file.py     | 4 ++--
+ salt/state.py            | 2 ++
+ 3 files changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/salt/fileserver/roots.py b/salt/fileserver/roots.py
+index f2a5c10955..387c672307 100644
+--- a/salt/fileserver/roots.py
++++ b/salt/fileserver/roots.py
+@@ -335,7 +335,7 @@ def _file_lists(load, form):
+                 return path.replace('\\', '/') if os.path.sep == '\\' else path
+ 
+             for item in items:
+-                abs_path = os.path.join(parent_dir, item)
++                abs_path = os.path.join(parent_dir, item.decode('utf8'))
+                 log.trace('roots: Processing %s', abs_path)
+                 is_link = os.path.islink(abs_path)
+                 log.trace(
+diff --git a/salt/modules/file.py b/salt/modules/file.py
+index ec2c46832d..300858d1ce 100644
+--- a/salt/modules/file.py
++++ b/salt/modules/file.py
+@@ -4760,7 +4760,7 @@ def manage_file(name,
+                 contents = os.linesep.join(
+                     _splitlines_preserving_trailing_newline(contents))
+             with salt.utils.fopen(tmp, 'w') as tmp_:
+-                tmp_.write(str(contents))
++                tmp_.write(contents.encode('utf-8'))
+ 
+             # Compare contents of files to know if we need to replace
+             with salt.utils.fopen(tmp, 'r') as src:
+@@ -4946,7 +4946,7 @@ def manage_file(name,
+                 contents = os.linesep.join(
+                     _splitlines_preserving_trailing_newline(contents))
+             with salt.utils.fopen(tmp, 'w') as tmp_:
+-                tmp_.write(str(contents))
++                tmp_.write(contents.encode('utf-8'))
+             # Copy into place
+             salt.utils.files.copyfile(tmp,
+                                 name,
+diff --git a/salt/state.py b/salt/state.py
+index e49afe31f2..9515d6ea2d 100644
+--- a/salt/state.py
++++ b/salt/state.py
+@@ -1307,6 +1307,8 @@ class State(object):
+                         continue
+                     if isinstance(arg, dict):
+                         for key, val in six.iteritems(arg):
++                            if isinstance(val, unicode):
++                                val = val.encode('utf8')
+                             if key == 'names':
+                                 for _name in val:
+                                     if _name not in names:
+-- 
+2.17.1
+
+
