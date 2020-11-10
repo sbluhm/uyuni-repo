@@ -239,7 +239,12 @@ fi
 #create ssl certificate
 cd %{_sysconfdir}/%{name}
 if [ ! -s server.pem ]; then
- %{___build_shell} %{_sysconfdir}/pki/tls/certs/make-dummy-cert server.pem
+ if [ -e %{_bindir}/make-dummy-cert ]; then
+  # openssl-1.1 places the script in /usr
+  %{___build_shell} %{_bindir}/make-dummy-cert
+ else
+  %{___build_shell} %{_sysconfdir}/pki/tls/certs/make-dummy-cert server.pem
+ fi
  chown root.jabber server.pem
  chmod 640 server.pem
 fi
