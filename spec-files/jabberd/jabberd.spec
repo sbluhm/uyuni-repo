@@ -235,7 +235,7 @@ s,<pass>secret</pass>,<pass>$NEWPASS</pass>,g
 END
 
 fi
-
+%endif
 %preun
 %systemd_preun %{name}.service
 
