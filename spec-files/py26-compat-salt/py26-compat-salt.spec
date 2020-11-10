@@ -20,7 +20,7 @@
 %bcond_with    test
 %bcond_with    docs
 %bcond_with    builddocs
-%if 0${rhel} >= 8
+%if 0${?rhel} >= 8
 %global __python /usr/bin/python2
 %endif
 
