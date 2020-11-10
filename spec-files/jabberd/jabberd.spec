@@ -236,7 +236,6 @@ END
 
 fi
 
-
 %preun
 %systemd_preun %{name}.service
 
