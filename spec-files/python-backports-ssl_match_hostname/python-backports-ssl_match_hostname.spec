@@ -1,5 +1,15 @@
 %global module_name backports.ssl_match_hostname
 
+%{!?python_sitelib: %global python_sitelib %(python2 -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
+
+
+%if 0%{?rhel} >= 8
+%global __python /usr/bin/python2
+%define pythonX python2
+%else
+%define pythonX python
+%endif
+
 Name:           python-backports-ssl_match_hostname
 Version:        3.5.0.1
 Release:        1%{?dist}
@@ -11,8 +21,8 @@ Source0:        http://pypi.python.org/packages/source/b/%{module_name}/%{module
 
 BuildArch:      noarch
 BuildRequires:  python2-devel
-Requires:       python-backports
-Requires:       python-ipaddress
+Requires:       %{pythonX}-backports
+Requires:       %{pythonX}-ipaddress
 
 %description
 The Secure Sockets layer is only actually secure if you check the hostname in
@@ -35,7 +45,7 @@ cp backports/ssl_match_hostname/LICENSE.txt ./
 
 
 %build
-python setup.py build
+%{pythonX} setup.py build
 
 
 %install
