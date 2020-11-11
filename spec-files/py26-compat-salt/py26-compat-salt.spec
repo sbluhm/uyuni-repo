@@ -346,9 +346,17 @@ Suggests:       python-gnupg
 %if 0%{?suse_version} >= 1500
 Requires:       python2-M2Crypto
 %else
+%if 0%{?rhel} >= 8
+Requires:       python2-m2crypto
+%else
 Requires:       %{pythonX}-pycrypto >= 2.6.1
 %endif
+%endif
+%if 0%{?rhel} >= 8
+Requires:       %{pythonX}-zmq >= 2.2.0
+%else
 Requires:       %{pythonX}-pyzmq >= 2.2.0
+%endif
 #
 %if 0%{?suse_version}
 # python-xml is part of python-base in all rhel versions
