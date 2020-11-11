@@ -11,7 +11,7 @@ URL:            https://msgpack.org/
 Source0:        %pypi_source
 
 BuildRequires:  gcc-c++
-BuildRequires:  Cython
+BuildRequires:  python2-Cython 
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
 BuildRequires:  python2-pytest
