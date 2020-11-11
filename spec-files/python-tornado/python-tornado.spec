@@ -149,7 +149,7 @@ rm -rf %{buildroot}
         %{__python3} -m tornado.test.runtests --verbose
     popd
     %endif # with_python3
-    %if 0%{?rhel} >= 8
+    %if 0%{?rhel} != 8
         PYTHONPATH=%{python2_sitearch} \
         %{__python2} -m tornado.test.runtests --verbose
     %endif
