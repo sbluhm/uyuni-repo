@@ -19,8 +19,10 @@
 %bcond_with    test
 %bcond_with    docs
 %bcond_with    builddocs
-%if 0%{?rhel} >= 8
 %global __python /usr/bin/python2
+
+%if 0%{?rhel} >= 8
+#%global __python /usr/bin/python2
 %define pythonX python2
 %else
 %define pythonX python
