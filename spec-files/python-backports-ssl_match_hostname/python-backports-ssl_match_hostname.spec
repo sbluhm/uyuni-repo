@@ -49,7 +49,7 @@ cp backports/ssl_match_hostname/LICENSE.txt ./
 
 
 %install
-python setup.py install --skip-build --root %{buildroot}
+%{pythonX} setup.py install --skip-build --root %{buildroot}
 rm %{buildroot}%{python_sitelib}/backports/__init__.py*
 
  
