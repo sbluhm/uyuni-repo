@@ -1,117 +1,298 @@
 %{!?_httpd_apxs: %{expand: %%global _httpd_apxs %%{_sbindir}/apxs}}
-%{!?_httpd_mmn: %{expand: %%global _httpd_mmn %%(cat %{_includedir}/httpd/.mmn || echo missing_httpd-devel)}}
+
+%{!?_httpd_mmn: %{expand: %%global _httpd_mmn %%(cat %{_includedir}/httpd/.mmn 2>/dev/null || echo 0-0)}}
 %{!?_httpd_confdir:    %{expand: %%global _httpd_confdir    %%{_sysconfdir}/httpd/conf.d}}
 # /etc/httpd/conf.d with httpd < 2.4 and defined as /etc/httpd/conf.modules.d with httpd >= 2.4
 %{!?_httpd_modconfdir: %{expand: %%global _httpd_modconfdir %%{_sysconfdir}/httpd/conf.d}}
 %{!?_httpd_moddir:    %{expand: %%global _httpd_moddir    %%{_libdir}/httpd/modules}}
-%{!?python_sitelib: %global python_sitelib %(python2 -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 
-%if 0%{?rhel} >= 8
-%global __python /usr/bin/python2
-%define pythonX python2
+%if 0%{?fedora} || 0%{?rhel} > 7
+%global with_python3 1
 %else
-%define pythonX python
+%global with_python3 0
 %endif
 
+%if 0%{?fedora} || 0%{?rhel} <= 8
+%global with_python2 1
+%else
+%global with_python2 0
+%global debug_package %{nil}
+%endif
 
 Name:           mod_wsgi
-Version:        3.4
-Release:        18%{?dist}
+Version:        4.6.6
+Release:        2%{?dist}
 Summary:        A WSGI interface for Python web applications in Apache
-Group:          System Environment/Libraries
 License:        ASL 2.0
-URL:            http://www.modwsgi.org
-Source0:        https://github.com/GrahamDumpleton/%{name}/archive/%{version}.tar.gz#/%{name}-%{version}.tar.gz
+URL:            https://modwsgi.readthedocs.io/
+Source0:        https://github.com/GrahamDumpleton/mod_wsgi/archive/%{version}.tar.gz#/mod_wsgi-%{version}.tar.gz
 Source1:        wsgi.conf
-Patch0:         mod_wsgi-3.4-connsbh.patch
-Patch1:         mod_wsgi-3.4-procexit.patch
-Patch2:         mod_wsgi-3.4-coredump.patch
-Patch3:         mod_wsgi-3.4-CVE-2014-0240.patch
-Patch4:         mod_wsgi-3.4-deadlock.patch
-Patch5:         mod_wsgi-3.4-restart-segfault.patch
-Patch6:         mod_wsgi-3.4-head-to-get.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  httpd-devel, %{pythonX}-devel, autoconf
-Requires: httpd-mmn = %{_httpd_mmn}
+Source2:        wsgi-python3.conf
+Patch1:         mod_wsgi-4.5.20-exports.patch
+
+BuildRequires:  httpd-devel
+BuildRequires:  gcc
 
 # Suppress auto-provides for module DSO
 %{?filter_provides_in: %filter_provides_in %{_httpd_moddir}/.*\.so$}
 %{?filter_setup}
 
-%description
-The mod_wsgi adapter is an Apache module that provides a WSGI compliant
-interface for hosting Python based web applications within Apache. The
-adapter is written completely in C code against the Apache C runtime and
-for hosting WSGI applications within Apache has a lower overhead than using
-existing WSGI adapters for mod_python or CGI.
+%global _description\
+The mod_wsgi adapter is an Apache module that provides a WSGI compliant\
+interface for hosting Python based web applications within Apache. The\
+adapter is written completely in C code against the Apache C runtime and\
+for hosting WSGI applications within Apache has a lower overhead than using\
+existing WSGI adapters for mod_python or CGI.\
 
+
+%description %_description
+
+%if 0%{?with_python2} > 0
+%package -n python2-%{name}
+Summary: %summary
+Requires:       httpd-mmn = %{_httpd_mmn}
+BuildRequires:  python2-devel, python2-setuptools
+%{?python_provide:%python_provide python2-%{name}}
+# Remove before F30
+Provides: mod_wsgi = %{version}-%{release}
+Provides: mod_wsgi%{?_isa} = %{version}-%{release}
+Obsoletes: mod_wsgi < %{version}-%{release}
+
+%description -n python2-%{name} %_description
+
+%endif
+
+%if 0%{?with_python3} > 0
+%package -n python3-%{name}
+Summary:        %summary
+Requires:       httpd-mmn = %{_httpd_mmn}
+BuildRequires:  python3-devel, python3-sphinx, python3-sphinx_rtd_theme
+%if 0%{?with_python2} == 0
+Provides: mod_wsgi = %{version}-%{release}
+Provides: mod_wsgi%{?_isa} = %{version}-%{release}
+Obsoletes: mod_wsgi < %{version}-%{release}
+%endif
+
+%description -n python3-%{name} %_description
+
+%endif
 
 %prep
-%setup -q
-%patch0 -p1 -b .connsbh
-%patch1 -p1 -b .procexit
-%patch2 -p1 -b .coredump
-%patch3 -p1 -b .cve20140240
-%patch4 -p1 -b .deadlock
-%patch5 -p1 -b .restartseg
-%patch6 -p1 -b .headtoget
+%autosetup -p1 -n %{name}-%{version}
+
+: Python2=%{with_python2} Python3=%{with_python3}
 
 %build
-# Regenerate configure for -coredump patch change to configure.in
-autoconf
+%if %{with_python3}
+make -C docs html SPHINXBUILD=%{_bindir}/sphinx-build-3
+%endif
+
 export LDFLAGS="$RPM_LD_FLAGS -L%{_libdir}"
 export CFLAGS="$RPM_OPT_FLAGS -fno-strict-aliasing"
-%configure --enable-shared --with-apxs=%{_httpd_apxs}
-make %{?_smp_mflags}
 
+%if 0%{?with_python3} > 0
+mkdir py3build/
+# this always produces an error (because of trying to copy py3build
+# into itself) but we don't mind, so || :
+cp -R * py3build/ || :
+pushd py3build
+%configure --enable-shared --with-apxs=%{_httpd_apxs} --with-python=python3
+make %{?_smp_mflags}
+%py3_build
+popd
+%endif
+
+%if 0%{?with_python2} > 0
+%configure --enable-shared --with-apxs=%{_httpd_apxs} --with-python=python2
+make %{?_smp_mflags}
+%py2_build
+%endif
 
 %install
-rm -rf $RPM_BUILD_ROOT
+# first install python3 variant and rename the so file
+%if 0%{?with_python3} > 0
+pushd py3build
+make install DESTDIR=$RPM_BUILD_ROOT LIBEXECDIR=%{_httpd_moddir}
+mv  $RPM_BUILD_ROOT%{_httpd_moddir}/mod_wsgi{,_python3}.so
+
+install -d -m 755 $RPM_BUILD_ROOT%{_httpd_modconfdir}
+# httpd >= 2.4.x
+install -p -m 644 %{SOURCE2} $RPM_BUILD_ROOT%{_httpd_modconfdir}/10-wsgi-python3.conf
+
+%py3_install
+mv $RPM_BUILD_ROOT%{_bindir}/mod_wsgi-express{,-3}
+popd
+
+%endif
+
+# second install python2 variant
+%if 0%{?with_python2} > 0
 make install DESTDIR=$RPM_BUILD_ROOT LIBEXECDIR=%{_httpd_moddir}
 
 install -d -m 755 $RPM_BUILD_ROOT%{_httpd_modconfdir}
-%if "%{_httpd_modconfdir}" == "%{_httpd_confdir}"
-# httpd <= 2.2.x
-install -p -m 644 %{SOURCE1} $RPM_BUILD_ROOT%{_httpd_confdir}/wsgi.conf
-%else
 # httpd >= 2.4.x
 install -p -m 644 %{SOURCE1} $RPM_BUILD_ROOT%{_httpd_modconfdir}/10-wsgi.conf
+
+%py2_install
+mv $RPM_BUILD_ROOT%{_bindir}/mod_wsgi-express{,-2}
+ln -s %{_bindir}/mod_wsgi-express-2 $RPM_BUILD_ROOT%{_bindir}/mod_wsgi-express
 %endif
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-%files
-%defattr(-,root,root,-)
-%doc LICENCE README
-%config(noreplace) %{_httpd_modconfdir}/*.conf
+%if 0%{?with_python2} > 0
+%files -n python2-%{name}
+%license LICENSE
+%doc CREDITS.rst README.rst
+%config(noreplace) %{_httpd_modconfdir}/*wsgi.conf
 %{_httpd_moddir}/mod_wsgi.so
+%{python2_sitearch}/mod_wsgi-*.egg-info
+%{python2_sitearch}/mod_wsgi
+%{_bindir}/mod_wsgi-express-2
+%{_bindir}/mod_wsgi-express
+%endif
 
+%if 0%{?with_python3} > 0
+%files -n python3-%{name}
+%license LICENSE
+%doc CREDITS.rst README.rst
+%config(noreplace) %{_httpd_modconfdir}/*wsgi-python3.conf
+%{_httpd_moddir}/mod_wsgi_python3.so
+%{python3_sitearch}/mod_wsgi-*.egg-info
+%{python3_sitearch}/mod_wsgi
+%{_bindir}/mod_wsgi-express-3
+%endif
 
 %changelog
-* Wed Aug 15 2018 Luboš Uhliarik <luhliari@redhat.com> - 3.4-18
-- mod_wsgi forces HEAD to GET (#1466799)
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 4.6.6-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
-* Mon Jun 18 2018 Luboš Uhliarik <luhliari@redhat.com> - 3.4-17
-- upstream URL reference in the rpm header is unreachable/dead (#1583920)
+* Fri Jun 08 2019 Matthias Runge <mrunge@redhat.com> - 4.6.6-1
+- update to 4.6.6 (rhbz#1718151)
 
-* Mon Jun 18 2018 Luboš Uhliarik <luhliari@redhat.com> - 3.4-14
-- mod_wsgi segfault if loaded during a restart (#1445540)
+* Wed May 29 2019 Miro Hrončok <mhroncok@redhat.com> - 4.6.5-1
+- update to 4.6.5
 
-* Thu Dec 14 2017 Joe Orton <jorton@redhat.com> - 3.4-13
-- reduce chance of deadlock at process shutdown (#1493429)
+* Tue Apr 16 2019 Joe Orton <jorton@redhat.com> - 4.6.4-4
+- only build docs with Python 3
+- fix build on Fedora>30 and RHEL 7
 
-* Tue Aug 19 2014 Jan Kaluza <jkaluza@redhat.com> - 3.4-12
-- fix possible privilege escalation in setuid() (CVE-2014-0240)
+* Fri Feb 01 2019 Fedora Release Engineering <releng@fedoraproject.org> - 4.6.4-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
-* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 3.4-11
-- Mass rebuild 2014-01-24
+* Tue Jul 31 2018 Adam Williamson <awilliam@redhat.com> - 4.6.4-2
+- Run Python 3 build in a subdir, so module isn't linked against both
+  libpython 2 and libpython 3 (rhbz#1609491)
 
-* Mon Jan 13 2014 Joe Orton <jorton@redhat.com> - 3.4-10
-- rebuild for #1029360
+* Fri Jul 20 2018 Matthias Runge <mrunge@redhat.com> - 4.6.4-1
+- update to 4.6.4 (rhbz#1560329)
 
-* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 3.4-9
-- Mass rebuild 2013-12-27
+* Fri Jul 13 2018 Fedora Release Engineering <releng@fedoraproject.org> - 4.6.2-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
+* Tue Jun 19 2018 Miro Hrončok <mhroncok@redhat.com> - 4.6.2-4
+- Rebuilt for Python 3.7
+
+* Fri Apr 20 2018 Joe Orton <jorton@redhat.com> - 4.6.2-3
+- use sphinx-build-3 if python2 support is disabled
+
+* Thu Mar 22 2018 Troy Dawson <tdawson@redhat.com> - 4.6.2-2
+- Update conditionals.
+- Make preperations for non-python2 builds
+
+* Tue Mar 13 2018 Matthias Runge <mrunge@redhat.com> - 4.6.2-1
+- update to 4.6.2 (rhbz#1514768)
+- add gcc BR
+
+* Wed Feb  7 2018 Joe Orton <jorton@redhat.com> - 4.5.20-4
+- restrict module DSO symbol exports
+
+* Tue Jan 09 2018 Iryna Shcherbina <ishcherb@redhat.com> - 4.5.20-3
+- Update Python 2 dependency declarations to new packaging standards
+  (See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3)
+
+* Sun Dec 17 2017 Zbigniew Jędrzejewski-Szmek <zbyszek@in.waw.pl> - 4.5.20-2
+- Python 2 binary package renamed to python2-mod_wsgi
+  See https://fedoraproject.org/wiki/FinalizingFedoraSwitchtoPython3
+
+* Fri Oct 20 2017 Joe Orton <jorton@redhat.com> - 4.5.20-1
+- update to 4.5.20
+
+* Wed Aug 09 2017 Dan Callaghan <dcallagh@redhat.com> - 4.5.15-5
+- include mod_wsgi Python package and mod_wsgi-express script
+
+* Thu Aug 03 2017 Fedora Release Engineering <releng@fedoraproject.org> - 4.5.15-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Binutils_Mass_Rebuild
+
+* Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 4.5.15-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
+* Fri Jul 07 2017 Igor Gnatenko <ignatenko@redhat.com> - 4.5.15-2
+- Rebuild due to bug in RPM (RHBZ #1468476)
+
+* Fri Jun 23 2017 Joe Orton <jorton@redhat.com> - 4.5.15-1
+- update to 4.5.15 (#1431893)
+
+* Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 4.5.13-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
+* Tue Jan 10 2017 Jakub Dorňák <jakub.dornak@misli.cz> - 4.5.13-1
+- Update to 4.5.13
+
+* Mon Dec 19 2016 Miro Hrončok <mhroncok@redhat.com> - 4.5.9-2
+- Rebuild for Python 3.6
+
+* Mon Dec 05 2016 Matthias Runge <mrunge@redhat.com> - 4.5.9-1
+- upgrade to 4.5.9 (rhbz#1180445)
+
+* Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 4.4.8-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
+* Tue Nov 10 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4.4.8-3
+- Rebuilt for https://fedoraproject.org/wiki/Changes/python3.5
+
+* Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4.4.8-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
+* Thu Feb 12 2015 Richard W.M. Jones <rjones@redhat.com> - 4.4.8-1
+- Upstream to 4.4.8.
+- This version includes the fix for the segfault described in RHBZ#1178851.
+
+* Mon Jan  5 2015 Jakub Dorňák <jdornak@redhat.com> - 4.4.3-1
+- update to new upstream version 4.4.3 (#1176914)
+
+* Wed Dec 17 2014 Jan Kaluza <jkaluza@redhat.com> - 4.4.1-1
+- update to new upstream version 4.4.1 (#1170994)
+
+* Wed Nov 19 2014 Jan Kaluza <jkaluza@redhat.com> - 4.3.2-1
+- update to new upstream version 4.3.2 (#1104526)
+
+* Sun Aug 17 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 3.5-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
+* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 3.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
+* Thu May 29 2014 Luke Macken <lmacken@redhat.com> - 3.5-1
+- Update to 3.5 to fix CVE-2014-0240 (#1101863)
+- Remove all of the patches, which have been applied upstream
+- Update source URL for new the GitHub upstream
+
+* Wed May 28 2014 Joe Orton <jorton@redhat.com> - 3.4-14
+- rebuild for Python 3.4
+
+* Mon Apr 28 2014 Matthias Runge <mrunge@redhat.com> - 3.4.13
+- do not use conflicts between mod_wsgi packages (rhbz#1087943)
+
+* Thu Jan 23 2014 Joe Orton <jorton@redhat.com> - 3.4-12
+- fix _httpd_mmn expansion in absence of httpd-devel
+
+* Fri Jan 10 2014 Matthias Runge <mrunge@redhat.com> - 3.4-11
+- added python3 subpackage (thanks to Jakub Dorňák), rhbz#1035876
+
+* Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 3.4-10
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
+
+* Mon Jul  8 2013 Joe Orton <jorton@redhat.com> - 3.4-9
+- modernize spec file (thanks to rcollet)
 
 * Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 3.4-8
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
