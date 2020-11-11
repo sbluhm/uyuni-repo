@@ -258,7 +258,7 @@ BuildRequires:  python-Jinja2
 %endif
 BuildRequires:  %{pythonX}-futures >= 2.0
 BuildRequires:  %{pythonX}-markupsafe
-BuildRequires:  %{pythonX}-msgpack-python > 0.3
+BuildRequires:  (%{pythonX}-msgpack-python > 0.3 or %{pythonX}-msgpack > 0.3)
 BuildRequires:  %{pythonX}-psutil
 BuildRequires:  %{pythonX}-requests >= 1.0.0
 BuildRequires:  %{pythonX}-tornado >= 4.2.1
