@@ -30,7 +30,11 @@ Patch201:       0201-Keep-a-reference-to-the-object-used-for-CURLOPT_POST.patch
 Patch202:       0202-Add-libcurl-7.34.0-sslversion-options.patch
 
 Requires:       keyutils-libs
+%if 0%{?rhel} >= 8
+BuildRequires:  python2-devel
+%else
 BuildRequires:  python-devel
+%endif
 BuildRequires:  openssl-devel
 
 # curl-7.29.0-16 or newer is needed for CURL_SSLVERSION_TLSv1_[0-2]
