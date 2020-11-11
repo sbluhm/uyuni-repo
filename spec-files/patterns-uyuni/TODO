@@ -1,2 +1,0 @@
-Fix  %pattern_primaryfunctions macro. It is part of package "patterns-rpm-macros" on SUSE. Define manually on RHEL
-Check if  py26-compat-salt  is really not required. P2???

@@ -35,14 +35,7 @@ This is an internal package that is used to create the patterns as part
 of the installation source setup.  Installation of this package does
 not make sense.
 
-# Macros are provided patterns-rpm-macros for SLE15
-%if 0%{?suse_version} < 1320
-%define pattern_primaryfunctions \
-Provides: pattern-category() = Primary%20Functions
-%endif
-
 %package -n patterns-uyuni_server
-%pattern_primaryfunctions
 Summary:        Uyuni Server
 Group:          Metapackages
 Provides:       pattern() = uyuni_server
@@ -52,14 +45,14 @@ Provides:       pattern-visible()
 
 Requires:       salt-api
 Requires:       salt-master
-%if 0%{?suse_version} > 1320
 Requires:       python3-ws4py
+
+%if 0%{?suse_version} > 1320
 Requires:       python2-salt
 %else
-Requires:       python3-ws4py
 Requires:       python3-salt
 %endif
-#Requires:       py26-compat-salt
+Requires:       py26-compat-salt
 
 Requires:       mgr-osa-dispatcher
 Requires:       release-notes-uyuni
@@ -124,7 +117,6 @@ Uyuni Server packages.
 #####################################################################
 
 %package -n patterns-uyuni_retail
-%pattern_primaryfunctions
 Summary:        Uyuni for Retail
 Group:          Metapackages
 Provides:       pattern() = uyuni_retail
@@ -161,7 +153,6 @@ Uyuni for Retail packages.
 #####################################################################
 
 %package -n patterns-uyuni_proxy
-%pattern_primaryfunctions
 Summary:        Uyuni Proxy
 Group:          Metapackages
 Provides:       pattern() = uyuni_proxy
