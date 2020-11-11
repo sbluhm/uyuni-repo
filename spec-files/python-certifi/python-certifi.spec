@@ -29,7 +29,11 @@ instead. For more details on this system, see the ca-certificates package.
 Summary:        %{summary}
 %{?python_provide:%python_provide python2-%{pypi_name}}
 BuildRequires:  python2-devel
-BuildRequires:  python%{?fedora:2}-setuptools
+%if 0%{?rhel} >= 8 || 0%{?fedora}
+BuildRequires:  python2-setuptools
+%else
+BuildRequires:  python-setuptools
+%endif
 Requires:       ca-certificates
 
 %description -n python2-%{pypi_name}
