@@ -30,7 +30,7 @@ Patch4:         mod_wsgi-3.4-deadlock.patch
 Patch5:         mod_wsgi-3.4-restart-segfault.patch
 Patch6:         mod_wsgi-3.4-head-to-get.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  httpd-devel, python-devel, autoconf
+BuildRequires:  httpd-devel, %{pythonX}-devel, autoconf
 Requires: httpd-mmn = %{_httpd_mmn}
 
 # Suppress auto-provides for module DSO
