@@ -4,6 +4,7 @@
 # /etc/httpd/conf.d with httpd < 2.4 and defined as /etc/httpd/conf.modules.d with httpd >= 2.4
 %{!?_httpd_modconfdir: %{expand: %%global _httpd_modconfdir %%{_sysconfdir}/httpd/conf.d}}
 %{!?_httpd_moddir:    %{expand: %%global _httpd_moddir    %%{_libdir}/httpd/modules}}
+%{!?python_sitelib: %global python_sitelib %(python2 -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 
 %if 0%{?rhel} >= 8
 %global __python /usr/bin/python2
