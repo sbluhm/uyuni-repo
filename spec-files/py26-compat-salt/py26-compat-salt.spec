@@ -334,12 +334,12 @@ Requires:       %{pythonX}-markupsafe
 Requires:       py26-compat-msgpack-python
 Requires:       py26-compat-tornado
 %else
-Requires:       %{pythonX}-msgpack-python > 0.3
+Requires:       (%{pythonX}-msgpack-python > 0.3 or %{pythonX}-msgpack > 0.3)
 Requires:       %{pythonX}-tornado >= 4.2.1
 %endif
 Requires:       %{pythonX}-psutil
 Requires:       %{pythonX}-requests >= 1.0.0
-Requires:       %{pythonX}-backports.ssl_match_hostname
+Requires:       python-backports.ssl_match_hostname
 Requires:       %{pythonX}-yaml
 %if 0%{?suse_version}
 # required for zypper.py
