@@ -268,9 +268,18 @@ BuildRequires:  %{pythonX}-yaml
 %if 0%{?suse_version} >= 1500
 BuildRequires:       python2-M2Crypto
 %else
-BuildRequires:       %{pythonX}-pycrypto >= 2.6.1
+%if 0%{?rhel} >= 8
+BuildRequires:       python2-m2crypto
+%else
+BuildRequires:       python-pycrypto >= 2.6.1
 %endif
-BuildRequires:  %{pythonX}-pyzmq >= 2.2.0
+%endif
+
+%if 0%{?rhel} >= 8
+BuildRequires:       %{pythonX}-zmq >= 2.2.0
+%else
+BuildRequires:       python-pyzmq >= 2.2.0
+%endif
 %if %{with test}
 # requirements/dev_python27.txt
 BuildRequires:  %{pythonX}-boto >= 2.32.1
@@ -349,13 +358,13 @@ Requires:       python2-M2Crypto
 %if 0%{?rhel} >= 8
 Requires:       python2-m2crypto
 %else
-Requires:       %{pythonX}-pycrypto >= 2.6.1
+Requires:       python-pycrypto >= 2.6.1
 %endif
 %endif
 %if 0%{?rhel} >= 8
 Requires:       %{pythonX}-zmq >= 2.2.0
 %else
-Requires:       %{pythonX}-pyzmq >= 2.2.0
+Requires:       python-pyzmq >= 2.2.0
 %endif
 #
 %if 0%{?suse_version}
