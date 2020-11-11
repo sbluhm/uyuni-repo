@@ -1,0 +1,18 @@
+
+https://github.com/GrahamDumpleton/mod_wsgi/commit/f8b43b2b79fabdcead4410f1a10484a10608ba6a
+
+--- mod_wsgi-3.4/mod_wsgi.c.deadlock
++++ mod_wsgi-3.4/mod_wsgi.c
+@@ -11113,8 +11113,10 @@
+     while (1) {
+         apr_sleep(apr_time_from_sec(1));
+ 
+-        gilstate = PyGILState_Ensure();
+-        PyGILState_Release(gilstate);
++        if (!wsgi_daemon_shutdown) {
++            gilstate = PyGILState_Ensure();
++            PyGILState_Release(gilstate);
++        }
+ 
+         apr_thread_mutex_lock(wsgi_shutdown_lock);
+         wsgi_deadlock_shutdown_time = apr_time_now();
