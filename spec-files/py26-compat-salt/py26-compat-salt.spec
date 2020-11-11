@@ -16,7 +16,6 @@
 #
 
 
-%{!?python_sitelib: %global python_sitelib %(python2 -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 %bcond_with    test
 %bcond_with    docs
 %bcond_with    builddocs
@@ -26,6 +25,7 @@
 %else
 %define pythonX python
 %endif
+%{!?python_sitelib: %global python_sitelib %(python2 -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 
 %define compatdir %{_datadir}/susemanager/py26-compat
 %define origname salt
