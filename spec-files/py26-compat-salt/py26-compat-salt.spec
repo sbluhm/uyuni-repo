@@ -16,7 +16,7 @@
 #
 
 
-%{!?python_sitelib: %global python_sitelib %(python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
+%{!?python_sitelib: %global python_sitelib %(python2 -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 %bcond_with    test
 %bcond_with    docs
 %bcond_with    builddocs
