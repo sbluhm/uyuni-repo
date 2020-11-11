@@ -1,0 +1,68 @@
+diff --git a/tornado/gen.py b/tornado/gen.py
+index 9145768..15cb8f7 100644
+--- a/tornado/gen.py
++++ b/tornado/gen.py
+@@ -202,7 +202,9 @@ def _make_coroutine_wrapper(func, replace_callback):
+     argument, so we cannot simply implement ``@engine`` in terms of
+     ``@coroutine``.
+     """
+-    @functools.wraps(func)
++    wrapped = func
++
++    @functools.wraps(wrapped)
+     def wrapper(*args, **kwargs):
+         future = TracebackFuture()
+ 
+@@ -254,9 +256,19 @@ def _make_coroutine_wrapper(func, replace_callback):
+                     future = None
+         future.set_result(result)
+         return future
++
++    wrapper.__wrapped__ = wrapped
++    wrapper.__tornado_coroutine__ = True
+     return wrapper
+ 
+ 
++def is_coroutine_function(func):
++    """Return whether *func* is a coroutine function, i.e. a function
++    wrapped with `~.gen.coroutine`.
++    """
++    return getattr(func, '__tornado_coroutine__', False)
++
++
+ class Return(Exception):
+     """Special exception to return a value from a `coroutine`.
+ 
+diff --git a/tornado/test/gen_test.py b/tornado/test/gen_test.py
+index fdaa0ec..a4c5806 100644
+--- a/tornado/test/gen_test.py
++++ b/tornado/test/gen_test.py
+@@ -662,6 +662,28 @@ class GenCoroutineTest(AsyncTestCase):
+         super(GenCoroutineTest, self).tearDown()
+         assert self.finished
+ 
++    def test_attributes(self):
++        self.finished = True
++
++        def f():
++            yield gen.moment
++
++        coro = gen.coroutine(f)
++        self.assertEqual(coro.__name__, f.__name__)
++        self.assertEqual(coro.__module__, f.__module__)
++        self.assertIs(coro.__wrapped__, f)
++
++    def test_is_coroutine_function(self):
++        self.finished = True
++
++        def f():
++            yield gen.moment
++
++        coro = gen.coroutine(f)
++        self.assertFalse(gen.is_coroutine_function(f))
++        self.assertTrue(gen.is_coroutine_function(coro))
++        self.assertFalse(gen.is_coroutine_function(coro()))
++
+     @gen_test
+     def test_sync_gen_return(self):
+         @gen.coroutine
