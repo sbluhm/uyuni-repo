@@ -35,6 +35,7 @@ Patch1:         improve-introspection-of-coroutines.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  python2-devel
+
 BuildRequires:  python-backports-ssl_match_hostname
 
 BuildRequires:  mod_wsgi
@@ -120,7 +121,7 @@ pushd %{py3dir}
 popd
 %endif # with_python3
 
-python setup.py build
+%{pythonX} setup.py build
 
 
 %install
