@@ -54,7 +54,7 @@ update-alternatives --set java java-11-openjdk.x86_64
 
 
 %install
-update-alternatives --set java java-11-openjdk.x86_64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/ 
 %mvn_install
 
 
