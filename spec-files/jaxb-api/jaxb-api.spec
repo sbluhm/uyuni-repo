@@ -48,7 +48,8 @@ between XML documents and Java objects.
 
 
 %build
-update-alternatives --set java java-11-openjdk.x86_64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
+
 # skip javadoc build due to https://github.com/fedora-java/xmvn/issues/58
 %mvn_build -j -- -DbuildNumber=unknown -DscmBranch=%{version}
 
