@@ -13,6 +13,7 @@ BuildRequires:  maven-local
 BuildRequires:  mvn(jakarta.activation:jakarta.activation-api)
 BuildRequires:  mvn(org.apache.felix:maven-bundle-plugin)
 BuildRequires:  mvn(org.codehaus.mojo:build-helper-maven-plugin)
+BuildRequires:  java-11-openjdk-devel
 
 # package renamed from glassfish-jaxb-api in fedora 33
 Provides:       glassfish-jaxb-api = %{version}-%{release}
@@ -20,6 +21,10 @@ Obsoletes:      glassfish-jaxb-api < 2.3.3-2
 
 # javadoc subpackage is currently not built
 Obsoletes:      glassfish-jaxb-api-javadoc < 2.3.3-2
+
+# Relinks java-11-openjdk-headless headless to java-headless
+Requires:	java-11-openjdk-headless
+Provides:	java-headless
 
 %description
 The Jakarta XML Binding provides an API and tools that automate the mapping
