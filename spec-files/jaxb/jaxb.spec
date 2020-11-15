@@ -194,6 +194,7 @@ RelaxNG Datatype library.
 %endif
 
 %prep
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
 %setup -q -n jaxb-ri-%{version}-RI
 
 # Avoid unnecessary runtime dependency on istack commons
@@ -268,6 +269,7 @@ rm xjc/src/test/java/com/sun/tools/xjc/addon/code_injector/PluginImplTest.java
 popd
 
 %build
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
 pushd jaxb-ri
 %if %{with jp_minimal}
 # Don't run tests for minimal build
@@ -278,6 +280,7 @@ pushd jaxb-ri
 popd
 
 %install
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/
 pushd jaxb-ri
 %mvn_install
 popd
