@@ -8,17 +8,9 @@ License:	NONE
 Requires:	augeas-libs
 Provides:	augeas-lenses
 
-# awk
-Requires:	gawk
-Provides:	awk
-
 # gettext
 Requires:	gettext-devel gettext-libs
 Provides:	gettext-tools
-
-# libxslt
-Requires:       libxslt-devel
-Provides:       libxslt-tools
 
 # libxml2
 Requires:       libxml2-devel
@@ -28,15 +20,6 @@ Provides:       libxml2-tools
 %description
 Links SUSE packages to RHEL 8
 augeas, awk, gettext, libxslt, libsigc++ 2, 
-
-# apache-commons-httpclient
-%package -n apache-commons-httpclient
-Requires:       jakarta-commons-httpclient >= 1:3.1
-Requires:       jakarta-commons-httpclient < 1:3.2
-Version:        3.1
-Summary:        Jakarta Commons HTTPClient implements the client side of HTTP standards
-%description -n apache-commons-httpclient
-See jakarta-commons-httpclient
 
 # libyui13
 %package -n libyui13
@@ -89,10 +72,8 @@ No function. Just pretends to provide yast2
 
 
 %files
-%files -n apache-commons-httpclient
 %files -n libyui13
 %files -n libsigc++2-devel
-%files -n oro
 %files -n python3-CherryPy
 %files -n update-alternatives
 %files -n yast2
