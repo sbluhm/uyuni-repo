@@ -339,10 +339,7 @@ Requires:       %{pythonX}-tornado >= 4.2.1
 %endif
 Requires:       %{pythonX}-psutil
 Requires:       %{pythonX}-requests >= 1.0.0
-%if 0%{?rhel} >= 8
-Requires:       python-backports-ssl_match_hostname
-%else
-Requires:       python-backports.ssl_match_hostname
+Requires:       %{pythonX}-backports-ssl_match_hostname
 %endif
 Requires:       %{pythonX}-yaml
 %if 0%{?suse_version}
