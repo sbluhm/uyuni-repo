@@ -1,0 +1,13 @@
+diff --git a/distro_build_configs.sh b/distro_build_configs.sh
+index bad43e3c..52eb1136 100644
+--- a/distro_build_configs.sh
++++ b/distro_build_configs.sh
+@@ -24,7 +24,7 @@ if [ "$DISTRO" = "" ] && [ -r /etc/os-release ];then
+ 	sle*|*suse*)
+ 	    DISTRO="SUSE"
+ 	    ;;
+-	fedora*|centos*)
++	fedora*|centos*|rhel*)
+ 	    DISTRO="FEDORA"
+ 	    ;;
+ 	ubuntu*|debian*)

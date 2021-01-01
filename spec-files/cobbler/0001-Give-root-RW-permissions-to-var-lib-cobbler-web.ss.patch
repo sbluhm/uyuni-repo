@@ -1,0 +1,25 @@
+From 782dd7a1deacfcaa4318519f1cae2c0b4748661b Mon Sep 17 00:00:00 2001
+From: Orion Poplawski <orion@nwra.com>
+Date: Sun, 25 Oct 2020 11:43:25 -0600
+Subject: [PATCH] Give root RW permissions to /var/lib/cobbler/web.ss
+
+---
+ cobbler/cobblerd.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cobbler/cobblerd.py b/cobbler/cobblerd.py
+index fe1cf889..34aedf97 100644
+--- a/cobbler/cobblerd.py
++++ b/cobbler/cobblerd.py
+@@ -57,7 +57,7 @@ def regen_ss_file():
+     data = fd.read(512)
+     fd.close()
+ 
+-    fd = os.open(ssfile, os.O_CREAT | os.O_RDWR, 0o600)
++    fd = os.open(ssfile, os.O_CREAT | os.O_RDWR, 0o660)
+     os.write(fd, binascii.hexlify(data))
+     os.close(fd)
+ 
+-- 
+2.29.0
+
