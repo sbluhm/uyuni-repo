@@ -1,8 +1,10 @@
-#curl https://raw.githubusercontent.com/uyuni-project/uyuni/master/schema/spacewalk/spacewalk-schema-upgrade > /usr/bin/spacewalk-schema-upgrade
-curl https://raw.githubusercontent.com/sbluhm/uyuni/dev-spacewalk-setup/spacewalk/setup/bin/spacewalk-setup  > /usr/bin/spacewalk-setup
-curl https://raw.githubusercontent.com/sbluhm/uyuni/dev-spacewalk-setup/spacewalk/setup/lib/Spacewalk/Setup.pm > /usr/share/perl5/vendor_perl/Spacewalk/Setup.pm
-curl https://raw.githubusercontent.com/uyuni-project/uyuni/master/java/conf/default/rhn_taskomatic_daemon.conf  > /usr/share/rhn/config-defaults/rhn_taskomatic_daemon.conf
-curl https://raw.githubusercontent.com/uyuni-project/uyuni/master/spacewalk/setup/share/tomcat.java_opts  > /usr/share/spacewalk/setup/tomcat.java_opts
-#dnf install glassfish-annotation-api glassfish-jaxb hibernate3
-#ln -s /usr/share/java/mchange-commons/mchange-commons-java.jar mchange-commons-java.jar
-#ln -s /usr/share/java/slf4j/slf4j-simple.jar slf4j-simple.jar 
+dnf -y install \
+	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01852083-spacewalk-java/spacewalk-java-4.2.5-1.el8.noarch.rpm \
+	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01852083-spacewalk-java/spacewalk-java-config-4.2.5-1.el8.noarch.rpm \
+	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01851669-uyuni-base/uyuni-base-common-4.2.2-1.x86_64.rpm \
+	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01851669-uyuni-base/uyuni-base-server-4.2.2-1.x86_64.rpm \
+	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01851668-spacewalk-admin/spacewalk-admin-4.2.2-1.el8.noarch.rpm \
+	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01851667-perl-Satcon/perl-Satcon-4.2.1-1.el8.noarch.rpm \
+	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01851662-spacewalk-setup/spacewalk-setup-4.2.3-1.el8.noarch.rpm
+
+# Susemanager not available in the correct version
