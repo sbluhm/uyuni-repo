@@ -1,4 +1,4 @@
-dnf -y reinstall \
+dnf -y install \
 	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01852212-spacewalk-java/spacewalk-java-4.2.5-1.el8.noarch.rpm \
 	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01852212-spacewalk-java/spacewalk-java-config-4.2.5-1.el8.noarch.rpm \
 	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01851669-uyuni-base/uyuni-base-common-4.2.2-1.x86_64.rpm \
