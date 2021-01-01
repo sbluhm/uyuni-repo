@@ -5,7 +5,7 @@ dnf -y reinstall \
 	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01851669-uyuni-base/uyuni-base-server-4.2.2-1.x86_64.rpm \
 	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01851668-spacewalk-admin/spacewalk-admin-4.2.2-1.el8.noarch.rpm \
 	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01851667-perl-Satcon/perl-Satcon-4.2.1-1.el8.noarch.rpm \
-	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01852185-spacewalk-setup/spacewalk-setup-4.2.3-1.el8.noarch.rpm
+	https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/01852268-spacewalk-setup/spacewalk-setup-4.2.3-1.el8.noarch.rpm
 
 chown :apache /etc/rhn
 
