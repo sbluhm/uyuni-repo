@@ -10,21 +10,6 @@ dnf -y install \
 
 chown :apache /etc/rhn
 
-# Tomcat/rhn
-ln -s /usr/share/java/jaxb-api.jar /var/lib/tomcat/webapps/rhn/WEB-INF/lib/jaxb-api.jar
-ln -s /usr/share/java/istack-commons/istack-commons-runtime.jar /var/lib/tomcat/webapps/rhn/WEB-INF/lib/istack-commons-runtime.jar
-ln -s /usr/share/java/glassfish-jaxb/jaxb-runtime.jar /var/lib/tomcat/webapps/rhn/WEB-INF/lib/jaxb-runtime.jar
-ln -s /usr/share/java/glassfish-jaxb/jaxb-core.jar /var/lib/tomcat/webapps/rhn/WEB-INF/lib/jaxb-core.jar
-ln -s /usr/share/java/glassfish-jaxb/txw2.jar /var/lib/tomcat/webapps/rhn/WEB-INF/lib/txw2.jar
-
-# Taskomatic
-ln -s /usr/share/java/jaxb-api.jar /usr/share/spacewalk/taskomatic/jaxb-api.jar
-ln -s /usr/share/java/istack-commons/istack-commons-runtime.jar /usr/share/spacewalk/taskomatic/istack-commons-runtime.jar
-ln -s /usr/share/java/glassfish-jaxb/jaxb-runtime.jar /usr/share/spacewalk/taskomatic/jaxb-runtime.jar
-ln -s /usr/share/java/glassfish-jaxb/jaxb-core.jar /usr/share/spacewalk/taskomatic/jaxb-core.jar
-
-# Search
-#no jaxb required.
 
 # Workaround as http is not working.
 sed -i 's#http://localhost#https://localhost#' /usr/bin/spacewalk-setup
