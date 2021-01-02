@@ -14,6 +14,7 @@ chown :apache /etc/rhn
 # Workaround as http is not working.
 sed -i 's#http://localhost#https://localhost#' /usr/bin/spacewalk-setup
 
-# Fix waiting for merge:
+# Fixes waiting for merge:
 sed -i 's/--add-modules java.annotation,com.sun.xml.bind//' /usr/share/spacewalk/setup/tomcat.java_opts 
 sed -i 's/--add-modules java.annotation,com.sun.xml.bind//' /etc/sysconfig/tomcat
+cp -R /var/www/htdocs/* /var/www/html/
