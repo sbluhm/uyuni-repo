@@ -1,0 +1,15 @@
+diff --git a/tests/lib/WebServer.cc b/tests/lib/WebServer.cc
+index 7c2fd1a..0e2b25e 100644
+--- a/tests/lib/WebServer.cc
++++ b/tests/lib/WebServer.cc
+@@ -24,8 +24,8 @@
+ #include <atomic>
+ #include <mutex>
+ #include <condition_variable>
+-#include <fastcgi/fcgiapp.h>
+-#include <fastcgi/fcgio.h>
++#include <fcgiapp.h>
++#include <fcgio.h>
+ #include <iostream>
+ #include <fstream>
+ 

@@ -1,0 +1,28 @@
+From e469af1f6bae235e422755a990e3711c3263d41b Mon Sep 17 00:00:00 2001
+From: Daan De Meyer <daan.j.demeyer@gmail.com>
+Date: Sun, 19 Jul 2020 13:47:20 +0100
+Subject: [PATCH] Fix template with C linkage build error
+
+---
+ zypp/parser/xml/libxmlfwd.h | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/zypp/parser/xml/libxmlfwd.h b/zypp/parser/xml/libxmlfwd.h
+index 00df261b7..4e60e5088 100644
+--- a/zypp/parser/xml/libxmlfwd.h
++++ b/zypp/parser/xml/libxmlfwd.h
+@@ -12,11 +12,8 @@
+ #ifndef ZYPP_PARSER_XML_LIBXMLFWD_H
+ #define ZYPP_PARSER_XML_LIBXMLFWD_H
+ 
+-extern "C"
+-{
+ #include <libxml/xmlreader.h>
+ #include <libxml/xmlerror.h>
+-}
+ 
+ #include <iosfwd>
+ 
+-- 
+2.26.2
+

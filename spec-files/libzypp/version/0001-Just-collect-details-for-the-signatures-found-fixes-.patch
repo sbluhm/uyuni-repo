@@ -1,0 +1,25 @@
+From 684365c91e5d9cbda38c2fed069b5e45d156c408 Mon Sep 17 00:00:00 2001
+From: Michael Andres <ma@suse.de>
+Date: Wed, 22 Jul 2020 11:47:19 +0200
+Subject: [PATCH] Just collect details for the signatures found (fixes #229)
+
+---
+ zypp/target/rpm/RpmDb.cc | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/zypp/target/rpm/RpmDb.cc b/zypp/target/rpm/RpmDb.cc
+index 1a231fdac..001dafbef 100644
+--- a/zypp/target/rpm/RpmDb.cc
++++ b/zypp/target/rpm/RpmDb.cc
+@@ -1221,6 +1221,8 @@ namespace
+       { lineres = RpmDb::CHK_NOTFOUND; }
+       else if ( line.find( ": NOTRUSTED" ) != std::string::npos )
+       { lineres = RpmDb::CHK_NOTTRUSTED; }
++      else if ( line.find( ": NOTFOUND" ) != std::string::npos )
++      { continue; } // just collect details for signatures found (#229)
+ 
+       ++count[lineres];
+       detail_r.push_back( RpmDb::CheckPackageDetail::value_type( lineres, std::move(line) ) );
+-- 
+2.26.2
+
