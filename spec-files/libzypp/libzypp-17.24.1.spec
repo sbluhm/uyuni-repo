@@ -142,10 +142,10 @@ find -type f -exec sed -i -e "s|\${CMAKE_INSTALL_PREFIX}/lib/zypp|\${CMAKE_INSTA
          -DENABLE_BUILD_TRANS=ON \
          -DENABLE_ZCHUNK_COMPRESSION=ON
 
-%cmake_build
+%make_build
 
 %install
-%cmake_install
+%make_install
 %find_lang zypp
 
 find %{buildroot} -name '*.la' -exec rm -f {} ';'

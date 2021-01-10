@@ -28,7 +28,7 @@
 %bcond_with zstd
 %endif
 
-%bcond_without mediabackend_tests
+%bcond_with mediabackend_tests
 
 Name:           libzypp
 Version:        17.25.2
@@ -95,7 +95,7 @@ Requires:       libsolv-tools
 %endif
 
 BuildRequires:  glib2-devel
-BuildRequires:  libsigc++2-devel
+BuildRequires:  libsigc++20-devel
 
 # required for testsuite
 %if %{with mediabackend_tests}
@@ -152,7 +152,7 @@ Requires:       libcurl   >= %{min_curl_version}
 BuildRequires:  rubygem(asciidoctor)
 %else
 BuildRequires:  asciidoc
-BuildRequires:  libxslt-tools
+BuildRequires:  libxslt-devel
 %endif
 
 %if %{with zchunk}
