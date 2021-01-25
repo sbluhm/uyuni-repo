@@ -2,7 +2,8 @@
 #
 
 # Workaround as http is not working.
-sed -i 's#http://localhost#https://localhost#' /usr/bin/spacewalk-setup
+#sed -i 's#http://localhost#https://localhost#' /usr/bin/spacewalk-setup
+sed -i /VirtualHost/d /etc/httpd/conf.d/cobbler.conf
 
 # Fixes waiting for merge:
 
