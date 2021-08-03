@@ -12,7 +12,6 @@ curl https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/cobbler/utils.py
 curl https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/cobbler/distro_signatures.json > /var/lib/cobbler/distro_signatures.json
 
 # https://github.com/SUSE/smdba/pull/49
+# Waiting for release and integration into OBS
 curl https://raw.githubusercontent.com/sbluhm/smdba/dev-eladaption/src/smdba/postgresqlgate.py > /usr/lib/python3.6/site-packages/smdba/postgresqlgate.py
 
-# https://github.com/uyuni-project/uyuni/pull/3994
-dnf -y install https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/02348230-susemanager/susemanager-4.3.0-0.x86_64.rpm https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/02348230-susemanager/susemanager-tools-4.3.0-0.x86_64.rpm
