@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Dummy Application file
-Exec=/usr/bin/uname
-Type=Application
-Terminal=true
-NoDisplay=true
-
