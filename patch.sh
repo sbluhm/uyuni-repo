@@ -11,7 +11,5 @@ curl https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/tmp/rhn.conf > /
 
 # cobbler fix for AlmaLinux/Rocky Linux.
 # Uyuni will start shipping cobbler 3.3. EPEL 8 must be updated with upstream 3.2
-curl https://raw.githubusercontent.com/cobbler/cobbler/release32/cobbler/utils.py > /usr/lib/python3.6/site-packages/cobbler/utils.py
-curl https://raw.githubusercontent.com/cobbler/cobbler/release32/config/cobbler/distro_signatures.json > /var/lib/cobbler/distro_signatures.json
-
-
+sed -i 's/("red hat", "redhat", "scientific linux", "fedora", "centos", "virtuozzo")/("red hat", "redhat", "scientific linux", "fedora", "centos", "virtuozzo", "almalinux", "rocky linux")/' /usr/lib/python3.6/site-packages/cobbler/utils.py
+sed -i 's/redhat|sl|slf|centos|oraclelinux|vzlinux/redhat|sl|slf|centos|oraclelinux|vzlinux|almalinux|rocky/' /var/lib/cobbler/distro_signatures.json
