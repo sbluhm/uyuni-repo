@@ -6,7 +6,7 @@ dnf -y install py26-compat-tornado py26-compat-msgpack-python # will be added to
 
 # Fixes waiting for merge:
 # Cobbler setup fix #4166 
-curl https://raw.githubusercontent.com/sbluhm/uyuni-repo/tmp/rhn.conf > /usr/share/rhn/config-defaults/rhn.conf
+curl https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/tmp/rhn.conf > /usr/share/rhn/config-defaults/rhn.conf
 
 
 # cobbler fix for AlmaLinux/Rocky Linux.
