@@ -16,6 +16,7 @@ sed -i 's/redhat|sl|slf|centos|oraclelinux|vzlinux/redhat|sl|slf|centos|oracleli
 
 
 # fix without patch yet:
-echo "bootloaders_dir: '/usr/share/syslinux'" >> /etc/cobbler/settings
-service cobblerd restart
-cobbler sync
+#echo "bootloaders_dir: '/usr/share/syslinux'" >> /etc/cobbler/settings
+#service cobblerd restart
+#cobbler sync
+/usr/share/cobbler/bin/mkgrub.sh
