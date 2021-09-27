@@ -1,1 +1,1 @@
-https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-8-x86_64/02672251-spacewalk-setup/spacewalk-setup-4.3.1-1.noarch.rpm
+
