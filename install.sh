@@ -1,5 +1,6 @@
 set -e
 LANGPACK=glibc-langpack-de # UPDATE THIS TO THE LANGPACK OF YOUR CHOICE!
+dnf clean all
 dnf -y update
 dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm $LANGPACK # Installing EPEL and language pack
 
@@ -15,7 +16,7 @@ dnf -y module enable postgresql:13 javapackages-tools cobbler pki-deps
 dnf -y module disable satellite-5-client rhn-tools # Don't use Spacewalk packages.
 
 NEWPACKAGES=$(curl https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/new-packages.txt)  # let's get packages that are waiting to be merged
-dnf -y install patterns-uyuni_server $NEWPACKAGES --enablerepo=epel-testing
+dnf -y install patterns-uyuni_server $NEWPACKAGES
 
 curl https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/root/setup_env.sh > /root/setup_env.sh
 curl https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/patch.sh | bash # Installs current fixes
