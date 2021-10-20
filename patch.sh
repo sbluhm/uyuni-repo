@@ -12,5 +12,5 @@ echo "bootloaders_dir: '/usr/share/syslinux'" >> /etc/cobbler/settings
 # /usr/share/cobbler/bin/mkgrub.sh # <-- should be this instead of cobbler sync. Code currently to be refactored and doesnt work anyways so only keeping for reference.
 
 # Adding debug info
-echo "log_level_logfile: trace" > /etc/salt/master.d/logging.conf
+echo "log_level_logfile: trace" >> /etc/salt/master.d/logging.conf
 
