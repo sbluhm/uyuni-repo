@@ -5,7 +5,7 @@ dnf -y install py26-compat-tornado py26-compat-msgpack-python # will be added to
 
 
 # Fixes waiting for merge:
-#ln -s /etc/cobbler/settings.yaml /etc/cobbler/settings
+ln -s /etc/cobbler/settings.yaml /etc/cobbler/settings
 
 # fix without patch yet:
 echo "bootloaders_dir: '/usr/share/syslinux'" >> /etc/cobbler/settings.yaml
