@@ -1,4 +1,4 @@
-for package in \
+dnf provides \
 	apache-commons-daemon \
 	apache-commons-el \
 	apache-commons-fileupload \
@@ -13,8 +13,8 @@ for package in \
 	joda-time \
 	maven-javadoc-plugin \
 	mod_wsgi \
-	openslp \
-	protobuf \
+	openslp-server \
+	protobuf-java \
 	python-certifi \
 	python-futures \
 	python-m2crypto \
@@ -25,12 +25,13 @@ for package in \
 	python2-singledispatch \
 	python2-tornado \
 	python2-typing \
-	python3-psycopg2 \
-	python3-pyyaml \
+	"python3-psycopg2 >= 2.8.4" \
+	"python3-pyyaml >= 5.1" \
 	servletapi4 \
 	servletapi5 \
-	tomcat \
+	"tomcat > 1" \
 	unix2_chkpwd \
-	; do
-	if [ `dnf list $package | grep $package | wc -l` == 1 ]; then echo $package;beep;fi;done
 
+
+echo "icu4j - Enabling the module can cause requirement conflicts with other modules so this package is provided separately. Build only requirement for nutch-core."
+echo "jaxen - Build required by velocity-tools. Stock jaxen does not seem to work."
