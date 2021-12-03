@@ -1,1 +1,1 @@
-https://download.opensuse.org/repositories/home:/sbluhm:/branches:/systemsmanagement:/Uyuni:/Master/CentOS_8/x86_64/Uyuni-Server-release.rpm 
+https://download.opensuse.org/repositories/home:/sbluhm:/branches:/systemsmanagement:/Uyuni:/Master/AlmaLinux_8/x86_64/Uyuni-Server-release.rpm
