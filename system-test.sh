@@ -49,6 +49,9 @@ echo "Synchronise Autosetup repo dependency (AppStream)"
 spacecmd -- softwarechannel_syncrepos almalinux8-appstream-x86_64
 spacecmd -- softwarechannel_syncrepos el8-uyuni-client-tools-x86_64
 
+echo "Creating Activation key"
+spacecmd -- activationkey_create -n "almalinux8-x86_64" -d "AlmaLinux 8 x86_64" -b "almalinux8-x86_64" -u
+
 echo "Configure Autosetup distribution"
 until $( spacecmd -- distribution_update "almalinux8-baseos-x86_64" "-p /var/spacewalk/rhn/kickstart/1/almalinux8-baseos-x86_64" "-b almalinux8-baseos-x86_64" "-t rhel_8" );
 do
