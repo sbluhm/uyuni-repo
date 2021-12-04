@@ -39,17 +39,22 @@ spacecmd -- softwarechannel_addrepo el8-uyuni-client-tools-x86_64 el8-uyuni-clie
 spacecmd -- softwarechannel_addrepo rhel8-epel-x86_64 rhel8-epel-x86_64
 
 echo "Synchronise Base channel"
-spacecmd -- softwarechannel_syncrepos almalinux8-baseos-x86_64
+# disable below to see if necessary.
+#spacecmd -- softwarechannel_syncrepos almalinux8-baseos-x86_64
 
 echo "Create kickstartable tree"
 spacecmd -- softwarechannel_syncrepos almalinux8-baseos-x86_64 --sync-kickstart
 
-echo "Configure Autosetup distribution"
-#spacecmd -- distribution_update "almalinux8-baseos-x86_64" "-p /var/spacewalk/rhn/kickstart/1/almalinux8-baseos-x86_64" "-b almalinux8-baseos-x86_64" "-t rhel_8"
-#spacecmd -- kickstart_create "-n almalinux8-x86_64" "-d almalinux8-baseos-x86_64" "-p admin" "-v none"
-
 echo "Synchronise Autosetup repo dependency (AppStream)"
 spacecmd -- softwarechannel_syncrepos almalinux8-appstream-x86_64
 spacecmd -- softwarechannel_syncrepos el8-uyuni-client-tools-x86_64
+
+echo "Configure Autosetup distribution"
+until $( spacecmd -- distribution_update "almalinux8-baseos-x86_64" "-p /var/spacewalk/rhn/kickstart/1/almalinux8-baseos-x86_64" "-b almalinux8-baseos-x86_64" "-t rhel_8" );
+do
+	sleep 60;
+done;
+spacecmd -- kickstart_create "-n almalinux8-x86_64" "-d almalinux8-baseos-x86_64" "-p admin" "-v none"
+echo "Done"
 
 set +e
