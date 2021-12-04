@@ -9,8 +9,8 @@ fi
 
 # This script executes an Uyuni System test after a basic installation (no company/user set up).
 
-echo "Create First User"
-curl 'https://localhost/rhn/newlogin/CreateFirstUser.do' --data-raw 'submitted=true&orgName=Clacee&login=admin&desiredpassword=admin&desiredpasswordConfirm=admin&email=uyuni-admin%40example.com&prefix=+&firstNames=Uyuni&lastName=Administrator'
+echo "Create First User (don't check certificate)"
+curl 'https://localhost/rhn/newlogin/CreateFirstUser.do' --insecure --data-raw 'submitted=true&orgName=Clacee&login=admin&desiredpassword=admin&desiredpasswordConfirm=admin&email=uyuni-admin%40example.com&prefix=+&firstNames=Uyuni&lastName=Administrator'
 
 # Store credentials
 spacecmd -u admin -p admin -- whoami
