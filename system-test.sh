@@ -27,20 +27,20 @@ echo "Add Channel structure"
 spacecmd -- softwarechannel_create -n "AlmaLinux 8 (x86_64)" -l "almalinux8-x86_64" -s "AlmaLinux 8 (x86_64)"
 spacecmd -- softwarechannel_create -n "AlmaLinux 8 BaseOS (x86_64)" -l "almalinux8-baseos-x86_64" -s "AlmaLinux 8 BaseOS (x86_64)" -p "almalinux8-x86_64"
 spacecmd -- softwarechannel_create -n "AlmaLinux 8 AppStream (x86_64)" -l "almalinux8-appstream-x86_64" -s "AlmaLinux 8 Appstream (x86_64)" -p "almalinux8-x86_64"
-spacecmd -- softwarechannel_create -n "AlmaLinux 8 PowerTools (x86_64)" -l "almalinux8-powertools-x86_64" -s "AlmaLinux 8 PowerTools (x86_64)" -p "almalinux8-x86_64"
+#spacecmd -- softwarechannel_create -n "AlmaLinux 8 PowerTools (x86_64)" -l "almalinux8-powertools-x86_64" -s "AlmaLinux 8 PowerTools (x86_64)" -p "almalinux8-x86_64"
 spacecmd -- softwarechannel_create -n "EL 8 Uyuni Client Tools (x86_64)" -l "el8-uyuni-client-tools-x86_64" -s "EL 8 Uyuni Client Tools (x86_64)" -p "almalinux8-x86_64"
-spacecmd -- softwarechannel_create -n "RHEL8 EPEL (x86_64)" -l "rhel8-epel-x86_64" -s "RHEL8 EPEL (x86_64)" -p "almalinux8-x86_64"
+#spacecmd -- softwarechannel_create -n "RHEL8 EPEL (x86_64)" -l "rhel8-epel-x86_64" -s "RHEL8 EPEL (x86_64)" -p "almalinux8-x86_64"
 
 echo "Configure channels"
 spacecmd -- softwarechannel_addrepo almalinux8-baseos-x86_64 almalinux8-baseos-x86_64
 spacecmd -- softwarechannel_addrepo almalinux8-appstream-x86_64 almalinux8-appstream-x86_64
-spacecmd -- softwarechannel_addrepo almalinux8-powertools-x86_64 almalinux8-powertools-x86_64
+#spacecmd -- softwarechannel_addrepo almalinux8-powertools-x86_64 almalinux8-powertools-x86_64
 spacecmd -- softwarechannel_addrepo el8-uyuni-client-tools-x86_64 el8-uyuni-client-tools-x86_64
-spacecmd -- softwarechannel_addrepo rhel8-epel-x86_64 rhel8-epel-x86_64
+#spacecmd -- softwarechannel_addrepo rhel8-epel-x86_64 rhel8-epel-x86_64
 
 echo "Synchronise Base channel"
-# disable below to see if necessary.
-#spacecmd -- softwarechannel_syncrepos almalinux8-baseos-x86_64
+# Base needs to sync first or kickstart sync will get stuck
+spacecmd -- softwarechannel_syncrepos almalinux8-baseos-x86_64
 
 echo "Create kickstartable tree"
 spacecmd -- softwarechannel_syncrepos almalinux8-baseos-x86_64 --sync-kickstart
@@ -48,9 +48,25 @@ spacecmd -- softwarechannel_syncrepos almalinux8-baseos-x86_64 --sync-kickstart
 echo "Synchronise Autosetup repo dependency (AppStream)"
 spacecmd -- softwarechannel_syncrepos almalinux8-appstream-x86_64
 spacecmd -- softwarechannel_syncrepos el8-uyuni-client-tools-x86_64
+#spacecmd -- softwarechannel_syncrepos almalinux8-powertools-x86_64
+#spacecmd -- softwarechannel_syncrepos rhel8-epel-x86_64
+
 
 echo "Creating Activation key"
 spacecmd -- activationkey_create -n "almalinux8-x86_64" -d "AlmaLinux 8 x86_64" -b "almalinux8-x86_64" -u
+## Configure key
+spacecmd -- activationkey_addchildchannels 1-almalinux8-x86_64 almalinux8-appstream-x86_64
+spacecmd -- activationkey_addchildchannels 1-almalinux8-x86_64 almalinux8-baseos-x86_64
+#spacecmd -- activationkey_addchildchannels 1-almalinux8-x86_64 almalinux8-powertools-x86_64
+spacecmd -- activationkey_addchildchannels 1-almalinux8-x86_64 el8-uyuni-client-tools-x86_64
+#spacecmd -- activationkey_addchildchannels 1-almalinux8-x86_64 rhel8-epel-x86_64
+spacecmd -- activationkey_addentitlements 1-almalinux8-x86_64 ansible_control_node
+spacecmd -- activationkey_addentitlements 1-almalinux8-x86_64 container_build_host
+spacecmd -- activationkey_addentitlements 1-almalinux8-x86_64 monitoring_entitled
+spacecmd -- activationkey_addentitlements 1-almalinux8-x86_64 osimage_build_host
+spacecmd -- activationkey_addentitlements 1-almalinux8-x86_64 virtualization_host
+
+
 
 echo "Configure Autosetup distribution"
 until $( spacecmd -- distribution_update "almalinux8-baseos-x86_64" "-p /var/spacewalk/rhn/kickstart/1/almalinux8-baseos-x86_64" "-b almalinux8-baseos-x86_64" "-t rhel_8" );
@@ -58,6 +74,18 @@ do
 	sleep 60;
 done;
 spacecmd -- kickstart_create "-n almalinux8-x86_64" "-d almalinux8-baseos-x86_64" "-p admin" "-v none"
-echo "Done"
+echo 
+
+# Test cobbler files
+dnf -y install tftp
+tftp localhost <<'EOF'
+get pxelinux.0
+get ldlinux.c32
+get pxelinux.cfg/default
+get menu.c32
+get libutil.c32
+EOF
+
+"Done"
 
 set +e
