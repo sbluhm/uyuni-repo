@@ -86,6 +86,6 @@ get menu.c32
 get libutil.c32
 EOF
 
-"Done"
+echo "Done"
 
 set +e
