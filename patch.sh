@@ -1,7 +1,8 @@
 #dnf -y install \
 
 # Unclear what to do with these packages. Will keep them here for now:
-dnf -y install py26-compat-tornado py26-compat-msgpack-python # will be added to requirements later
+#dnf -y install py26-compat-tornado py26-compat-msgpack-python # will be added to requirements later
+# Required for salt-ssh (for now) and SLES11SP4 LTSS 
 
 
 # Fixes waiting for merge:
