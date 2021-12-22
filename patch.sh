@@ -9,11 +9,10 @@
 # PR4588
 curl https://raw.githubusercontent.com/sbluhm/uyuni/mirrorlists/backend/satellite_tools/repo_plugins/yum_dnf_src.py >  /usr/lib/python3.6/site-packages/spacewalk/satellite_tools/repo_plugins/yum_dnf_src.py
 
-
+# PR4607
+curl https://raw.githubusercontent.com/sbluhm/uyuni/mgr-bootstrap/susemanager/src/mgr_bootstrap_data.py > /usr/share/susemanager/mgr_bootstrap_data.py
 
 # fix without patch yet:
-# ISSUE 52
-sed -i 's#/srv/www/htdocs#/var/www/html#' /usr/share/susemanager/mgr_bootstrap_data.py
 
 # not sure if any patches are still required. seems to work without.
 echo "bootloaders_dir: '/usr/share/syslinux'" >> /etc/cobbler/settings.yaml
