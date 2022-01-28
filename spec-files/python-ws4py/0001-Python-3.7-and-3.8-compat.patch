@@ -1,0 +1,48 @@
+From 3903cc1f51cecaa5e2a277c49afcfae5f689bf6d Mon Sep 17 00:00:00 2001
+From: Fabien Boucher <fboucher@redhat.com>
+Date: Thu, 12 Mar 2020 10:34:23 +0000
+Subject: [PATCH] Python 3.7 and 3.8 compat
+
+---
+ ws4py/async_websocket.py    | 4 ++--
+ ws4py/server/tulipserver.py | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/ws4py/async_websocket.py b/ws4py/async_websocket.py
+index 9e2a4c7..ea296b4 100644
+--- a/ws4py/async_websocket.py
++++ b/ws4py/async_websocket.py
+@@ -84,7 +84,7 @@ class WebSocket(_WebSocket):
+         def closeit():
+             yield from self.proto.writer.drain()
+             self.proto.writer.close()
+-        asyncio.async(closeit())
++        asyncio.ensure_future(closeit())
+ 
+     def _write(self, data):
+         """
+@@ -94,7 +94,7 @@ class WebSocket(_WebSocket):
+         def sendit(data):
+             self.proto.writer.write(data)
+             yield from self.proto.writer.drain()
+-        asyncio.async(sendit(data))
++        asyncio.ensure_future(sendit(data))
+ 
+     @asyncio.coroutine
+     def run(self):
+diff --git a/ws4py/server/tulipserver.py b/ws4py/server/tulipserver.py
+index 2786c16..85312a2 100644
+--- a/ws4py/server/tulipserver.py
++++ b/ws4py/server/tulipserver.py
+@@ -40,7 +40,7 @@ class WebSocketProtocol(asyncio.StreamReaderProtocol):
+         #self.stream.set_transport(transport)
+         asyncio.StreamReaderProtocol.connection_made(self, transport)
+         # Let make it concurrent for others to tag along
+-        f = asyncio.async(self.handle_initial_handshake())
++        f = asyncio.ensure_future(self.handle_initial_handshake())
+         f.add_done_callback(self.terminated)
+ 
+     @property
+-- 
+2.24.1
+
