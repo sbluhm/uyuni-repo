@@ -12,6 +12,9 @@ curl https://raw.githubusercontent.com/sbluhm/uyuni/mirrorlists/backend/satellit
 # PR4623
 curl https://raw.githubusercontent.com/sbluhm/uyuni/fix-4614/backend/server/importlib/headerSource.py -o /usr/lib/python3.6/site-packages/spacewalk/server/importlib/headerSource.py
 
+# Waiting for new python3-urlgrapper release (< 4.1.0-2)
+sed -i "1860s#self.fo = open(self.filename, 'r')#self.fo = open(self.filename, 'rb')#" /usr/lib/python3.6/site-packages/urlgrabber/grabber.py
+
 # fix without patch yet:
 # Required whilst reworking folders
 ln -s /var/lib/susemanager /srv/susemanager
