@@ -6,8 +6,6 @@
 
 
 # Fixes waiting for merge:
-# PR4588
-curl https://raw.githubusercontent.com/sbluhm/uyuni/mirrorlists/backend/satellite_tools/repo_plugins/yum_dnf_src.py >  /usr/lib/python3.6/site-packages/spacewalk/satellite_tools/repo_plugins/yum_dnf_src.py
 
 # PR4623
 curl https://raw.githubusercontent.com/sbluhm/uyuni/fix-4614/backend/server/importlib/headerSource.py -o /usr/lib/python3.6/site-packages/spacewalk/server/importlib/headerSource.py
