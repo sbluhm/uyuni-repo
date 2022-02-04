@@ -6,6 +6,8 @@
 
 
 # Fixes waiting for merge:
+# PR4773
+curl https://raw.githubusercontent.com/uyuni-project/uyuni/7ae9763328b9916edf798c7f9d189abd11d2827e/spacewalk/certs-tools/mgr_ssl_cert_setup.py -o /usr/lib/python3.6/site-packages/certs/mgr_ssl_cert_setup.py
 
 # PR4623
 curl https://raw.githubusercontent.com/sbluhm/uyuni/fix-4614/backend/server/importlib/headerSource.py -o /usr/lib/python3.6/site-packages/spacewalk/server/importlib/headerSource.py
