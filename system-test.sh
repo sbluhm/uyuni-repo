@@ -39,10 +39,8 @@ spacecmd -- activationkey_addentitlements 1-almalinux8-x86_64 monitoring_entitle
 spacecmd -- activationkey_addentitlements 1-almalinux8-x86_64 osimage_build_host
 spacecmd -- activationkey_addentitlements 1-almalinux8-x86_64 virtualization_host
 
-
-
 echo "Configure Autosetup distribution"
-until $( spacecmd -- distribution_update "almalinux8-x86_64" "-p /var/spacewalk/rhn/kickstart/1/almalinux8-x86_64" "-b almalinux8-x86_64" "-t rhel_8" );
+until $( spacecmd -- distribution_update "External_-_AlmaLinux_8_aarch64" "-p /var/spacewalk/rhn/kickstart/1/External_-_AlmaLinux_8_aarch64" "-b almalinux8-x86_64" "-t rhel_8" );
 do
 	sleep 60;
 done;
