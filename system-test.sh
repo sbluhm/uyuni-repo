@@ -23,6 +23,8 @@ echo "Synchronise Base channel"
 spacecmd -- softwarechannel_syncrepos almalinux8-x86_64
 
 echo "Create kickstartable tree"
+#Update repo url as mirrorlinks do not support kickstart syncs
+spacecmd -- repo_updateurl "External - AlmaLinux 8 (aarch64)" http://ftp.gwdg.de/pub/linux/almalinux/8/BaseOS/x86_64/os/
 spacecmd -- softwarechannel_syncrepos almalinux8-x86_64 --sync-kickstart
 
 echo "Synchronise Autosetup repo dependency (AppStream)"
