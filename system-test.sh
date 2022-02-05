@@ -1,7 +1,9 @@
 set -e
+export LOG=/var/log/uyuni-system-test.log
+echo "Output will be logged to $LOG"
 if [ "$1" = "install" ]; then
-  echo "Installing Uyuni"
-  curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/install.sh | bash >> /var/log/uyuni-system-test.log
+	echo "Installing Uyuni (low verbosity)"
+  curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/install.sh | bash >> $LOG
 fi
 
 
@@ -51,14 +53,14 @@ spacecmd -- kickstart_create "-n almalinux8-x86_64" "-d External_-_AlmaLinux_8_a
 echo "Waiting for Appstream channel to be synchronised..."
 dnf -yq install tftp
 
-while [ `ps -A | grep repo | wc -l` > 1 ] ;
+while [ `ps -A | grep spacewalk-repo- | wc -l` -gt 0 ] ;
 do
         sleep 60;
 done;
 echo "Done. Lets create the bootstrap repo"
 
-mgr-create-bootstrap-repo -c almalinux-8-x86_64-uyuni >> /var/log/uyuni-system-test.log ||:
-#sed -i 's/AppStream,//g' /var/spacewalk/rhn/kickstart/1/almalinux8-x86_64/.treeinfo
+mgr-create-bootstrap-repo -c almalinux-8-x86_64-uyuni >> $LOG
+sed -i 's/AppStream,//g' /var/spacewalk/rhn/kickstart/1/External_-_AlmaLinux_8_aarch64/.treeinfo
 
 # Test cobbler files
 #dnf -yq install tftp
