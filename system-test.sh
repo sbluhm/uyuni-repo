@@ -1,8 +1,14 @@
 set -e
 export LOG=/var/log/uyuni-system-test.log
 echo "Output will be logged to $LOG"
+
+if [ "$1" = "force" ]; then
+  echo "Continue on error"
+  set +e
+fi
+
 if [ "$1" = "install" ]; then
-	echo "Installing Uyuni (low verbosity)"
+  echo "Installing Uyuni (low verbosity)"
   curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/install.sh | bash >> $LOG
 fi
 
