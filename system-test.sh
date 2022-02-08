@@ -26,11 +26,7 @@ spacecmd -u admin -p admin -- whoami 2>> /var/log/uyuni-system-test.log
 # Create Repositories, Channels and Activation Keys
 /usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited '*' 2>> /var/log/uyuni-system-test.log
 
-echo "Synchronise Base channel"
-# Base needs to sync first or kickstart sync will get stuck
-spacecmd -- softwarechannel_syncrepos almalinux8-x86_64 2>> /var/log/uyuni-system-test.log
-
-echo "Create kickstartable tree"
+echo "Synchronise Base channel with kickstart"
 #Update repo url as mirrorlinks do not support kickstart syncs
 spacecmd -- repo_updateurl "External - AlmaLinux 8 (aarch64)" http://ftp.gwdg.de/pub/linux/almalinux/8/BaseOS/x86_64/os/ 2>> /var/log/uyuni-system-test.log
 spacecmd -- softwarechannel_syncrepos almalinux8-x86_64 --sync-kickstart 2>> /var/log/uyuni-system-test.log
@@ -66,7 +62,7 @@ done;
 echo "Done. Lets create the bootstrap repo"
 
 mgr-create-bootstrap-repo -c almalinux-8-x86_64-uyuni >> $LOG
-sed -i 's/AppStream,//g' /var/spacewalk/rhn/kickstart/1/External_-_AlmaLinux_8_aarch64/.treeinfo
+sed -i 's/,AppStream//g' /var/spacewalk/rhn/kickstart/1/External_-_AlmaLinux_8_aarch64/.treeinfo
 
 # Test cobbler files
 #dnf -yq install tftp
