@@ -30,4 +30,8 @@ echo "log_level_logfile: trace" >> /etc/salt/master.d/logging.conf
 
 # Random hack waiting to be fixed. Some Merge broke folders.
 mkdir -p /etc/pki/trust/
-ln -s /etc/pki/ca-trust/source/anchors /etc/pki/trust/anchors
+ln -s /etc/pki/ca-trust/source/anchors /etc/pki/trust/anchors ||:
+echo "/usr/bin/update-ca-trust extract" > /usr/sbin/update-ca-certificates
+chmod a+x /usr/sbin/update-ca-certificates
+systemctl stop firewalld ||:
+systemctl disable firewalld ||:
