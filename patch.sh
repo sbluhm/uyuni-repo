@@ -29,5 +29,5 @@ echo "bootloaders_dir: '/usr/share/syslinux'" >> /etc/cobbler/settings.yaml
 echo "log_level_logfile: trace" >> /etc/salt/master.d/logging.conf
 
 # Random hack waiting to be fixed. Some Merge broke folders.
-mkdir -p /etc/pki/trust/anchors/
-ln -s /etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT /etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT
+mkdir -p /etc/pki/trust/
+ln -s /etc/pki/ca-trust/source/anchors /etc/pki/trust/anchors
