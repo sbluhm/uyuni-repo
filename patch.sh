@@ -33,5 +33,7 @@ mkdir -p /etc/pki/trust/
 ln -s /etc/pki/ca-trust/source/anchors /etc/pki/trust/anchors ||:
 echo "/usr/bin/update-ca-trust extract" > /usr/sbin/update-ca-certificates
 chmod a+x /usr/sbin/update-ca-certificates
+##sed -i 's#report_db_sslrootcert = /etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#report_db_sslrootcert = /etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/share/rhn/config-defaults/rhn.conf
+
 systemctl stop firewalld ||:
 systemctl disable firewalld ||:
