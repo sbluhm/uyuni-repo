@@ -8,7 +8,7 @@ sed -i 's/SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config ||: # perma
 
 REPO_SOURCE=https://download.opensuse.org/repositories/systemsmanagement:/Uyuni:/Master
 
-dnf -y config-manager --set-enabled powertools # required for dependencies
+dnf -y config-manager --set-enabled powertools || dnf -y --set-enabled ol8_codeready_builder # required for dependencies
 rpm --import https://build.opensuse.org/projects/systemsmanagement:Uyuni:Master/public_key
 dnf -y config-manager --add-repo ${REPO_SOURCE}/AlmaLinux_8/
 dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other/AlmaLinux_8/
@@ -22,8 +22,8 @@ NEWPACKAGES=$(curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master
 dnf -y install patterns-uyuni_server $NEWPACKAGES
 #zypper in patterns-uyuni_server
 
-curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/root/setup_env.sh > /root/setup_env.sh
 curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/patch.sh | bash # Installs current fixes
+curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/root/setup_env.sh > /root/setup_env.sh
 
 # Start the installation of the server now:
 /usr/lib/susemanager/bin/mgr-setup -s
