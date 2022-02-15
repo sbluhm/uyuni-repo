@@ -8,7 +8,7 @@ sed -i 's/SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config ||: # perma
 
 REPO_SOURCE=https://download.opensuse.org/repositories/systemsmanagement:/Uyuni:/Master
 
-dnf -y config-manager --set-enabled powertools || dnf -y --set-enabled ol8_codeready_builder # required for dependencies
+dnf -y config-manager --set-enabled powertools || dnf -y config-manager --set-enabled ol8_codeready_builder # required for dependencies
 rpm --import https://build.opensuse.org/projects/systemsmanagement:Uyuni:Master/public_key
 dnf -y config-manager --add-repo ${REPO_SOURCE}/AlmaLinux_8/
 dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other/AlmaLinux_8/
