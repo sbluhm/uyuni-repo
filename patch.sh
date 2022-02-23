@@ -35,6 +35,13 @@ echo "/usr/bin/update-ca-trust extract" > /usr/sbin/update-ca-certificates
 chmod a+x /usr/sbin/update-ca-certificates
 ##sed -i 's#report_db_sslrootcert = /etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#report_db_sslrootcert = /etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/share/rhn/config-defaults/rhn.conf
 chmod a+w /var/log/rhn -R
+sed -i 's#CA_CERT=/etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#CA_CERT=/etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/bin/uyuni-setup-reportdb
+sed -i 's#report-db-ca-cert=/etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#report-db-ca-cert=/etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/lib/susemanager/bin/mgr-setup
+
+# Create more entropy faster or rhn startup will hang on DB connection
+dnf -y install rng-tools
+systemctl enable rng-tools
+systemctl start rhng-tools
 
 
 systemctl stop firewalld ||:
