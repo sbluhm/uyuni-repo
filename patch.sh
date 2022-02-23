@@ -12,6 +12,10 @@ curl https://raw.githubusercontent.com/uyuni-project/uyuni/7ae9763328b9916edf798
 # PR4623
 curl https://raw.githubusercontent.com/sbluhm/uyuni/fix-4614/backend/server/importlib/headerSource.py -o /usr/lib/python3.6/site-packages/spacewalk/server/importlib/headerSource.py
 
+# PR4893
+dnf -y install rng-tools
+systemctl start rhnd
+
 # Waiting for new python3-urlgrapper release (< 4.1.0-2)
 sed -i "1860s#self.fo = open(self.filename, 'r')#self.fo = open(self.filename, 'rb')#" /usr/lib/python3.6/site-packages/urlgrabber/grabber.py
 
@@ -38,10 +42,6 @@ chmod a+w /var/log/rhn -R
 sed -i 's#CA_CERT=/etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#CA_CERT=/etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/bin/uyuni-setup-reportdb
 sed -i 's#report-db-ca-cert=/etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#report-db-ca-cert=/etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/lib/susemanager/bin/mgr-setup
 
-# Create more entropy faster or rhn startup will hang on DB connection
-dnf -y install rng-tools
-systemctl enable rng-tools
-systemctl start rhng-tools
 
 
 systemctl stop firewalld ||:
