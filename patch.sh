@@ -14,7 +14,7 @@ curl https://raw.githubusercontent.com/sbluhm/uyuni/fix-4614/backend/server/impo
 
 # PR4893
 dnf -y install rng-tools
-systemctl start rhnd
+systemctl start rngd
 
 # Waiting for new python3-urlgrapper release (< 4.1.0-2)
 sed -i "1860s#self.fo = open(self.filename, 'r')#self.fo = open(self.filename, 'rb')#" /usr/lib/python3.6/site-packages/urlgrabber/grabber.py
