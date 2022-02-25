@@ -1,8 +1,9 @@
 #dnf -y install \
 
 # Unclear what to do with these packages. Will keep them here for now:
-#dnf -y install py26-compat-tornado py26-compat-msgpack-python # will be added to requirements later
-# Required for salt-ssh (for now) and SLES11SP4 LTSS 
+dnf -y install py26-compat-tornado https://download.opensuse.org/repositories/home:/sbluhm:/branches:/systemsmanagement:/Uyuni:/Master/AlmaLinux_8/x86_64/py26-compat-msgpack-python.rpm # will be added to requirements later
+# Required for salt-ssh (for now) and SLES11SP4 LTSS
+#Bootstrapping will fail otherwise
 
 
 # Fixes waiting for merge:
@@ -42,7 +43,3 @@ chmod a+w /var/log/rhn -R
 sed -i 's#CA_CERT=/etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#CA_CERT=/etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/bin/uyuni-setup-reportdb
 sed -i 's#report-db-ca-cert=/etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#report-db-ca-cert=/etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/lib/susemanager/bin/mgr-setup
 
-
-
-systemctl stop firewalld ||:
-systemctl disable firewalld ||:
