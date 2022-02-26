@@ -1,11 +1,5 @@
 #dnf -y install \
 
-# Unclear what to do with these packages. Will keep them here for now:
-dnf -y install py26-compat-tornado https://download.opensuse.org/repositories/home:/sbluhm:/branches:/systemsmanagement:/Uyuni:/Master/AlmaLinux_8/x86_64/py26-compat-msgpack-python.rpm # will be added to requirements later
-# Required for salt-ssh (for now) and SLES11SP4 LTSS
-#Bootstrapping will fail otherwise
-
-
 # Fixes waiting for merge:
 # PR4623
 curl https://raw.githubusercontent.com/sbluhm/uyuni/fix-4614/backend/server/importlib/headerSource.py -o /usr/lib/python3.6/site-packages/spacewalk/server/importlib/headerSource.py
