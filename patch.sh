@@ -7,15 +7,8 @@ dnf -y install py26-compat-tornado https://download.opensuse.org/repositories/ho
 
 
 # Fixes waiting for merge:
-# PR4773
-curl https://raw.githubusercontent.com/uyuni-project/uyuni/7ae9763328b9916edf798c7f9d189abd11d2827e/spacewalk/certs-tools/mgr_ssl_cert_setup.py -o /usr/lib/python3.6/site-packages/certs/mgr_ssl_cert_setup.py
-
 # PR4623
 curl https://raw.githubusercontent.com/sbluhm/uyuni/fix-4614/backend/server/importlib/headerSource.py -o /usr/lib/python3.6/site-packages/spacewalk/server/importlib/headerSource.py
-
-# PR4893
-dnf -y install rng-tools
-systemctl start rngd
 
 # Waiting for new python3-urlgrapper release (< 4.1.0-2)
 sed -i "1860s#self.fo = open(self.filename, 'r')#self.fo = open(self.filename, 'rb')#" /usr/lib/python3.6/site-packages/urlgrabber/grabber.py
@@ -34,12 +27,11 @@ echo "bootloaders_dir: '/usr/share/syslinux'" >> /etc/cobbler/settings.yaml
 echo "log_level_logfile: trace" >> /etc/salt/master.d/logging.conf
 
 # Random hack waiting to be fixed. Some Merge broke folders.
-mkdir -p /etc/pki/trust/
-ln -s /etc/pki/ca-trust/source/anchors /etc/pki/trust/anchors ||:
-echo "/usr/bin/update-ca-trust extract" > /usr/sbin/update-ca-certificates
-chmod a+x /usr/sbin/update-ca-certificates
+#mkdir -p /etc/pki/trust/
+#ln -s /etc/pki/ca-trust/source/anchors /etc/pki/trust/anchors ||:
 ##sed -i 's#report_db_sslrootcert = /etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#report_db_sslrootcert = /etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/share/rhn/config-defaults/rhn.conf
 chmod a+w /var/log/rhn -R
-sed -i 's#CA_CERT=/etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#CA_CERT=/etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/bin/uyuni-setup-reportdb
-sed -i 's#report-db-ca-cert=/etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#report-db-ca-cert=/etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/lib/susemanager/bin/mgr-setup
+#sed -i 's#CA_CERT=/etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#CA_CERT=/etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/bin/uyuni-setup-reportdb
+#sed -i 's#report-db-ca-cert=/etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#report-db-ca-cert=/etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/lib/susemanager/bin/mgr-setup
+# test if above is fixed for issue sbluhm/71 (via https://github.com/uyuni-project/uyuni/pull/4868)
 
