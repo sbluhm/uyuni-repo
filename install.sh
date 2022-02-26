@@ -1,8 +1,13 @@
 set -e
+if [ "$1" = "force" ]; then
+  echo "Continue on error"
+  set +e
+fi
+
 DISTRIBUTION_ID="$(source /etc/os-release && echo ${ID})"
 case ${DISTRIBUTION_ID} in
     centos|rhel|almalinux|rocky|ol)    DISTRIBUTION_ID='RHEL';;
-    *)                        echo 'Unknown distribution!'
+    *)                        echo 'Not RHEL. Using SUSE Logic'
 esac
 
 if [ "$DISTRIBUTION_ID" = RHEL ] ; then
