@@ -20,6 +20,9 @@ echo "bootloaders_dir: '/usr/share/syslinux'" >> /etc/cobbler/settings.yaml
 # Adding debug info
 echo "log_level_logfile: trace" >> /etc/salt/master.d/logging.conf
 
+# Oracle Linux only patch until cobbler 3.3
+curl https://raw.githubusercontent.com/sbluhm/cobbler/2f85610c9865ed3f393e1e441eeab952d4de7d18/cobbler/utils.py -o /usr/lib/python3.6/site-packages/cobbler/utils.py
+
 # Random hack waiting to be fixed. Some Merge broke folders.
 mkdir -p /etc/pki/trust/
 ln -s /etc/pki/ca-trust/source/anchors /etc/pki/trust/anchors ||:
