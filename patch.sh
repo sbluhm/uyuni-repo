@@ -24,10 +24,6 @@ echo "log_level_logfile: trace" >> /etc/salt/master.d/logging.conf
 curl https://raw.githubusercontent.com/sbluhm/cobbler/2f85610c9865ed3f393e1e441eeab952d4de7d18/cobbler/utils.py -o /usr/lib/python3.6/site-packages/cobbler/utils.py
 
 # Random hack waiting to be fixed. Some Merge broke folders.
-mkdir -p /etc/pki/trust/
-ln -s /etc/pki/ca-trust/source/anchors /etc/pki/trust/anchors ||:
-sed -i 's#report_db_sslrootcert = /etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#report_db_sslrootcert = /etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/share/rhn/config-defaults/rhn.conf
 chmod a+w /var/log/rhn -R
-sed -i 's#CA_CERT=/etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#CA_CERT=/etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/bin/uyuni-setup-reportdb
 sed -i 's#report-db-ca-cert=/etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#report-db-ca-cert=/etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/lib/susemanager/bin/mgr-setup
 
