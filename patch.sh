@@ -4,6 +4,9 @@
 # PR4623
 curl https://raw.githubusercontent.com/sbluhm/uyuni/fix-4614/backend/server/importlib/headerSource.py -o /usr/lib/python3.6/site-packages/spacewalk/server/importlib/headerSource.py
 
+# PR4955
+sed -i 's#report-db-ca-cert=/etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#report-db-ca-cert=/etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/lib/susemanager/bin/mgr-setup
+
 # Waiting for new python3-urlgrapper release (< 4.1.0-2)
 sed -i "1860s#self.fo = open(self.filename, 'r')#self.fo = open(self.filename, 'rb')#" /usr/lib/python3.6/site-packages/urlgrabber/grabber.py
 
@@ -23,7 +26,5 @@ echo "log_level_logfile: trace" >> /etc/salt/master.d/logging.conf
 # Oracle Linux only patch until cobbler 3.3
 curl https://raw.githubusercontent.com/sbluhm/cobbler/2f85610c9865ed3f393e1e441eeab952d4de7d18/cobbler/utils.py -o /usr/lib/python3.6/site-packages/cobbler/utils.py
 
-# Random hack waiting to be fixed. Some Merge broke folders.
+# Random hack waiting to be fixed.
 chmod a+w /var/log/rhn -R
-sed -i 's#report-db-ca-cert=/etc/pki/trust/anchors/RHN-ORG-TRUSTED-SSL-CERT#report-db-ca-cert=/etc/pki/ca-trust/source/anchors/RHN-ORG-TRUSTED-SSL-CERT#' /usr/lib/susemanager/bin/mgr-setup
-
