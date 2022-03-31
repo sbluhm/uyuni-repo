@@ -1,1 +1,1 @@
-https://download.opensuse.org/repositories/home:/sbluhm:/branches:/systemsmanagement:/Uyuni:/Master/AlmaLinux_8/x86_64/Uyuni-Server-release.rpm py26-compat-msgpack-python py26-compat-tornado
+https://download.opensuse.org/repositories/home:/sbluhm:/branches:/systemsmanagement:/Uyuni:/Master/AlmaLinux_8/x86_64/Uyuni-Server-release.rpm py26-compat-msgpack-python py26-compat-tornado https://download.opensuse.org/repositories/home:/sbluhm:/branches:/systemsmanagement:/Uyuni:/Master:/Other:/EL/AlmaLinux_8/noarch/cobbler.rpm
