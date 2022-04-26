@@ -12,7 +12,9 @@ License:        BSD and ASL 2.0
 URL:            https://ws4py.readthedocs.org/en/latest/
 Source0:        %pypi_source
 Patch01:        0001-Python-3.7-and-3.8-compat.patch
-
+BuildRequires:  python3-rpm-macros
+BuildRequires:  python-rpm-macros
+BuildRequires:  python-srpm-macros
 BuildArch:      noarch
 
 %description %_description
