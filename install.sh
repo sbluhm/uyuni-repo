@@ -30,7 +30,7 @@ if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     dnf -y config-manager --add-repo ${REPO_SOURCE}/AlmaLinux_8/
     dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other/AlmaLinux_8/
     dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other:/EL/AlmaLinux_8/
-    dnf -y module enable postgresql:13 javapackages-tools cobbler pki-deps
+    dnf -y module enable postgresql:13 javapackages-tools cobbler:3 pki-deps
     dnf -y module disable satellite-5-client rhn-tools # Don't use Spacewalk packages.
 else
     sudo zypper ar https://download.opensuse.org/repositories/systemsmanagement:/Uyuni:/Master/images/repo/Uyuni-Server-POOL-$(arch)-Media1/ uyuni-server-devel
