@@ -20,3 +20,8 @@ echo "log_level_logfile: trace" >> /etc/salt/master.d/logging.conf
 
 # Random hack waiting to be fixed.
 #chmod a+w /var/log/rhn -R
+
+ln -s /usr/share/java/jaxb/jaxb-runtime.jar /usr/share/java/glassfish-jaxb/jaxb-runtime.jar
+ln -s /usr/share/java/jaxb/txw2.jar /usr/share/java/glassfish-jaxb/txw2.jar
+ln -s /usr/share/java/jaxb-istack-commons/istack-commons-runtime.jar /usr/share/java/istack-commons-runtime.jar
+
