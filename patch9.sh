@@ -10,7 +10,7 @@ sed -i "1860s#self.fo = open(self.filename, 'r')#self.fo = open(self.filename, '
 ln -s /var/lib/susemanager /srv/susemanager
 
 # not sure if any patches are still required. seems to work without.
-sed -i 'bootloaders_dir/d' /etc/cobbler/settings.yaml ||:
+sed -i '/bootloaders_dir/d' /etc/cobbler/settings.yaml ||:
 echo "bootloaders_dir: '/usr/share/syslinux'" >> /etc/cobbler/settings.yaml
 #cobbler sync
 #/usr/share/cobbler/bin/mkgrub.sh # <-- should be this instead of cobbler sync. Code currently to be refactored and doesnt work anyways so only keeping for reference.
