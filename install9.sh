@@ -31,6 +31,7 @@ if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     dnf -y config-manager --add-repo ${REPO_SOURCE}/CentOS-9_Stream/
     dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other/CentOS-9_Stream/
     dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other:/EL/CentOS-9_Stream/
+    dnf -y config-manager --add-repo https://download.postgresql.org/pub/repos/yum/14/redhat/rhel-9-x86_64/
     dnf -y copr enable sbluhm/python-packages-dnf
 else
     sudo zypper ar https://download.opensuse.org/repositories/systemsmanagement:/Uyuni:/Master/images/repo/Uyuni-Server-POOL-$(arch)-Media1/ uyuni-server-devel
