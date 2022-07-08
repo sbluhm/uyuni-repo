@@ -1,1 +1,1 @@
-https://download.copr.fedorainfracloud.org/results/sbluhm/python-packages-dnf/epel-9-x86_64/04385398-spacewalk-java/spacewalk-java-4.3.21-1.git.65032.3ebd41d.noarch.rpm
+https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-9-x86_64/04610195-spacewalk-setup/spacewalk-setup-4.3.9-1.git.65087.ab71101.noarch.rpm https://download.copr.fedorainfracloud.org/results/sbluhm/python-packages-dnf/epel-9-x86_64/04385398-spacewalk-java/spacewalk-java-4.3.21-1.git.65032.3ebd41d.noarch.rpm
