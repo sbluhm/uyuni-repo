@@ -32,7 +32,7 @@ if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other/AlmaLinux_9/
     dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other:/EL/AlmaLinux_9/
     dnf -y config-manager --add-repo https://download.postgresql.org/pub/repos/yum/14/redhat/rhel-9-x86_64/
-    dnf -y copr enable sbluhm/python-packages-dnf
+    rpm --import https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-14
 else
     sudo zypper ar https://download.opensuse.org/repositories/systemsmanagement:/Uyuni:/Master/images/repo/Uyuni-Server-POOL-$(arch)-Media1/ uyuni-server-devel
     sudo zypper ref
