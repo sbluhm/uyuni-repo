@@ -9,7 +9,7 @@ fi
 
 if [ "$1" = "install" ]; then
   echo "Installing Uyuni (low verbosity)"
-  curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/install.sh | bash >> $LOG
+  curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/install9.sh | bash >> $LOG
 fi
 
 
@@ -28,29 +28,29 @@ spacecmd -u admin -p admin -- whoami 2>> /var/log/uyuni-system-test.log
 
 echo "Synchronise Base channel with kickstart"
 #Update repo url as mirrorlinks do not support kickstart syncs
-spacecmd -- repo_updateurl "External - AlmaLinux 8 (aarch64)" http://ftp.gwdg.de/pub/linux/almalinux/8/BaseOS/x86_64/os/ 2>> /var/log/uyuni-system-test.log
-spacecmd -- softwarechannel_syncrepos almalinux8-x86_64 --sync-kickstart 2>> /var/log/uyuni-system-test.log
+spacecmd -- repo_updateurl "External - AlmaLinux 9 (aarch64)" http://ftp.gwdg.de/pub/linux/almalinux/9/BaseOS/x86_64/os/ 2>> /var/log/uyuni-system-test.log
+spacecmd -- softwarechannel_syncrepos almalinux9-x86_64 --sync-kickstart 2>> /var/log/uyuni-system-test.log
 
 echo "Synchronise Autosetup repo dependency (AppStream)"
-spacecmd -- softwarechannel_syncrepos almalinux8-x86_64-appstream 2>> /var/log/uyuni-system-test.log 
-spacecmd -- softwarechannel_syncrepos almalinux8-uyuni-client-x86_64  2>> /var/log/uyuni-system-test.log
+spacecmd -- softwarechannel_syncrepos almalinux9-x86_64-appstream 2>> /var/log/uyuni-system-test.log 
+spacecmd -- softwarechannel_syncrepos almalinux9-uyuni-client-x86_64  2>> /var/log/uyuni-system-test.log
 
 
 echo "Configure Activation key"
-spacecmd -- activationkey_addentitlements 1-almalinux8-x86_64 ansible_control_node 2>> /var/log/uyuni-system-test.log
-spacecmd -- activationkey_addentitlements 1-almalinux8-x86_64 container_build_host 2>> /var/log/uyuni-system-test.log
-spacecmd -- activationkey_addentitlements 1-almalinux8-x86_64 monitoring_entitled 2>> /var/log/uyuni-system-test.log
-spacecmd -- activationkey_addentitlements 1-almalinux8-x86_64 osimage_build_host 2>> /var/log/uyuni-system-test.log
-spacecmd -- activationkey_addentitlements 1-almalinux8-x86_64 virtualization_host 2>> /var/log/uyuni-system-test.log
+spacecmd -- activationkey_addentitlements 1-almalinux9-x86_64 ansible_control_node 2>> /var/log/uyuni-system-test.log
+spacecmd -- activationkey_addentitlements 1-almalinux9-x86_64 container_build_host 2>> /var/log/uyuni-system-test.log
+spacecmd -- activationkey_addentitlements 1-almalinux9-x86_64 monitoring_entitled 2>> /var/log/uyuni-system-test.log
+spacecmd -- activationkey_addentitlements 1-almalinux9-x86_64 osimage_build_host 2>> /var/log/uyuni-system-test.log
+spacecmd -- activationkey_addentitlements 1-almalinux9-x86_64 virtualization_host 2>> /var/log/uyuni-system-test.log
 
 echo "Configure Autosetup distribution"
 echo "Waiting for kickstart to be synchronised..."
-until $( spacecmd -- distribution_update "External_-_AlmaLinux_8_aarch64" "-p /var/spacewalk/rhn/kickstart/1/External_-_AlmaLinux_8_aarch64" "-b almalinux8-x86_64" "-t rhel_8" 2>> /var/log/uyuni-system-test.log );
+until $( spacecmd -- distribution_update "External_-_AlmaLinux_9_aarch64" "-p /var/spacewalk/rhn/kickstart/1/External_-_AlmaLinux_9_aarch64" "-b almalinux8-x86_64" "-t rhel_9" 2>> /var/log/uyuni-system-test.log );
 do
 	sleep 60;
 done;
 echo "Kickstart synchronised"
-spacecmd -- kickstart_create "-n almalinux8-x86_64" "-d External_-_AlmaLinux_8_aarch64" "-p admin" "-v none" 2>> /var/log/uyuni-system-test.log
+spacecmd -- kickstart_create "-n almalinux9-x86_64" "-d External_-_AlmaLinux_9_aarch64" "-p admin" "-v none" 2>> /var/log/uyuni-system-test.log
 
 echo "Waiting for Appstream channel to be synchronised..."
 dnf -yq install tftp
@@ -61,8 +61,8 @@ do
 done;
 echo "Done. Lets create the bootstrap repo"
 
-mgr-create-bootstrap-repo -c almalinux-8-x86_64-uyuni >> $LOG
-sed -i 's/,AppStream//g' /var/spacewalk/rhn/kickstart/1/External_-_AlmaLinux_8_aarch64/.treeinfo
+mgr-create-bootstrap-repo -c almalinux-9-x86_64-uyuni >> $LOG
+sed -i 's/,AppStream//g' /var/spacewalk/rhn/kickstart/1/External_-_AlmaLinux_9_aarch64/.treeinfo
 
 # Test cobbler files
 #dnf -yq install tftp
