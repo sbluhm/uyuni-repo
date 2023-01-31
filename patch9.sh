@@ -17,8 +17,8 @@ ln -s /var/lib/susemanager /srv/susemanager
 #mkgrub tftp boots result in Failed to load libutil.c32 and menu.c32
 
 # Adding debug info
-sed -i '/log_level_logfile/d' /etc/salt/master.d/logging.conf ||:
-echo "log_level_logfile: trace" >> /etc/salt/master.d/logging.conf
+#sed -i '/log_level_logfile/d' /etc/salt/master.d/logging.conf ||:
+#echo "log_level_logfile: trace" >> /etc/salt/master.d/logging.conf
 
 # Random hack waiting to be fixed.
 #chmod a+w /var/log/rhn -R
@@ -64,8 +64,12 @@ perl -spi -e 's|/var/lib/pgsql/data|/var/lib/pgsql/14/data|g' /usr/sbin/spacewal
 
 
 echo "Java RHN logging in /usr/share/tomcat/webapps/rhn/WEB-INF/classes/"
-rm /usr/share/tomcat/webapps/rhn/WEB-INF/lib/glassfish-jaxb_jaxb-core.jar
+rm -f /usr/share/tomcat/webapps/rhn/WEB-INF/lib/glassfish-jaxb_jaxb-core.jar
 
+#Anpassungen der Startskripte wegen apache2 > httpd Namensunterschiede SUSE / Redhat
+
+perl -spi -e 's|apache2.service|httpd.service|' /usr/lib/systemd/system/spacewalk.target
+perl -spi -e 's|apache2.service|httpd.service|' /usr/lib/systemd/system/uyuni-check-database.service
 
 #es kommt zu einer Java Exception mit Version 2.9.0
 #mv /usr/share/java/google-gson /usr/share/java/google-gson.bak
