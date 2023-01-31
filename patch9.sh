@@ -40,6 +40,9 @@ ln -sf /usr/share/java/c3p0/c3p0.jar /usr/share/java/hibernate_jdbc_cache.jar
 #ln -s /usr/share/java/jaxb/txw2.jar /usr/share/java/glassfish-jaxb/txw2.jar
 ln -s /usr/share/tomcat/bin/tomcat-juli.jar /usr/share/java/tomcat/tomcat-juli.jar
 
+ ln -s /usr/share/java/istack-commons-runtime.jar /usr/share/spacewalk/taskomatic
+ln -s /usr/share/java/istack-commons-runtime.jar /usr/share/tomcat/webapps/rhn/WEB-INF/lib
+
 # Fix postgresql service (Credit Hubert Hoffmann)
 ln -s /usr/pgsql-14/bin/initdb /usr/bin/initdb
 
@@ -75,6 +78,7 @@ perl -spi -e 's|apache2.service|httpd.service|' /usr/lib/systemd/system/uyuni-ch
 #mv /usr/share/java/google-gson /usr/share/java/google-gson.bak
 #cp -frp google-gson /usr/share/java/
 dnf -y install https://download.opensuse.org/distribution/openSUSE-stable/repo/oss/noarch/google-gson-2.8.5-3.2.6.noarch.rpm
+rm -f /usr/share/tomcat/webapps/rhn/WEB-INF/lib/google-gson_google-gsongson-extras.jar
 
 #Das Packet wird bei der Installation nicht installiert, daher manuel nachgeliefert
 dnf -y install python3-websockify
