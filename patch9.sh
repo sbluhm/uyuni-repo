@@ -3,7 +3,7 @@
 # Fixes waiting for merge:
 
 # Waiting for new python3-urlgrapper release (< 4.1.0-2)
-sed -i "1860s#self.fo = open(self.filename, 'r')#self.fo = open(self.filename, 'rb')#" /usr/lib/python3.9/site-packages/urlgrabber/grabber.py
+#sed -i "1860s#self.fo = open(self.filename, 'r')#self.fo = open(self.filename, 'rb')#" /usr/lib/python3.9/site-packages/urlgrabber/grabber.py
 
 # fix without patch yet:
 # Required whilst reworking folders
