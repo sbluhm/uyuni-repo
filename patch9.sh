@@ -69,11 +69,6 @@ perl -spi -e 's|/var/lib/pgsql/data|/var/lib/pgsql/14/data|g' /usr/sbin/spacewal
 echo "Java RHN logging in /usr/share/tomcat/webapps/rhn/WEB-INF/classes/"
 rm -f /usr/share/tomcat/webapps/rhn/WEB-INF/lib/glassfish-jaxb_jaxb-core.jar
 
-#Anpassungen der Startskripte wegen apache2 > httpd Namensunterschiede SUSE / Redhat
-
-perl -spi -e 's|apache2.service|httpd.service|' /usr/lib/systemd/system/spacewalk.target
-perl -spi -e 's|apache2.service|httpd.service|' /usr/lib/systemd/system/uyuni-check-database.service
-
 #es kommt zu einer Java Exception mit Version 2.9.0
 #mv /usr/share/java/google-gson /usr/share/java/google-gson.bak
 #cp -frp google-gson /usr/share/java/
