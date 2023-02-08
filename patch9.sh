@@ -40,7 +40,7 @@ ln -sf /usr/share/java/c3p0/c3p0.jar /usr/share/java/hibernate_jdbc_cache.jar
 #ln -s /usr/share/java/jaxb/txw2.jar /usr/share/java/glassfish-jaxb/txw2.jar
 ln -s /usr/share/tomcat/bin/tomcat-juli.jar /usr/share/java/tomcat/tomcat-juli.jar
 
- ln -s /usr/share/java/istack-commons-runtime.jar /usr/share/spacewalk/taskomatic
+ln -s /usr/share/java/istack-commons-runtime.jar /usr/share/spacewalk/taskomatic
 ln -s /usr/share/java/istack-commons-runtime.jar /usr/share/tomcat/webapps/rhn/WEB-INF/lib
 
 # Fix postgresql service (Credit Hubert Hoffmann)
@@ -77,12 +77,6 @@ rm -f /usr/share/tomcat/webapps/rhn/WEB-INF/lib/google-gson_google-gsongson-extr
 
 #Das Packet wird bei der Installation nicht installiert, daher manuel nachgeliefert
 dnf -y install python3-websockify
-
-#SHA1 ist bei RHEL9 deaktiviert
-perl -spi -e 's|createrepo -s sha |createrepo -s sha256 |' /usr/sbin/mgr-create-bootstrap-repo
-
-#Python3.9 abweichung von Rhel 9
-perl -spi -e 's|t.isAlive|t.is_alive|' /usr/lib/python3.9/site-packages/spacewalk/satellite_tools/download.py
 
 #Es kommt sonst zu Java Exceptions
 rpm -e woodstox-core-6.2.3-17.51.noarch --nodeps
