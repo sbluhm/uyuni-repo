@@ -1,3 +1,4 @@
+export PRODUCT_NAME='Uyuni' 
 export MANAGER_FORCE_INSTALL='1'
 export ACTIVATE_SLP='y'
 export MANAGER_ADMIN_EMAIL='uyuni@example.com'
