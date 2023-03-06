@@ -1,1 +1,0 @@
-https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-9-x86_64/05417749-spacewalk-admin/spacewalk-admin-4.4.3-1.git.67434.df665d1.noarch.rpm
