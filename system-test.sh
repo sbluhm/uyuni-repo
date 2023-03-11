@@ -15,6 +15,7 @@ fi
 
 
 
+
 # This script executes an Uyuni System test after a basic installation (no company/user set up).
 
 echo "Create First User (don't check certificate)"
@@ -24,16 +25,16 @@ curl -s 'https://localhost/rhn/newlogin/CreateFirstUser.do' --insecure --data-ra
 spacecmd -u admin -p admin -- whoami 2>> /var/log/uyuni-system-test.log
 
 # Create Repositories, Channels and Activation Keys
-/usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited '*' 2>> /var/log/uyuni-system-test.log
+/usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited -a x86_64 'almalinux9' 2>> /var/log/uyuni-system-test.log
+/usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited -a x86_64 'almalinux9-appstream' 2>> /var/log/uyuni-system-test.log
+/usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited -a x86_64 'almalinux9-uyuni-client' 2>> /var/log/uyuni-system-test.log
+
+# Workaround for Uyuni#6564
+spacecmd -- repo_updateurl "External - Uyuni Client Tools for AlmaLinux 9 (x86_64)" https://ftp.gwdg.de/pub/opensuse/repositories/systemsmanagement:/Uyuni:/Stable:/EL9-Uyuni-Client-Tools/EL_9/ 2>> /var/log/uyuni-system-test.log
 
 echo "Synchronise Base channel with kickstart"
-#Update repo url as mirrorlinks do not support kickstart syncs
-spacecmd -- repo_updateurl "External - AlmaLinux 9 (aarch64)" http://ftp.gwdg.de/pub/linux/almalinux/9/BaseOS/x86_64/os/ 2>> /var/log/uyuni-system-test.log
+# The next line might fail if done late/early as Uyuni will start autosyncing
 spacecmd -- softwarechannel_syncrepos almalinux9-x86_64 --sync-kickstart 2>> /var/log/uyuni-system-test.log
-
-echo "Synchronise Autosetup repo dependency (AppStream)"
-spacecmd -- softwarechannel_syncrepos almalinux9-x86_64-appstream 2>> /var/log/uyuni-system-test.log 
-spacecmd -- softwarechannel_syncrepos almalinux9-uyuni-client-x86_64  2>> /var/log/uyuni-system-test.log
 
 
 echo "Configure Activation key"
@@ -45,12 +46,13 @@ spacecmd -- activationkey_addentitlements 1-almalinux9-x86_64 virtualization_hos
 
 echo "Configure Autosetup distribution"
 echo "Waiting for kickstart to be synchronised..."
-until $( spacecmd -- distribution_update "External_-_AlmaLinux_9_aarch64" "-p /var/spacewalk/rhn/kickstart/1/External_-_AlmaLinux_9_aarch64" "-b almalinux8-x86_64" "-t rhel_9" 2>> /var/log/uyuni-system-test.log );
-do
-	sleep 60;
-done;
+#echo "Not sure this works anymore as the entry is generated correcctly"
+#until $( spacecmd -- distribution_update "External_-_AlmaLinux_9_x86_64" "-p /var/spacewalk/rhn/kickstart/1/External_-_AlmaLinux_9_x86_64" "-b almalinux9-x86_64" "-t rhel_9" 2>> /var/log/uyuni-system-test.log );
+#do
+#	sleep 60;
+#done;
 echo "Kickstart synchronised"
-spacecmd -- kickstart_create "-n almalinux9-x86_64" "-d External_-_AlmaLinux_9_aarch64" "-p admin" "-v none" 2>> /var/log/uyuni-system-test.log
+spacecmd -- kickstart_create "-n almalinux9-x86_64" "-d External_-_AlmaLinux_9_x86_64" "-p admin" "-v none" 2>> /var/log/uyuni-system-test.log
 
 echo "Waiting for Appstream channel to be synchronised..."
 dnf -yq install tftp
