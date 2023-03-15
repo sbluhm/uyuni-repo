@@ -28,7 +28,7 @@ if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     REPO_SOURCE=https://download.opensuse.org/repositories/home:/sbluhm:/branches:/systemsmanagement:/Uyuni:/Master
     dnf -y config-manager --set-enabled crb # required for dependencies
     rpm --import ${REPO_SOURCE}/AlmaLinux_9/repodata/repomd.xml.key
-    dnf -y config-manager --add-repo ${REPO_SOURCE}/AlmaLinux_9/
+    dnf -y config-manager --add-repo ${REPO_SOURCE}/EL_9/
     dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other/AlmaLinux_9/
     dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other:/EL/AlmaLinux_9/
     dnf -y config-manager --add-repo https://download.postgresql.org/pub/repos/yum/14/redhat/rhel-9-x86_64/
