@@ -1,0 +1,1 @@
+https://download.copr.fedorainfracloud.org/results/sbluhm/uyuni-server/epel-9-x86_64/05775112-spacewalk-setup/spacewalk-setup-4.4.7-1.git.67798.faca1b6.noarch.rpm
