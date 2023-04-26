@@ -87,3 +87,9 @@ chown tomcat:tomcat /var/log/rhn/rhn_web_frontend.log
 
 ln -s /var/lib/tftpboot /srv/tftpboot
 
+# New patches. should probably symlink in /usr/share/jar instead of lib folders
+rm -f /usr/share/tomcat/webapps/rhn/WEB-INF/lib/google-gson_google-gsongson-codegen.jar
+ln -sf /usr/share/java/spark-core/spark-core.jar /usr/share/tomcat/webapps/rhn/WEB-INF/lib/spark-core.jar
+ln -sf /usr/share/java/spark-template-jade/spark-template-jade.jar /usr/share/tomcat/webapps/rhn/WEB-INF/lib/spark-template-jade.jar
+ln -sf /usr/share/java/dom4j.jar /usr/share/tomcat/webapps/rhn/WEB-INF/lib/dom4jdom4j.jar
+
