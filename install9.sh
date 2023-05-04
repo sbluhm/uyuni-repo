@@ -29,8 +29,8 @@ if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     dnf -y config-manager --set-enabled crb # required for dependencies
     rpm --import ${REPO_SOURCE}/EL_9/repodata/repomd.xml.key
     dnf -y config-manager --add-repo ${REPO_SOURCE}/EL_9/
-    dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other/AlmaLinux_9/
-    dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other:/EL/AlmaLinux_9/
+    dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other/EL_9/
+    dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other:/EL/EL_9/
     dnf -y config-manager --add-repo https://download.postgresql.org/pub/repos/yum/14/redhat/rhel-9-x86_64/
     rpm --import https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-14
 else
