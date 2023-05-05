@@ -13,7 +13,9 @@ esac
 if [ "$DISTRIBUTION_ID" = RHEL ] ; then
 
     subscription-manager attach ||:
-    LANGPACK=glibc-langpack-de # UPDATE THIS TO THE LANGPACK OF YOUR CHOICE!
+    echo "Don't worry if the subscription manage cannot be found."
+    LANGPACK=glibc-langpack-en # UPDATE THIS TO THE LANGPACK OF YOUR CHOICE!
+    echo "Using LANGPACK $LANGPACK"
     dnf clean all
     dnf -y update
     dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm $LANGPACK # Installing EPEL and language pack
@@ -49,6 +51,8 @@ fi
 curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/root/setup_env.sh > /root/setup_env.sh
 
 # Start the installation of the server now:
-/usr/lib/susemanager/bin/mgr-setup -s
+
+echo "Edit /root/setup_env.sh to your needs/setup requirements and then run /usr/lib/susemanager/bin/mgr-setup -s"
+#/usr/lib/susemanager/bin/mgr-setup -s
 set +e
 

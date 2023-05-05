@@ -50,6 +50,4 @@ ln -s /var/lib/tftpboot /srv/tftpboot
 
 # New patches. should probably symlink in /usr/share/jar instead of lib folders
 rm -f /usr/share/tomcat/webapps/rhn/WEB-INF/lib/google-gson_google-gsongson-codegen.jar
-# downgrade dom4j until dom4j2 is deleted from the repositories
-dnf -y install "dom4j < 2.0.0"
 
