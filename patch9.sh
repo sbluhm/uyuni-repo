@@ -51,3 +51,4 @@ ln -s /var/lib/tftpboot /srv/tftpboot
 # New patches. should probably symlink in /usr/share/jar instead of lib folders
 rm -f /usr/share/tomcat/webapps/rhn/WEB-INF/lib/google-gson_google-gsongson-codegen.jar
 ln -s /usr/share/java/glassfish-jaxb-api/jakarta.xml.bind-api.jar /usr/share/tomcat/webapps/rhn/WEB-INF/lib/jakarta.xml.bind-api.jar
+ln -s /usr/share/java/glassfish-jaxb-api/jakarta.xml.bind-api.jar /usr/share/spacewalk/taskomatic/jakarta.xml.bind-api.jar
