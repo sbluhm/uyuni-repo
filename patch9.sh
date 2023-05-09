@@ -29,8 +29,8 @@ echo "Java RHN logging in /usr/share/tomcat/webapps/rhn/WEB-INF/classes/"
 #es kommt zu einer Java Exception mit Version 2.9.0
 #mv /usr/share/java/google-gson /usr/share/java/google-gson.bak
 #cp -frp google-gson /usr/share/java/
-dnf -y install https://download.opensuse.org/distribution/openSUSE-stable/repo/oss/noarch/google-gson-2.8.5-3.2.6.noarch.rpm
-rm -f /usr/share/tomcat/webapps/rhn/WEB-INF/lib/google-gson_google-gsongson-extras.jar
+#dnf -y install https://download.opensuse.org/distribution/openSUSE-stable/repo/oss/noarch/google-gson-2.8.5-3.2.6.noarch.rpm
+#rm -f /usr/share/tomcat/webapps/rhn/WEB-INF/lib/google-gson_google-gsongson-extras.jar
 
 #PR6961
 dnf -y install python3-websockify
@@ -49,6 +49,6 @@ chown tomcat:tomcat /var/log/rhn/rhn_web_frontend.log
 ln -s /var/lib/tftpboot /srv/tftpboot
 
 # New patches. should probably symlink in /usr/share/jar instead of lib folders
-rm -f /usr/share/tomcat/webapps/rhn/WEB-INF/lib/google-gson_google-gsongson-codegen.jar
-ln -s /usr/share/java/glassfish-jaxb-api/jakarta.xml.bind-api.jar /usr/share/tomcat/webapps/rhn/WEB-INF/lib/jakarta.xml.bind-api.jar
-ln -s /usr/share/java/glassfish-jaxb-api/jakarta.xml.bind-api.jar /usr/share/spacewalk/taskomatic/jakarta.xml.bind-api.jar
+#rm -f /usr/share/tomcat/webapps/rhn/WEB-INF/lib/google-gson_google-gsongson-codegen.jar
+ln -s /usr/share/java/glassfish-jaxb-api.jar /usr/share/tomcat/webapps/rhn/WEB-INF/lib/glassfish-jaxb-api.jar
+ln -s /usr/share/java/glassfish-jaxb-api.jar /usr/share/spacewalk/taskomatic/glassfish-jaxb-api.jar
