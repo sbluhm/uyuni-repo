@@ -1,5 +1,3 @@
-#dnf -y install \
-
 # Fixes waiting for merge:
 
 # Waiting for new python3-urlgrapper release (< 4.1.0-2)
@@ -13,18 +11,12 @@ ln -s /var/lib/susemanager /srv/susemanager
 #sed -i '/log_level_logfile/d' /etc/salt/master.d/logging.conf ||:
 #echo "log_level_logfile: trace" >> /etc/salt/master.d/logging.conf
 
-# Random hack waiting to be fixed.
-#chmod a+w /var/log/rhn -R
-
-#ln -sf /usr/share/java/c3p0/c3p0.jar /usr/share/java/hibernate_jdbc_cache.jar
-
-
 
 #Update Java Softlinks for Taskomatik und Tomcat:
 ln -s /usr/share/tomcat/bin/tomcat-juli.jar /usr/share/java/tomcat/tomcat-juli.jar
 
 
-echo "Java RHN logging in /usr/share/tomcat/webapps/rhn/WEB-INF/classes/"
+echo "Java RHN logging in /usr/share/tomcat/webapps/rhn/WEB-INF/classes/log4j2.xml"
 
 #Fehlende Logs "Show Tomcat Logs in der Gui bringt sonst einen Fehler"
 touch /var/log/rhn/rhn_salt_remote_commands.log
