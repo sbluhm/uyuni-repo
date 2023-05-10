@@ -11,6 +11,9 @@ case ${DISTRIBUTION_ID} in
 esac
 
 if [ "$DISTRIBUTION_ID" = RHEL ] ; then
+    echo "Disabling SELinux"
+    setenforce Permissive # disable SELinux for this session
+    sed 's/^SELINUX=.*/SELINUX=permissive/' /etc/sysconfig/selinux # disable SELinux for good.
 
     subscription-manager attach ||:
     echo "Don't worry if the subscription manage cannot be found."
@@ -28,13 +31,15 @@ fi
 
 if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     REPO_SOURCE=https://download.opensuse.org/repositories/home:/sbluhm:/branches:/systemsmanagement:/Uyuni:/Master
-    dnf -y config-manager --set-enabled crb # required for dependencies
+    dnf -y config-manager --iset-enabled crb ||: # required for dependencies
+    dnf -y config-manager --set-enabled ol9_codeready_builder ||:  # Alternative for Oracle Linux. Ignore on all other systens,
     rpm --import ${REPO_SOURCE}/EL_9/repodata/repomd.xml.key
     dnf -y config-manager --add-repo ${REPO_SOURCE}/EL_9/
     dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other/EL_9/
     dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other:/EL/EL_9/
     dnf -y config-manager --add-repo https://download.postgresql.org/pub/repos/yum/14/redhat/rhel-9-x86_64/
     rpm --import https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-14
+    dnf -y update --nobest # to update python3-rhnlib on Oracle systems as it comes pre-installed.
 else
     sudo zypper ar https://download.opensuse.org/repositories/systemsmanagement:/Uyuni:/Master/images/repo/Uyuni-Server-POOL-$(arch)-Media1/ uyuni-server-devel
     sudo zypper ref
