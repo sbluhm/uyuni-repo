@@ -1,1 +1,0 @@
-https://github.com/sbluhm/spacewalk-support/raw/master/packages/mybatis-3.5.6-0.noarch.rpm 
