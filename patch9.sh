@@ -28,8 +28,8 @@ chown tomcat:tomcat /var/log/rhn/rhn_web_frontend.log
 
 
 
-ln -s /var/lib/tftpboot /srv/tftpboot
+#ln -s /var/lib/tftpboot /srv/tftpboot
 
 # New patches. should probably symlink in /usr/share/jar instead of lib folders
-ln -s /usr/share/java/glassfish-jaxb-api.jar /usr/share/tomcat/webapps/rhn/WEB-INF/lib/glassfish-jaxb-api.jar
-ln -s /usr/share/java/glassfish-jaxb-api.jar /usr/share/spacewalk/taskomatic/glassfish-jaxb-api.jar
+#ln -s /usr/share/java/glassfish-jaxb-api.jar /usr/share/tomcat/webapps/rhn/WEB-INF/lib/glassfish-jaxb-api.jar
+#ln -s /usr/share/java/glassfish-jaxb-api.jar /usr/share/spacewalk/taskomatic/glassfish-jaxb-api.jar
