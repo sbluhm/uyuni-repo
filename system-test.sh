@@ -29,9 +29,6 @@ spacecmd -u admin -p admin -- whoami 2>> /var/log/uyuni-system-test.log
 /usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited -a x86_64 'almalinux9-appstream' 2>> /var/log/uyuni-system-test.log
 /usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited -a x86_64 'almalinux9-uyuni-client' 2>> /var/log/uyuni-system-test.log
 
-# Workaround for Uyuni#6564
-spacecmd -- repo_updateurl "External - Uyuni Client Tools for AlmaLinux 9 (x86_64)" https://ftp.gwdg.de/pub/opensuse/repositories/systemsmanagement:/Uyuni:/Stable:/EL9-Uyuni-Client-Tools/EL_9/ 2>> /var/log/uyuni-system-test.log
-
 echo "Synchronise Base channel with kickstart"
 # The next line might fail if done late/early as Uyuni will start autosyncing
 spacecmd -- softwarechannel_syncrepos almalinux9-x86_64 --sync-kickstart 2>> /var/log/uyuni-system-test.log
@@ -64,7 +61,6 @@ done;
 echo "Done. Lets create the bootstrap repo"
 
 mgr-create-bootstrap-repo -c almalinux-9-x86_64-uyuni >> $LOG
-sed -i 's/,AppStream//g' /var/spacewalk/rhn/kickstart/1/External_-_AlmaLinux_9_aarch64/.treeinfo
 
 # Test cobbler files
 #dnf -yq install tftp
