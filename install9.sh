@@ -31,7 +31,7 @@ fi
 
 if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     REPO_SOURCE=https://download.opensuse.org/repositories/home:/sbluhm:/branches:/systemsmanagement:/Uyuni:/Master
-    dnf -y config-manager --iset-enabled crb ||: # required for dependencies
+    dnf -y config-manager --set-enabled crb ||: # required for dependencies
     dnf -y config-manager --set-enabled ol9_codeready_builder ||:  # Alternative for Oracle Linux. Ignore on all other systens,
     rpm --import ${REPO_SOURCE}/EL_9/repodata/repomd.xml.key
     dnf -y config-manager --add-repo ${REPO_SOURCE}/EL_9/
