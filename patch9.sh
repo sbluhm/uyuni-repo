@@ -7,8 +7,6 @@ ln -s /usr/share/tomcat/bin/tomcat-juli.jar /usr/share/java/tomcat/tomcat-juli.j
 # fix without patch yet:
 ## Required whilst reworking folders
 ln -s /var/lib/susemanager /srv/susemanager
-## Update Java Softlinks for Taskomatik und Tomcat:
-ln -s /usr/share/tomcat/bin/tomcat-juli.jar /usr/share/java/tomcat/tomcat-juli.jar
 
 # Log files not created after setup
 touch /var/log/rhn/rhn_salt_remote_commands.log
