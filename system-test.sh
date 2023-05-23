@@ -26,7 +26,8 @@ spacecmd -u admin -p admin -- whoami 2>> /var/log/uyuni-system-test.log
 
 # Create Repositories, Channels and Activation Keys
 /usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited -a x86_64 'almalinux9' 2>> /var/log/uyuni-system-test.log
-/usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited -a x86_64 'almalinux9-appstream' 2>> /var/log/uyuni-system-test.log
+## AppStream is not required for EL9 (I believe)
+#/usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited -a x86_64 'almalinux9-appstream' 2>> /var/log/uyuni-system-test.log
 /usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited -a x86_64 'almalinux9-uyuni-client' 2>> /var/log/uyuni-system-test.log
 
 echo "Synchronise Base channel with kickstart"
@@ -41,29 +42,20 @@ spacecmd -- activationkey_addentitlements 1-almalinux9-x86_64 monitoring_entitle
 spacecmd -- activationkey_addentitlements 1-almalinux9-x86_64 osimage_build_host 2>> /var/log/uyuni-system-test.log
 spacecmd -- activationkey_addentitlements 1-almalinux9-x86_64 virtualization_host 2>> /var/log/uyuni-system-test.log
 
-echo "Configure Autosetup distribution"
-echo "Waiting for kickstart to be synchronised..."
-#echo "Not sure this works anymore as the entry is generated correcctly"
-#until $( spacecmd -- distribution_update "External_-_AlmaLinux_9_x86_64" "-p /var/spacewalk/rhn/kickstart/1/External_-_AlmaLinux_9_x86_64" "-b almalinux9-x86_64" "-t rhel_9" 2>> /var/log/uyuni-system-test.log );
-#do
-#	sleep 60;
-#done;
-echo "Kickstart synchronised"
-spacecmd -- kickstart_create "-n almalinux9-x86_64" "-d External_-_AlmaLinux_9_x86_64" "-p admin" "-v none" 2>> /var/log/uyuni-system-test.log
-
-echo "Waiting for Appstream channel to be synchronised..."
 dnf -yq install tftp
 
-while [ `ps -A | grep spacewalk-repo- | wc -l` -gt 0 ] ;
+echo "Configure Autosetup distribution"
+echo "Waiting for kickstart to be synchronised..."
+until $( spacecmd -- kickstart_create "-n almalinux9-x86_64" "-d External_-_AlmaLinux_9_x86_64" "-p admin" "-v none" 2>> /var/log/uyuni-system-test.log 2>> /var/log/uyuni-system-test.log );
 do
-        sleep 60;
+	sleep 60;
 done;
-echo "Done. Lets create the bootstrap repo"
+
+echo "Kickstart set up."
 
 mgr-create-bootstrap-repo -c almalinux-9-x86_64-uyuni >> $LOG
 
 # Test cobbler files
-#dnf -yq install tftp
 tftp localhost <<'EOF'
 get pxelinux.0
 get ldlinux.c32
@@ -71,8 +63,6 @@ get pxelinux.cfg/default
 get menu.c32
 get libutil.c32
 EOF
-
-echo "# Somehow Autoinstall profile only works if distribution is manually saved"
 
 echo "Done"
 
