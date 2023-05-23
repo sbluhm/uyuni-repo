@@ -29,8 +29,8 @@ spacecmd -u admin -p admin -- whoami 2>> /var/log/uyuni-system-test.log
 # Create Repositories, Channels and Activation Keys
 /usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited -a x86_64 'almalinux9' 2>> /var/log/uyuni-system-test.log
 ## AppStream is not required for EL9 (I believe)
-#/usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited -a x86_64 'almalinux9-appstream' 2>> /var/log/uyuni-system-test.log
 /usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited -a x86_64 'almalinux9-uyuni-client' 2>> /var/log/uyuni-system-test.log
+/usr/bin/spacewalk-common-channels -u admin -p admin -k unlimited -a x86_64 'almalinux9-appstream' 2>> /var/log/uyuni-system-test.log
 
 echo "Synchronise Base channel with kickstart"
 # The next line might fail if done late/early as Uyuni will start autosyncing
@@ -53,7 +53,9 @@ do
 	sleep 60;
 done;
 
-echo "Kickstart set up."
+spacecmd -- kickstart_addchildchannels almalinux9-x86_64 almalinux9-uyuni-client-x86_64
+spacecmd -- kickstart_addchildchannels almalinux9-x86_64 almalinux9-appstream-x86_64
+
 
 mgr-create-bootstrap-repo -c almalinux-9-x86_64-uyuni >> $LOG
 
