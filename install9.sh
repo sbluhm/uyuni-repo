@@ -13,7 +13,7 @@ esac
 if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     echo "Disabling SELinux"
     setenforce Permissive # disable SELinux for this session
-    sed 's/^SELINUX=.*/SELINUX=permissive/' /etc/sysconfig/selinux # disable SELinux for good.
+    sed -i 's/^SELINUX=.*/SELINUX=permissive/' /etc/sysconfig/selinux # disable SELinux for good.
 
     subscription-manager attach ||:
     echo "Don't worry if the subscription manage cannot be found."
