@@ -7,7 +7,8 @@ ln -s /usr/share/tomcat/bin/tomcat-juli.jar /usr/share/java/tomcat/tomcat-juli.j
 # fix without patch yet:
 ## Required whilst reworking folders
 ln -s /var/lib/susemanager /srv/susemanager
-
+## Debian user rights fix
+curl https://raw.githubusercontent.com/sbluhm/uyuni/rhnconf-users/python/spacewalk/satellite_tools/repo_plugins/deb_src.py > /usr/lib/python3.9/site-packages/spacewalk/satellite_tools/repo_plugins/deb_src.py
 # Log files not created after setup
 touch /var/log/rhn/rhn_salt_remote_commands.log
 chown tomcat:tomcat /var/log/rhn/rhn_salt_remote_commands.log
