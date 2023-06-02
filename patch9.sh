@@ -3,6 +3,8 @@
 sed -i "1860s#self.fo = open(self.filename, 'r')#self.fo = open(self.filename, 'rb')#" /usr/lib/python3.9/site-packages/urlgrabber/grabber.py
 ## BZ2188218: Update Java Softlinks for Taskomatik und Tomcat:
 ln -s /usr/share/tomcat/bin/tomcat-juli.jar /usr/share/java/tomcat/tomcat-juli.jar
+## PR7086
+curl https://raw.githubusercontent.com/sbluhm/uyuni/rpm-compat/python/spacewalk/satellite_tools/spacewalk-data-fsck > /usr/bin/spacewalk-data-fsck
 
 # fix without patch yet:
 ## Required whilst reworking folders
