@@ -11,6 +11,9 @@ if [ "$1" = "install" ]; then
 # Use curl https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/system-test.sh | bash -s -- install
   echo "Installing Uyuni (low verbosity)"
   curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/install9.sh | bash >> $LOG
+  echo "Testing for broken Symlinks"
+  find /usr/share/tomcat/webapps/rhn/WEB-INF/lib -xtype l
+  find /usr/share/spacewalk/taskomatic/ -xtype l
   /usr/lib/susemanager/bin/mgr-setup -s
 fi
 
