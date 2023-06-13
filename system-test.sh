@@ -57,7 +57,7 @@ do
 done;
 
 spacecmd -- kickstart_addchildchannels almalinux9-x86_64 almalinux9-uyuni-client-x86_64
-spacecmd -- kickstart_addchildchannels almalinux9-x86_64 almalinux9-appstream-x86_64
+spacecmd -- kickstart_addchildchannels almalinux9-x86_64  almalinux9-x86_64-appstream 
 
 
 mgr-create-bootstrap-repo -c almalinux-9-x86_64-uyuni >> $LOG
