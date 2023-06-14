@@ -25,7 +25,7 @@ if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     setenforce 0 # disabling SELinux for this session.
     sed -i 's/SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config ||: # permanently disabling SELinux
 else
-    sudo zypper update
+    sudo zypper update -y
 fi
 
 
@@ -42,7 +42,7 @@ if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     dnf -y update --nobest # to update python3-rhnlib on Oracle systems as it comes pre-installed.
 else
     sudo zypper ar https://download.opensuse.org/repositories/systemsmanagement:/Uyuni:/Master/images/repo/Uyuni-Server-POOL-$(arch)-Media1/ uyuni-server-devel
-    sudo zypper ref
+    sudo zypper --gpg-auto-import-keys ref 
 fi
 
 if [ "$DISTRIBUTION_ID" = RHEL ] ; then
@@ -50,7 +50,7 @@ if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     dnf -y install patterns-uyuni_server $NEWPACKAGES
     curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/patch9.sh | bash # Installs current fixes
 else
-    zypper in patterns-uyuni_server
+    zypper in -l patterns-uyuni_server
 fi
 
 curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/root/setup_env.sh > /root/setup_env.sh
