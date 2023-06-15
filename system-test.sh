@@ -1,4 +1,4 @@
-set -e
+set -ex
 export LOG=/var/log/uyuni-system-test.log
 echo "Output will be logged to $LOG"
 
