@@ -53,6 +53,8 @@ echo "Configure Autosetup distribution"
 echo "Waiting for kickstart to be synchronised..."
 until $( spacecmd -- kickstart_create "-n almalinux9-x86_64" "-d External_-_AlmaLinux_9_x86_64" "-p admin" "-v none" 2>> /var/log/uyuni-system-test.log 2>> /var/log/uyuni-system-test.log );
 do
+	PID=$(ps -ef | grep -m 1 spacewalk-repo | tr -s ' ' | cut -d ' ' -f2)
+	ail --pid $PID  -f /var/log/rhn/reposync/*.lo
 	sleep 60;
 done;
 
