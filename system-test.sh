@@ -58,10 +58,11 @@ do
 	sleep 60;
 done;
 
+echo "Adding child channels to kickstart base channel"
 spacecmd -- kickstart_addchildchannels almalinux9-x86_64 almalinux9-uyuni-client-x86_64
 spacecmd -- kickstart_addchildchannels almalinux9-x86_64  almalinux9-x86_64-appstream 
 
-
+echo "mgr-create-bootstrap-repo"
 mgr-create-bootstrap-repo -c almalinux-9-x86_64-uyuni >> $LOG
 
 # Test cobbler files
