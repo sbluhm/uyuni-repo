@@ -1,4 +1,4 @@
-set -e
+set -ex
 if [ "$1" = "force" ]; then
   echo "Continue on error"
   set +e
@@ -50,7 +50,7 @@ if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     dnf -y install patterns-uyuni_server $NEWPACKAGES
     curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/patch9.sh | bash # Installs current fixes
 else
-    zypper in -l patterns-uyuni_server
+    zypper in -ly patterns-uyuni_server
 fi
 
 curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/root/setup_env.sh > /root/setup_env.sh
