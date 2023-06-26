@@ -3,8 +3,6 @@
 sed -i "1860s#self.fo = open(self.filename, 'r')#self.fo = open(self.filename, 'rb')#" /usr/lib/python3.9/site-packages/urlgrabber/grabber.py
 ## BZ2188218: Update Java Softlinks for Taskomatik und Tomcat:
 ln -s /usr/share/tomcat/bin/tomcat-juli.jar /usr/share/java/tomcat/tomcat-juli.jar
-## PR7070: Debian user rights fix
-curl https://raw.githubusercontent.com/sbluhm/uyuni/rhnconf-users/python/spacewalk/satellite_tools/repo_plugins/deb_src.py > /usr/lib/python3.9/site-packages/spacewalk/satellite_tools/repo_plugins/deb_src.py
 
 
 

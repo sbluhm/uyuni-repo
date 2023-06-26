@@ -47,7 +47,9 @@ spacecmd -- activationkey_addentitlements 1-almalinux9-x86_64 monitoring_entitle
 spacecmd -- activationkey_addentitlements 1-almalinux9-x86_64 osimage_build_host 2>> /var/log/uyuni-system-test.log
 spacecmd -- activationkey_addentitlements 1-almalinux9-x86_64 virtualization_host 2>> /var/log/uyuni-system-test.log
 
+if [[ ! $(which tftpd) ]]; then
 dnf -yq install tftp
+fi
 
 echo "Configure Autosetup distribution"
 echo "Waiting for kickstart to be synchronised..."
