@@ -12,7 +12,8 @@ ln -s /var/lib/susemanager /srv/susemanager
 ## Issue 72 to be fixed
 chown root:apache /var/log/rhn
 chmod 770 /var/log/rhn
-
+##
+sed -i 's#/usr/bin/openssl genrsa -out %s 2048#/usr/bin/openssl genrsa -traditional -out %s 2048#' /usr/lib/python3.9/site-packages/certs/rhn_ssl_tool.py
 
 # Adding debug info
 #sed -i '/log_level_logfile/d' /etc/salt/master.d/logging.conf ||:
