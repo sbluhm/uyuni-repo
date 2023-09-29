@@ -78,6 +78,7 @@ get ldlinux.c32
 get pxelinux.cfg/default
 get menu.c32
 get libutil.c32
+get grub/shim.efi
 EOF
 
 echo "Done"
