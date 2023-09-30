@@ -27,4 +27,4 @@ xsltproc /usr/share/spacewalk/setup/server.xml.xsl /etc/tomcat/server.xml.$CURRE
 #echo "log_level_logfile: trace" >> /etc/salt/master.d/logging.conf
 echo "Java RHN logging in /usr/share/tomcat/webapps/rhn/WEB-INF/classes/log4j2.xml"
 
-if [[ ! $(hostname -f)  =~ \. ]]; then echo '--> !!!WARNING!!! Set the a fully qualified hostname first !!! <--'; fi
+if [[ ! $(hostname -f)  =~ \. ]]; then echo "\n\n\n";echo '--> !!!WARNING!!! Set the a fully qualified hostname first !!! <--'; echo "\n\n\n";fi
