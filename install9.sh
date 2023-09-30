@@ -67,7 +67,6 @@ fi
 curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/root/setup_env.sh > /root/setup_env.sh
 
 # Start the installation of the server now:
-hostname -f
 echo "Edit /root/setup_env.sh to your needs/setup requirements and then run /usr/lib/susemanager/bin/mgr-setup -s"
 #/usr/lib/susemanager/bin/mgr-setup -s
 set +e
