@@ -52,8 +52,13 @@ else
 fi
 
 if [ "$DISTRIBUTION_ID" = RHEL ] ; then
-    NEWPACKAGES=$(curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/new-packages9.txt)  # let's get packages that are waiting to be merged
-    dnf -y install patterns-uyuni_server $NEWPACKAGES
+    # silly hack
+    if [[ -v master ]]; then
+      NEWPACKAGES=$(curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/new-packages9.txt)  # let's get packages that are waiting to be merged
+      dnf -y install patterns-uyuni_server "$NEWPACKAGES"
+    else
+      dnf -y install patterns-uyuni_server "google-gson < 2.10.0"
+    fi
     curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/patch9.sh | bash # Installs current fixes
 else
     zypper in -ly patterns-uyuni_server
