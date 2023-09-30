@@ -55,9 +55,9 @@ if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     # silly hack
     if [[ -v master ]]; then
       NEWPACKAGES=$(curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/new-packages9.txt)  # let's get packages that are waiting to be merged
-      dnf -y install patterns-uyuni_server "$NEWPACKAGES"
+      dnf -y install patterns-uyuni_server "$NEWPACKAGES" "google-gson < 2.10.0"
     else
-      dnf -y install patterns-uyuni_server "google-gson < 2.10.0"
+      dnf -y install patterns-uyuni_server
     fi
     curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/patch9.sh | bash # Installs current fixes
 else
