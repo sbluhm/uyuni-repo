@@ -15,6 +15,10 @@ chmod 770 /var/log/rhn
 sed -i 's#/usr/bin/openssl genrsa -out %s 2048#/usr/bin/openssl genrsa -traditional -out %s 2048#' /usr/lib/python3.9/site-packages/certs/rhn_ssl_tool.py
 mkdir /usr/share/java/javassist/
 ln -s /usr/share/java/javassist.jar /usr/share/java/javassist/javassist.jar
+##
+sed -i '/ca-certificates.service/d'  /usr/lib/systemd/system/uyuni-check-database.service
+echo "ExecStartPre=/usr/bin/update-ca-trust" >> /usr/lib/systemd/system/uyuni-check-database.service
+systemctl daemon-reload
 
 ## post script does not run: https://github.com/sbluhm/uyuni/blob/77c4ee91387b297d23d18e3d90a3b07bf1502082/spacewalk/setup/spacewalk-setup.spec#L194
 CURRENT_DATE=$(date +"%Y-%m-%dT%H:%M:%S.%3N")
