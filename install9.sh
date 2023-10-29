@@ -59,7 +59,7 @@ if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     else
       dnf -y install patterns-uyuni_server "google-gson < 2.10.0"
     fi
-    curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/patch9.sh | bash # Installs current fixes
+    curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/patch-2023.09.sh | bash # Installs current fixes
 else
     zypper in -ly patterns-uyuni_server
 fi
