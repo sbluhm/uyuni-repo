@@ -20,12 +20,6 @@ sed -i '/ca-certificates.service/d'  /usr/lib/systemd/system/uyuni-check-databas
 echo "ExecStartPre=/usr/bin/update-ca-trust" >> /usr/lib/systemd/system/uyuni-check-database.service
 systemctl daemon-reload
 
-## post script does not run: https://github.com/sbluhm/uyuni/blob/77c4ee91387b297d23d18e3d90a3b07bf1502082/spacewalk/setup/spacewalk-setup.spec#L194
-CURRENT_DATE=$(date +"%Y-%m-%dT%H:%M:%S.%3N")
-cp /etc/tomcat/server.xml /etc/tomcat/server.xml.$CURRENT_DATE
-xsltproc /usr/share/spacewalk/setup/server.xml.xsl /etc/tomcat/server.xml.$CURRENT_DATE > /etc/tomcat/server.xml
-
-
 # Adding debug info
 #sed -i '/log_level_logfile/d' /etc/salt/master.d/logging.conf ||:
 #echo "log_level_logfile: trace" >> /etc/salt/master.d/logging.conf
