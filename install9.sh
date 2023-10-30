@@ -1,11 +1,17 @@
 set -ex
-BRANCH=2023.09
+if [ -z "$1" ]; then
+  BRANCH=2023.09
+else
+  BRANCH=$1
+fi
+
 if [ "$1" = "force" ]; then
   echo "Continue on error"
   set +e
-elif [ "$1" = "master" ]; then
   master=1
   BRANCH=$1
+elif [ "$1" = "master" ]; then
+  master=1
 fi
 
 DISTRIBUTION_ID="$(source /etc/os-release && echo ${ID})"
