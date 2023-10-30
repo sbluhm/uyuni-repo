@@ -1,9 +1,11 @@
 set -ex
+BRANCH=2023.09
 if [ "$1" = "force" ]; then
   echo "Continue on error"
   set +e
 elif [ "$1" = "master" ]; then
   master=1
+  BRANCH=$1
 fi
 
 DISTRIBUTION_ID="$(source /etc/os-release && echo ${ID})"
@@ -41,7 +43,7 @@ if [ "$DISTRIBUTION_ID" = RHEL ] ; then
       dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other/EL_9/
       dnf -y config-manager --add-repo ${REPO_SOURCE}:/Other:/EL/EL_9/
     else
-      dnf -y copr enable sbluhm/uyuni-release
+      dnf -y copr enable sbluhm/uyuni-${BRANCH}
     fi
     dnf -y config-manager --add-repo https://download.postgresql.org/pub/repos/yum/14/redhat/rhel-9-x86_64/
     rpm --import https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-14
@@ -55,12 +57,12 @@ if [ "$DISTRIBUTION_ID" = RHEL ] ; then
     # silly hack
     if [[ -v master ]]; then
       NEWPACKAGES=$(curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/new-packages9.txt)  # let's get packages that are waiting to be merged
-      dnf -y install patterns-uyuni_server $NEWPACKAGES "google-gson < 2.10.0"
-      curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/patch9.sh | bash # Installs current fixes
+      dnf -y install patterns-uyuni_server $NEWPACKAGES
     else
-      dnf -y install patterns-uyuni_server "google-gson < 2.10.0"
-      curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/patch-2023.09.sh | bash # Installs current fixes
+      dnf -y install patterns-uyuni_server
     fi
+    curl -s https://raw.githubusercontent.com/sbluhm/uyuni-repo/master/patch-${BRANCH}.sh | bash # Installs current fixes
+
 else
     zypper in -ly patterns-uyuni_server
 fi

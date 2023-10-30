@@ -1,9 +1,6 @@
 # Fixes waiting for merge:
 ## Waiting for new python3-urlgrapper release (< 4.1.0-2)
 sed -i "1860s#self.fo = open(self.filename, 'r')#self.fo = open(self.filename, 'rb')#" /usr/lib/python3.9/site-packages/urlgrabber/grabber.py
-## BZ2188218: Update Java Softlinks for Taskomatik und Tomcat:
-ln -s /usr/share/tomcat/bin/tomcat-juli.jar /usr/share/java/tomcat/tomcat-juli.jar
-
 
 # fix without patch yet:
 ## Required whilst reworking folders
