@@ -1,16 +1,20 @@
-set -ex
+set -e
 if [ -z "$1" ]; then
   BRANCH=2023.09
 else
   BRANCH=$1
 fi
 
+echo "Installing Uyuni ${BRANCH}"
+
 if [ "$1" = "force" ]; then
+  set -x
   echo "Continue on error"
   set +e
   master=1
   BRANCH=$1
 elif [ "$1" = "master" ]; then
+  set -x
   master=1
 fi
 
