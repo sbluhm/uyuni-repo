@@ -23,4 +23,4 @@ systemctl daemon-reload
 #echo "log_level_logfile: trace" >> /etc/salt/master.d/logging.conf
 echo "Java RHN logging in /usr/share/tomcat/webapps/rhn/WEB-INF/classes/log4j2.xml"
 
-if [[ ! $(hostname -f)  =~ \. ]]; then echo -e "\n\n\n";echo '--> !!!WARNING!!! Set the a fully qualified hostname first !!! <--'; echo -e "\n\n\n";fi
+if [[ ! $(hostname -f)  =~ \. ]]; then echo -e "\n\n\n";echo '--> !!!WARNING!!! Set the a fully qualified hostname via "hostnamectl set-hostname <FQDN>" first !!! <--'; echo -e "\n\n\n";fi
