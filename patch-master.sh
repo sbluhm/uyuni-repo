@@ -17,6 +17,10 @@ ln -s /usr/share/java/javassist.jar /usr/share/java/javassist/javassist.jar
 sed -i '/ca-certificates.service/d'  /usr/lib/systemd/system/uyuni-check-database.service
 echo "ExecStartPre=/usr/bin/update-ca-trust" >> /usr/lib/systemd/system/uyuni-check-database.service
 systemctl daemon-reload
+##
+sed -i 's/yum_src/yum_dnf_src/' /usr/lib/python3.9/site-packages/spacewalk/satellite_tools/repo_plugins/uln_src.py
+## PR8031
+curl https://raw.githubusercontent.com/sbluhm/uyuni/fixULN/python/spacewalk/satellite_tools/repo_plugins/yum_dnf_src.py > /usr/lib/python3.9/site-packages/spacewalk/satellite_tools/repo_plugins/yum_dnf_src.py
 
 # Adding debug info
 #sed -i '/log_level_logfile/d' /etc/salt/master.d/logging.conf ||:
