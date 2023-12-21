@@ -1,6 +1,6 @@
 set -e
 if [ -z "$1" ]; then
-  BRANCH=2023.10
+  BRANCH=release
 else
   BRANCH=$1
 fi
