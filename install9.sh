@@ -56,7 +56,7 @@ if [ "$DISTRIBUTION_ID" = RHEL ] ; then
       dnf -y copr enable sbluhm/uyuni-${BRANCH}
     fi
     dnf -y config-manager --add-repo https://download.postgresql.org/pub/repos/yum/14/redhat/rhel-9-x86_64/
-    rpm --import https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-14
+    rpm --import https://download.postgresql.org/pub/repos/yum/keys/PGDG-RPM-GPG-KEY-RHEL
     dnf -y update --nobest # to update python3-rhnlib on Oracle systems as it comes pre-installed.
 else
     sudo zypper ar https://download.opensuse.org/repositories/systemsmanagement:/Uyuni:/Master/images/repo/Uyuni-Server-POOL-$(arch)-Media1/ uyuni-server-devel
