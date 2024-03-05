@@ -21,8 +21,6 @@ systemctl daemon-reload
 sed -i 's/yum_src/yum_dnf_src/' /usr/lib/python3.9/site-packages/spacewalk/satellite_tools/repo_plugins/uln_src.py
 ## PR8031
 curl https://raw.githubusercontent.com/sbluhm/uyuni/fixULN/python/spacewalk/satellite_tools/repo_plugins/yum_dnf_src.py > /usr/lib/python3.9/site-packages/spacewalk/satellite_tools/repo_plugins/yum_dnf_src.py
-## PR8394
-dnf -y reinstall spacewalk-branding-5.0.1-1.x86_64
 
 # Adding debug info
 #sed -i '/log_level_logfile/d' /etc/salt/master.d/logging.conf ||:
