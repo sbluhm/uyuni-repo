@@ -21,6 +21,10 @@ systemctl daemon-reload
 sed -i 's/yum_src/yum_dnf_src/' /usr/lib/python3.9/site-packages/spacewalk/satellite_tools/repo_plugins/uln_src.py
 ## PR8031
 curl https://raw.githubusercontent.com/sbluhm/uyuni/fixULN/python/spacewalk/satellite_tools/repo_plugins/yum_dnf_src.py > /usr/lib/python3.9/site-packages/spacewalk/satellite_tools/repo_plugins/yum_dnf_src.py
+## Workaround: Replace empty certificate file. Might have to be done regularly or even after setup
+cp /var/www/html/pub/RHN-ORG-TRUSTED-SSL-CERT /usr/share/susemanager/salt/certs/RHN-ORG-TRUSTED-SSL-CERT
+
+
 
 # Adding debug info
 #sed -i '/log_level_logfile/d' /etc/salt/master.d/logging.conf ||:
